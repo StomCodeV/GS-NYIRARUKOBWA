@@ -1459,7 +1459,7 @@
             try {
                 const response = await fetch(SCRIPT_URL, {
                     method: 'POST',
-                    mode: 'no-cors', // Required for Google Apps Script
+                    mode: 'no-cors',
                     headers: {
                         'Content-Type': 'application/json',
                     },
@@ -1467,7 +1467,6 @@
                 });
 
                 // With no-cors, we can't read the response, but the request was sent.
-                // Google Apps Script will handle the data.
                 // Show success.
                 form.style.display = 'none';
                 formSuccess.style.display = 'block';
@@ -1495,7 +1494,7 @@
         }
 
         // ==========================================
-        // AI CHAT
+        // AI CHAT - PURELY CLIENT SIDE (No API Calls)
         // ==========================================
         const chatToggle = document.getElementById('chatToggle');
         const chatWindow = document.getElementById('chatWindow');
@@ -1504,7 +1503,7 @@
         const chatInput = document.getElementById('chatInput');
         const chatSend = document.getElementById('chatSend');
 
-        // School info for AI responses (fallback if API fails)
+        // School info for AI responses
         const schoolInfo = {
             name: 'G.S Nyirarukobwa',
             location: '[School Address]',
@@ -1514,13 +1513,26 @@
         };
 
         const faqs = [
-            { q: 'where is the school located', a: 'The school is located at ' + schoolInfo.location + '.' },
-            { q: 'what levels does the school offer', a: 'The school offers ' + schoolInfo.levels + '.' },
-            { q: 'how can i apply', a: 'You can apply online through our Apply section on this page. Just fill in the form and submit it.' },
-            { q: 'what documents are needed', a: 'Please contact the school administration for the full list of required documents.' },
-            { q: 'how can i contact the school', a: 'You can call us at ' + schoolInfo.phone + ' or email us at ' + schoolInfo
-                    .email + '.' },
-            { q: 'what activities does the school have', a: 'The school offers sports, clubs, cultural activities, and various student events.' },
+            { keywords: ['where', 'location', 'located', 'address'], response: 'The school is located at ' + schoolInfo
+                    .location + '.' },
+            { keywords: ['levels', 'classes', 'grades', 'offer'], response: 'The school offers ' + schoolInfo.levels +
+                    '.' },
+            { keywords: ['apply', 'application', 'register', 'admission'], response: 'You can apply online through our Apply section on this page. Just fill in the form and submit it.' },
+            { keywords: ['documents', 'paper', 'requirements', 'needed'], response: 'Please contact the school administration for the full list of required documents.' },
+            { keywords: ['contact', 'call', 'phone', 'email', 'reach'], response: 'You can call us at ' + schoolInfo
+                    .phone + ' or email us at ' + schoolInfo.email + '.' },
+            { keywords: ['activities', 'sports', 'clubs', 'events', 'programs'], response: 'The school offers sports, clubs, cultural activities, and various student events.' },
+            { keywords: ['history', 'old', 'started', 'founded', 'beginning'], response: 'G.S Nyirarukobwa has been serving the community with quality education for many years. The school started with a vision to provide excellent education from Nursery through O-Level.' },
+            { keywords: ['teachers', 'staff', 'head teacher', 'dos', 'dod', 'principal'], response: 'Our school has dedicated teachers and staff. We have a Head Teacher, Director of Studies (DOS), Director of Discipline (DOD), and many experienced teachers.' },
+            { keywords: ['fee', 'cost', 'payment', 'tuition', 'school fees'], response: 'For information about school fees, please contact the school administration directly.' },
+        ];
+
+        const genericResponses = [
+            'I\'m here to help! Could you tell me more about what you\'d like to know?',
+            'That\'s a good question. I can tell you about our school, how to apply, our levels, and more.',
+            'I\'m not sure I fully understand. Could you ask in a different way?',
+            'Thanks for your question! For detailed information, please contact the school administration.',
+            'I\'d love to help with that. Can you be more specific about what you\'re looking for?',
         ];
 
         // Open/close chat
@@ -1533,7 +1545,7 @@
         });
 
         // Send message
-        async function sendChatMessage() {
+        function sendChatMessage() {
             const text = chatInput.value.trim();
             if (!text) return;
 
@@ -1544,43 +1556,41 @@
             // Show loading
             const loadingId = addLoadingMessage();
 
-            try {
-                // First, try the API
-                const response = await fetch('/api/ai-assistant', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: text }),
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    removeLoadingMessage(loadingId);
-                    addMessage('assistant', data.reply || 'Sorry, I didn\'t understand. Could you please rephrase?');
-                    return;
-                }
-            } catch (err) {
-                console.log('API fallback: using local responses');
-            }
-
-            // Fallback: local responses
-            removeLoadingMessage(loadingId);
-            const reply = getLocalReply(text);
-            addMessage('assistant', reply);
+            // Simulate response delay (like real AI)
+            setTimeout(() => {
+                removeLoadingMessage(loadingId);
+                const reply = getLocalReply(text);
+                addMessage('assistant', reply);
+            }, 500 + Math.random() * 500);
         }
 
         function getLocalReply(text) {
             const lower = text.toLowerCase();
+
+            // Check keywords
             for (const faq of faqs) {
-                if (lower.includes(faq.q)) {
-                    return faq.a;
+                for (const keyword of faq.keywords) {
+                    if (lower.includes(keyword)) {
+                        return faq.response;
+                    }
                 }
             }
-            const generic = [
-                'I\'m here to help. Could you be more specific about your question?',
-                'I can tell you about our school, how to apply, our levels, and more. What would you like to know?',
-                'That\'s a good question. Please contact the school administration for more detailed information.',
-            ];
-            return generic[Math.floor(Math.random() * generic.length)];
+
+            // Check for greetings
+            const greetings = ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening'];
+            for (const greet of greetings) {
+                if (lower.includes(greet)) {
+                    return 'Hello! Welcome to G.S Nyirarukobwa. How can I assist you today?';
+                }
+            }
+
+            // Check for thanks
+            if (lower.includes('thank') || lower.includes('thanks')) {
+                return 'You\'re welcome! Is there anything else I can help you with?';
+            }
+
+            // Random generic response
+            return genericResponses[Math.floor(Math.random() * genericResponses.length)];
         }
 
         function addMessage(role, content) {
