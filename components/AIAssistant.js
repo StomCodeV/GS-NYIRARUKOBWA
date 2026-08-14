@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { MessageCircle, X, Send } from 'lucide-react'
 
 export default function AIAssistant() {
   const [isOpen, setIsOpen] = useState(false)
@@ -12,6 +11,30 @@ export default function AIAssistant() {
   const [isLoading, setIsLoading] = useState(false)
   const messagesEndRef = useRef(null)
 
+  // Knowledge base
+  const knowledge = {
+    school: {
+      name: 'G.S Nyirarukobwa',
+      founded: '2005',
+      location: 'Nyirarukobwa, Rwanda',
+      levels: ['Nursery', 'Lower Primary', 'Upper Primary', 'O-Level'],
+      mission: 'To provide quality education that prepares students for the future.',
+      vision: 'To be a center of academic excellence and character development.',
+      motto: 'Learning Today. Building Tomorrow.'
+    },
+    contact: {
+      phone: '[School Phone Number]',
+      email: '[School Email]',
+      address: '[School Address]'
+    },
+    faq: [
+      { q: 'where is the school located', a: 'The school is located at [School Address].' },
+      { q: 'what levels does the school offer', a: 'We offer Nursery, Lower Primary, Upper Primary, and O-Level.' },
+      { q: 'how can i apply', a: 'Visit our Apply section to complete the online application form.' },
+      { q: 'how can i contact the school', a: 'Call us at [School Phone Number] or email [School Email].' },
+    ]
+  }
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -19,6 +42,55 @@ export default function AIAssistant() {
   useEffect(() => {
     scrollToBottom()
   }, [messages])
+
+  const getResponse = (question) => {
+    const lower = question.toLowerCase()
+    
+    // Check FAQ
+    for (const faq of knowledge.faq) {
+      if (lower.includes(faq.q)) {
+        return faq.a
+      }
+    }
+    
+    // Check contact
+    if (lower.includes('phone') || lower.includes('call')) {
+      return knowledge.contact.phone
+    }
+    if (lower.includes('email')) {
+      return knowledge.contact.email
+    }
+    if (lower.includes('address') || lower.includes('location')) {
+      return knowledge.contact.address
+    }
+    
+    // Check school info
+    if (lower.includes('mission')) return knowledge.school.mission
+    if (lower.includes('vision')) return knowledge.school.vision
+    if (lower.includes('motto')) return knowledge.school.motto
+    if (lower.includes('history') || lower.includes('founded')) {
+      return `G.S Nyirarukobwa was founded in ${knowledge.school.founded}.`
+    }
+    if (lower.includes('levels') || lower.includes('classes')) {
+      return `We offer: ${knowledge.school.levels.join(', ')}.`
+    }
+    
+    // Greetings
+    if (lower.includes('hello') || lower.includes('hi') || lower.includes('hey')) {
+      return 'Hello! Welcome to G.S Nyirarukobwa. How can I assist you today?'
+    }
+    if (lower.includes('thank')) {
+      return "You're welcome! Is there anything else I can help with?"
+    }
+    
+    // Generic
+    const generic = [
+      "That's a great question. Could you please rephrase or be more specific?",
+      "I'm here to help with information about G.S Nyirarukobwa. What would you like to know?",
+      "I appreciate your question. Could you tell me more about what you're looking for?"
+    ]
+    return generic[Math.floor(Math.random() * generic.length)]
+  }
 
   const sendMessage = async () => {
     if (!input.trim() || isLoading) return
@@ -28,27 +100,12 @@ export default function AIAssistant() {
     setMessages(prev => [...prev, { role: 'user', content: userMessage }])
     setIsLoading(true)
 
-    try {
-      const response = await fetch('/api/ai-assistant', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMessage }),
-      })
+    // Simulate thinking
+    await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 500))
 
-      const data = await response.json()
-      
-      setMessages(prev => [...prev, { 
-        role: 'assistant', 
-        content: data.reply || 'Sorry, I didn\'t understand. Could you please rephrase?'
-      }])
-    } catch (error) {
-      setMessages(prev => [...prev, { 
-        role: 'assistant', 
-        content: 'I\'m having trouble connecting. Please try again later.'
-      }])
-    } finally {
-      setIsLoading(false)
-    }
+    const response = getResponse(userMessage)
+    setMessages(prev => [...prev, { role: 'assistant', content: response }])
+    setIsLoading(false)
   }
 
   const handleKeyPress = (e) => {
@@ -57,25 +114,20 @@ export default function AIAssistant() {
 
   return (
     <>
-      {/* Chat Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-cyan to-royal-blue text-white p-4 rounded-full shadow-2xl hover:scale-110 transition"
-        aria-label="Toggle AI Assistant"
       >
-        {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
+        {isOpen ? '✕' : '💬'}
       </button>
 
-      {/* Chat Window */}
       {isOpen && (
         <div className="fixed bottom-24 right-6 z-50 w-80 md:w-96 bg-navy/95 backdrop-blur-lg border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
-          {/* Header */}
           <div className="p-4 border-b border-white/10 bg-royal-blue/30">
             <h3 className="font-semibold text-cyan">G.S Nyirarukobwa AI</h3>
-            <p className="text-xs text-white/40">Powered by AI • Ask me anything about the school</p>
+            <p className="text-xs text-white/40">Ask me anything about the school</p>
           </div>
 
-          {/* Messages */}
           <div className="h-80 overflow-y-auto p-4 space-y-3">
             {messages.map((msg, i) => (
               <div
@@ -107,7 +159,6 @@ export default function AIAssistant() {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input */}
           <div className="p-4 border-t border-white/10 bg-royal-blue/20">
             <div className="flex gap-2">
               <input
@@ -123,9 +174,8 @@ export default function AIAssistant() {
                 onClick={sendMessage}
                 disabled={isLoading || !input.trim()}
                 className="p-2 bg-cyan text-navy rounded-lg hover:bg-cyan/80 transition disabled:opacity-50"
-                aria-label="Send message"
               >
-                <Send size={20} />
+                ➤
               </button>
             </div>
           </div>
