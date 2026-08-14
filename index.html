@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <!-- Font Awesome (for icons) -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <style>
@@ -50,9 +50,7 @@
             color: inherit;
         }
 
-        /* ============================================
-                   SCROLLBAR
-                   ============================================ */
+        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -78,6 +76,8 @@
 
         .section {
             padding: 80px 0;
+            position: relative;
+            z-index: 2;
         }
 
         .section-title {
@@ -109,7 +109,6 @@
             border-radius: 16px;
         }
 
-        /* Buttons */
         .btn-primary {
             display: inline-block;
             background: linear-gradient(135deg, var(--cyan), var(--royal-blue));
@@ -156,7 +155,7 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(10, 22, 40, 0.9);
+            background: rgba(10, 22, 40, 0.92);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--glass-border);
             padding: 0 20px;
@@ -198,7 +197,6 @@
             color: var(--cyan);
         }
 
-        /* Mobile menu toggle */
         .menu-toggle {
             display: none;
             background: none;
@@ -209,7 +207,88 @@
         }
 
         /* ============================================
-                   HERO / 3D SECTION
+                   3D BACKGROUND - IMMERSIVE SCHOOL ENVIRONMENT
+                   ============================================ */
+        #scene-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        #scene-container canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Overlay gradient for readability */
+        .scene-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 1;
+            pointer-events: none;
+            background: radial-gradient(ellipse at center, rgba(10, 22, 40, 0.3) 0%, rgba(10, 22, 40, 0.7) 100%);
+        }
+
+        /* Scroll progress indicator for 3D rooms */
+        .room-indicator {
+            position: fixed;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .room-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            pointer-events: all;
+        }
+
+        .room-dot.active {
+            background: var(--cyan);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+            transform: scale(1.3);
+        }
+
+        .room-dot:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .room-label {
+            position: fixed;
+            right: 48px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+            font-weight: 300;
+            transition: opacity 0.4s ease;
+        }
+
+        /* ============================================
+                   HERO SECTION
                    ============================================ */
         .hero {
             height: 100vh;
@@ -221,90 +300,15 @@
             text-align: center;
             padding: 0 20px;
             position: relative;
-            background: radial-gradient(ellipse at center, var(--royal-blue), var(--navy) 70%);
-            overflow: hidden;
-        }
-
-        /* 3D floating shapes (simple CSS 3D) */
-        .hero-3d-scene {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .cube {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: rgba(0, 212, 255, 0.08);
-            border: 1px solid rgba(0, 212, 255, 0.15);
-            border-radius: 8px;
-            animation: floatCube 20s infinite ease-in-out;
-        }
-
-        .cube:nth-child(1) {
-            top: 10%;
-            left: 8%;
-            width: 80px;
-            height: 80px;
-            animation-delay: 0s;
-        }
-        .cube:nth-child(2) {
-            top: 60%;
-            left: 5%;
-            width: 50px;
-            height: 50px;
-            animation-delay: -3s;
-        }
-        .cube:nth-child(3) {
-            top: 20%;
-            right: 10%;
-            width: 100px;
-            height: 100px;
-            animation-delay: -6s;
-        }
-        .cube:nth-child(4) {
-            bottom: 15%;
-            right: 5%;
-            width: 70px;
-            height: 70px;
-            animation-delay: -9s;
-        }
-        .cube:nth-child(5) {
-            top: 45%;
-            left: 50%;
-            width: 40px;
-            height: 40px;
-            animation-delay: -12s;
-        }
-
-        @keyframes floatCube {
-            0%,
-            100% {
-                transform: translateY(0px) rotate(0deg) scale(1);
-            }
-            25% {
-                transform: translateY(-30px) rotate(5deg) scale(1.05);
-            }
-            50% {
-                transform: translateY(10px) rotate(-3deg) scale(0.95);
-            }
-            75% {
-                transform: translateY(-20px) rotate(7deg) scale(1.02);
-            }
-        }
-
-        .hero-content {
-            position: relative;
             z-index: 2;
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 900;
             letter-spacing: -1px;
             margin-bottom: 8px;
+            text-shadow: 0 4px 40px rgba(0, 0, 0, 0.4);
         }
 
         .hero h1 span {
@@ -313,9 +317,10 @@
 
         .hero p.tagline {
             font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.85);
             margin-bottom: 32px;
             font-weight: 300;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
 
         .hero-buttons {
@@ -325,10 +330,38 @@
             flex-wrap: wrap;
         }
 
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
+            animation: bounceDown 2s infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .scroll-hint i {
+            font-size: 1.2rem;
+        }
+
+        @keyframes bounceDown {
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
+
         /* ============================================
                    SECTIONS
                    ============================================ */
-        /* Why Us */
         .why-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -357,7 +390,6 @@
             font-size: 0.95rem;
         }
 
-        /* Academic Levels */
         .levels-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -381,7 +413,6 @@
             font-size: 0.9rem;
         }
 
-        /* Staff */
         .staff-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -421,7 +452,6 @@
             font-size: 0.85rem;
         }
 
-        /* Testimonials */
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -449,7 +479,6 @@
             font-size: 0.85rem;
         }
 
-        /* Achievements */
         .achievement-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -662,17 +691,18 @@
             bottom: 100px;
             right: 24px;
             z-index: 998;
-            width: 360px;
+            width: 380px;
             max-width: calc(100vw - 48px);
             background: rgba(10, 22, 40, 0.96);
             backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
             display: none;
             flex-direction: column;
-            max-height: 500px;
+            max-height: 580px;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
 
         .chat-window.open {
@@ -681,28 +711,49 @@
 
         .chat-header {
             padding: 16px 20px;
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            background: rgba(0, 212, 255, 0.05);
+            gap: 14px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(74, 43, 122, 0.08));
         }
 
-        .chat-header h4 {
+        .chat-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: white;
+            flex-shrink: 0;
+            border: 2px solid var(--cyan);
+        }
+
+        .chat-header-info h4 {
             font-weight: 600;
             color: var(--cyan);
+            font-size: 1rem;
         }
 
-        .chat-header .close-btn {
+        .chat-header-info p {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .chat-close {
+            margin-left: auto;
             background: none;
             border: none;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.4);
             font-size: 1.2rem;
             cursor: pointer;
             transition: color 0.3s ease;
         }
 
-        .chat-header .close-btn:hover {
+        .chat-close:hover {
             color: var(--white);
         }
 
@@ -737,40 +788,83 @@
             border-bottom-left-radius: 4px;
         }
 
-        .chat-message .loading-dots {
-            display: flex;
-            gap: 4px;
+        /* Thinking Indicator */
+        .chat-thinking {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+            margin: 4px 0;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
         }
 
-        .chat-message .loading-dots span {
-            width: 8px;
-            height: 8px;
+        .chat-thinking.active {
+            display: flex;
+        }
+
+        .chat-thinking .dots span {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
             background: var(--cyan);
             border-radius: 50%;
-            animation: bounceDot 1.4s infinite ease-in-out both;
+            animation: thinkingDot 1.4s infinite ease-in-out both;
         }
 
-        .chat-message .loading-dots span:nth-child(1) {
-            animation-delay: -0.32s;
+        .chat-thinking .dots span:nth-child(2) {
+            animation-delay: 0.2s;
         }
-        .chat-message .loading-dots span:nth-child(2) {
-            animation-delay: -0.16s;
+        .chat-thinking .dots span:nth-child(3) {
+            animation-delay: 0.4s;
         }
 
-        @keyframes bounceDot {
+        @keyframes thinkingDot {
             0%,
             80%,
             100% {
-                transform: scale(0);
+                transform: scale(0.4);
+                opacity: 0.3;
             }
             40% {
                 transform: scale(1);
+                opacity: 1;
             }
+        }
+
+        /* Reasoning Log */
+        .reasoning-log {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin: 4px 12px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-family: 'Courier New', monospace;
+            max-height: 80px;
+            overflow-y: auto;
+            display: none;
+            border-left: 2px solid var(--cyan);
+        }
+
+        .reasoning-log.active {
+            display: block;
+        }
+
+        .reasoning-log .step {
+            padding: 2px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .reasoning-log .step:last-child {
+            border-bottom: none;
         }
 
         .chat-input-area {
             padding: 12px 16px;
-            border-top: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
             display: flex;
             gap: 10px;
             background: rgba(0, 0, 0, 0.2);
@@ -780,15 +874,15 @@
             flex: 1;
             padding: 10px 14px;
             background: rgba(255, 255, 255, 0.06);
-            border: 1px solid var(--glass-border);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 10px;
             color: var(--white);
             font-family: 'Inter', sans-serif;
             font-size: 0.9rem;
+            outline: none;
         }
 
         .chat-input-area input:focus {
-            outline: none;
             border-color: var(--cyan);
         }
 
@@ -817,7 +911,9 @@
         footer {
             border-top: 1px solid var(--glass-border);
             padding: 48px 0 24px;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 2;
         }
 
         .footer-grid {
@@ -915,6 +1011,11 @@
                 bottom: 90px;
                 max-height: 450px;
             }
+
+            .room-indicator,
+            .room-label {
+                display: none;
+            }
         }
 
         @media (max-width: 600px) {
@@ -950,13 +1051,30 @@
 </head>
 
 <body>
+
+    <!-- ==========================================
+    3D BACKGROUND SCENE (Three.js)
+    ========================================== -->
+    <div id="scene-container"></div>
+    <div class="scene-overlay"></div>
+
+    <!-- Room Indicator -->
+    <div class="room-indicator" id="roomIndicator">
+        <div class="room-dot active" data-room="0" title="Entrance"></div>
+        <div class="room-dot" data-room="1" title="Classroom"></div>
+        <div class="room-dot" data-room="2" title="Library"></div>
+        <div class="room-dot" data-room="3" title="Sports Hall"></div>
+        <div class="room-dot" data-room="4" title="Admin"></div>
+    </div>
+    <div class="room-label" id="roomLabel">ENTRANCE</div>
+
     <!-- ==========================================
     HEADER
     ========================================== -->
     <header>
         <div class="header-inner">
             <div class="logo">G.S <span>Nyirarukobwa</span></div>
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links" id="navLinks">
@@ -976,13 +1094,6 @@
     HERO
     ========================================== -->
     <section class="hero" id="home">
-        <div class="hero-3d-scene">
-            <div class="cube"></div>
-            <div class="cube"></div>
-            <div class="cube"></div>
-            <div class="cube"></div>
-            <div class="cube"></div>
-        </div>
         <div class="hero-content">
             <h1>G.S <span>Nyirarukobwa</span></h1>
             <p class="tagline">Learning Today. Building Tomorrow.</p>
@@ -990,6 +1101,10 @@
                 <a href="#about" class="btn-primary">Explore Our School</a>
                 <a href="#apply" class="btn-secondary">Apply Online</a>
             </div>
+        </div>
+        <div class="scroll-hint">
+            <span>Scroll to explore</span>
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
@@ -1153,10 +1268,8 @@
             <p class="section-subtitle">Complete this form to register your child at G.S Nyirarukobwa.</p>
 
             <div class="form-container glass" id="formContainer">
-                <!-- Error message -->
                 <div class="form-error" id="formError"></div>
 
-                <!-- Success message (hidden initially) -->
                 <div class="form-success" id="formSuccess" style="display:none;">
                     <span class="icon">✅</span>
                     <h3>Application Submitted!</h3>
@@ -1165,9 +1278,7 @@
                     <button class="btn-primary" onclick="resetForm()">Submit Another Application</button>
                 </div>
 
-                <!-- The form -->
                 <form id="applicationForm">
-                    <!-- Parent / Guardian -->
                     <h4 style="color:var(--cyan); margin-bottom:16px; font-size:1.1rem;">
                         <i class="fas fa-user"></i> Parent / Guardian Information
                     </h4>
@@ -1186,7 +1297,6 @@
                         <input type="email" class="form-control" id="email" placeholder="e.g., parent@email.com" />
                     </div>
 
-                    <!-- Student -->
                     <h4 style="color:var(--cyan); margin:24px 0 16px; font-size:1.1rem;">
                         <i class="fas fa-child"></i> Student Information
                     </h4>
@@ -1225,7 +1335,6 @@
                         <input type="text" class="form-control" id="previousSchool" placeholder="e.g., G.S Another School" />
                     </div>
 
-                    <!-- Additional Info -->
                     <h4 style="color:var(--cyan); margin:24px 0 16px; font-size:1.1rem;">
                         <i class="fas fa-info-circle"></i> Additional Information
                     </h4>
@@ -1366,32 +1475,463 @@
     <!-- ==========================================
     AI CHAT WIDGET
     ========================================== -->
-    <!-- Toggle Button -->
     <button class="chat-toggle" id="chatToggle" aria-label="Open AI Assistant">
         <i class="fas fa-comment-dots"></i>
     </button>
 
-    <!-- Chat Window -->
     <div class="chat-window" id="chatWindow">
         <div class="chat-header">
-            <h4><i class="fas fa-robot" style="margin-right:8px;"></i> G.S Nyirarukobwa AI</h4>
-            <button class="close-btn" id="chatClose"><i class="fas fa-times"></i></button>
+            <div class="chat-avatar">👩‍🏫</div>
+            <div class="chat-header-info">
+                <h4>Madame Marie — AI Assistant</h4>
+                <p>G.S Nyirarukobwa • Online</p>
+            </div>
+            <button class="chat-close" id="chatClose"><i class="fas fa-times"></i></button>
         </div>
+
         <div class="chat-messages" id="chatMessages">
             <div class="chat-message assistant">
-                Hello! I'm the G.S Nyirarukobwa AI Assistant. How can I help you today?
+                👋 Bonjour! I'm Madame Marie, your AI assistant for G.S Nyirarukobwa. I can help you with anything about our school. What would you like to know?
             </div>
         </div>
+
+        <div class="chat-thinking" id="chatThinking">
+            <span>🧠 Thinking</span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="reasoning-log" id="reasoningLog"></div>
+
         <div class="chat-input-area">
-            <input type="text" id="chatInput" placeholder="Ask a question..." />
+            <input type="text" id="chatInput" placeholder="Ask me anything..." />
             <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 
     <!-- ==========================================
-    JAVASCRIPT
+    THREE.JS CDN
+    ========================================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js">
+    </script>
+
+    <!-- ==========================================
+    MAIN JAVASCRIPT
     ========================================== -->
     <script>
+        // ==========================================
+        // 3D BACKGROUND - IMMERSIVE SCHOOL ENVIRONMENT
+        // ==========================================
+
+        // Scene setup
+        const container = document.getElementById('scene-container');
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x0a1628);
+        scene.fog = new THREE.Fog(0x0a1628, 30, 60);
+
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(8, 5, 12);
+        camera.lookAt(0, 0, 0);
+
+        const renderer = new THREE.WebGLRenderer({
+            antialias: true,
+            alpha: true
+        });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.2;
+        container.appendChild(renderer.domElement);
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0x404060, 0.4);
+        scene.add(ambientLight);
+
+        const sunLight = new THREE.DirectionalLight(0xffeedd, 1.8);
+        sunLight.position.set(15, 25, 10);
+        sunLight.castShadow = true;
+        sunLight.shadow.mapSize.width = 2048;
+        sunLight.shadow.mapSize.height = 2048;
+        const d = 20;
+        sunLight.shadow.camera.left = -d;
+        sunLight.shadow.camera.right = d;
+        sunLight.shadow.camera.top = d;
+        sunLight.shadow.camera.bottom = -d;
+        sunLight.shadow.camera.near = 1;
+        sunLight.shadow.camera.far = 50;
+        scene.add(sunLight);
+
+        const fillLight = new THREE.DirectionalLight(0x4488ff, 0.3);
+        fillLight.position.set(-10, 5, -10);
+        scene.add(fillLight);
+
+        const rimLight = new THREE.DirectionalLight(0x00d4ff, 0.2);
+        rimLight.position.set(-5, 2, -15);
+        scene.add(rimLight);
+
+        // --- Create School Rooms ---
+
+        // Helper to create a room
+        function createRoom(color, floorColor) {
+            const group = new THREE.Group();
+
+            // Floor
+            const floorMat = new THREE.MeshStandardMaterial({
+                color: floorColor || 0x2c3e50,
+                roughness: 0.7,
+                metalness: 0.1
+            });
+            const floor = new THREE.Mesh(new THREE.PlaneGeometry(16, 16), floorMat);
+            floor.rotation.x = -Math.PI / 2;
+            floor.position.y = -0.5;
+            floor.receiveShadow = true;
+            group.add(floor);
+
+            // Walls (invisible but for shadow casting)
+            const wallMat = new THREE.MeshStandardMaterial({
+                color: color || 0x1a3a6b,
+                roughness: 0.6,
+                metalness: 0.1,
+                transparent: true,
+                opacity: 0.3
+            });
+
+            // Back wall
+            const wall = new THREE.Mesh(new THREE.PlaneGeometry(16, 6), wallMat);
+            wall.position.set(0, 2.5, -8);
+            group.add(wall);
+
+            return group;
+        }
+
+        // Room 0: Entrance / Main Hall
+        const entranceRoom = createRoom(0x1a3a6b, 0x2c3e50);
+
+        // School logo (reception desk with glowing sign)
+        const deskMat = new THREE.MeshStandardMaterial({
+            color: 0x8B4513,
+            roughness: 0.5,
+            metalness: 0.2
+        });
+        const desk = new THREE.Mesh(new THREE.BoxGeometry(4, 0.6, 1.8), deskMat);
+        desk.position.set(0, 0, 6);
+        desk.castShadow = true;
+        desk.receiveShadow = true;
+        entranceRoom.add(desk);
+
+        // Glowing sign
+        const signMat = new THREE.MeshStandardMaterial({
+            color: 0x00d4ff,
+            emissive: 0x00d4ff,
+            emissiveIntensity: 0.3
+        });
+        const sign = new THREE.Mesh(new THREE.PlaneGeometry(2.5, 0.6), signMat);
+        sign.position.set(0, 1.5, 6.95);
+        entranceRoom.add(sign);
+
+        // Columns
+        const columnMat = new THREE.MeshStandardMaterial({
+            color: 0x4a6a8a,
+            roughness: 0.3,
+            metalness: 0.4
+        });
+        [-4, 4].forEach(x => {
+            const col = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.4, 4, 8), columnMat);
+            col.position.set(x, 1.5, 4);
+            col.castShadow = true;
+            entranceRoom.add(col);
+        });
+
+        // Room 1: Classroom
+        const classroomRoom = createRoom(0x2c3e50, 0x34495e);
+
+        // Teacher's desk
+        const teacherDesk = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.4, 0.8), deskMat);
+        teacherDesk.position.set(0, 0, -4);
+        teacherDesk.castShadow = true;
+        classroomRoom.add(teacherDesk);
+
+        // Blackboard
+        const boardMat = new THREE.MeshStandardMaterial({
+            color: 0x1a1a2e,
+            roughness: 0.8,
+            metalness: 0.1
+        });
+        const board = new THREE.Mesh(new THREE.PlaneGeometry(4, 2), boardMat);
+        board.position.set(0, 1.5, -4.8);
+        classroomRoom.add(board);
+
+        // Student desks
+        const studentDeskMat = new THREE.MeshStandardMaterial({
+            color: 0x8B6B4A,
+            roughness: 0.7
+        });
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 3; j++) {
+                const desk2 = new THREE.Mesh(new THREE.BoxGeometry(1, 0.4, 0.7), studentDeskMat);
+                const xPos = i * 2.2 - 3.3;
+                const zPos = j * 2 - 0.5;
+                desk2.position.set(xPos, 0, zPos);
+                desk2.castShadow = true;
+                desk2.receiveShadow = true;
+                classroomRoom.add(desk2);
+
+                // Chair
+                const chairMat = new THREE.MeshStandardMaterial({
+                    color: 0x2c3e50,
+                    roughness: 0.6
+                });
+                const chair = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.3, 0.4), chairMat);
+                chair.position.set(xPos, -0.1, zPos + 0.8);
+                classroomRoom.add(chair);
+            }
+        }
+
+        // Room 2: Library
+        const libraryRoom = createRoom(0x2c3e50, 0x1a2a3a);
+
+        // Bookshelves
+        const shelfMat = new THREE.MeshStandardMaterial({
+            color: 0x5D4037,
+            roughness: 0.6
+        });
+        const shelfPositions = [
+            [-3, 1, -2],
+            [0, 1, -2],
+            [3, 1, -2],
+            [-3, 1, 1],
+            [0, 1, 1],
+            [3, 1, 1]
+        ];
+        shelfPositions.forEach(pos => {
+            const shelf = new THREE.Mesh(new THREE.BoxGeometry(2, 2.5, 0.4), shelfMat);
+            shelf.position.set(pos[0], pos[1] + 0.5, pos[2]);
+            shelf.castShadow = true;
+            libraryRoom.add(shelf);
+
+            // Books on shelf
+            const bookColors = [0xe74c3c, 0x3498db, 0x2ecc71, 0xf1c40f, 0x9b59b6, 0xe67e22];
+            for (let k = 0; k < 6; k++) {
+                const book = new THREE.Mesh(
+                    new THREE.BoxGeometry(0.15, 0.3 + Math.random() * 0.2, 0.05),
+                    new THREE.MeshStandardMaterial({ color: bookColors[Math.floor(Math.random() * bookColors
+                            .length)] })
+                );
+                const xOffset = (Math.random() - 0.5) * 1.6;
+                const yOffset = -0.8 + Math.random() * 1.6;
+                book.position.set(pos[0] + xOffset, pos[1] + 0.5 + yOffset, pos[2] + 0.25);
+                libraryRoom.add(book);
+            }
+        });
+
+        // Reading table
+        const tableMat = new THREE.MeshStandardMaterial({
+            color: 0x6D4C41,
+            roughness: 0.6
+        });
+        const table = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.3, 1.5), tableMat);
+        table.position.set(0, 0, 3);
+        table.castShadow = true;
+        table.receiveShadow = true;
+        libraryRoom.add(table);
+
+        // Room 3: Sports Hall
+        const sportsRoom = createRoom(0x2c3e50, 0x4a6a8a);
+
+        // Court markings
+        const courtMat = new THREE.MeshStandardMaterial({
+            color: 0xD4A373,
+            roughness: 0.8
+        });
+        const court = new THREE.Mesh(new THREE.PlaneGeometry(10, 6), courtMat);
+        court.rotation.x = -Math.PI / 2;
+        court.position.y = -0.48;
+        court.receiveShadow = true;
+        sportsRoom.add(court);
+
+        // Basketball hoop
+        const poleMat = new THREE.MeshStandardMaterial({
+            color: 0x888888,
+            metalness: 0.6,
+            roughness: 0.3
+        });
+        const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 2, 8), poleMat);
+        pole.position.set(4, 0.5, 0);
+        sportsRoom.add(pole);
+
+        const rimMat = new THREE.MeshStandardMaterial({
+            color: 0xcc3333,
+            metalness: 0.5,
+            roughness: 0.3
+        });
+        const rim = new THREE.Mesh(new THREE.TorusGeometry(0.4, 0.04, 8, 16), rimMat);
+        rim.position.set(4, 2.1, 0);
+        rim.rotation.x = Math.PI / 2;
+        sportsRoom.add(rim);
+
+        // Balls
+        const ballMat = new THREE.MeshStandardMaterial({
+            color: 0xe67e22,
+            roughness: 0.3,
+            metalness: 0.1
+        });
+        const ballPositions = [
+            [-3, 0.3, 1],
+            [-1, 0.3, -1],
+            [2, 0.3, 2],
+            [-2, 0.3, -2]
+        ];
+        ballPositions.forEach(pos => {
+            const ball = new THREE.Mesh(new THREE.SphereGeometry(0.25, 12, 12), ballMat);
+            ball.position.set(pos[0], pos[1], pos[2]);
+            ball.castShadow = true;
+            sportsRoom.add(ball);
+        });
+
+        // Room 4: Administration
+        const adminRoom = createRoom(0x1a2a3a, 0x2c3e50);
+
+        // Office desk
+        const officeDesk = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.4, 1.5), deskMat);
+        officeDesk.position.set(0, 0, 3);
+        officeDesk.castShadow = true;
+        adminRoom.add(officeDesk);
+
+        // Computer monitor
+        const monitorMat = new THREE.MeshStandardMaterial({
+            color: 0x111122,
+            emissive: 0x00d4ff,
+            emissiveIntensity: 0.05
+        });
+        const monitor = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.6, 0.05), monitorMat);
+        monitor.position.set(0, 0.7, 3.7);
+        adminRoom.add(monitor);
+        const standMat = new THREE.MeshStandardMaterial({
+            color: 0x444444
+        });
+        const stand = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.08, 0.3, 6), standMat);
+        stand.position.set(0, 0.5, 3.7);
+        adminRoom.add(stand);
+
+        // File cabinets
+        const cabinetMat = new THREE.MeshStandardMaterial({
+            color: 0x4a6a8a,
+            metalness: 0.3,
+            roughness: 0.5
+        });
+        [-2, 2].forEach(x => {
+            const cabinet = new THREE.Mesh(new THREE.BoxGeometry(0.6, 1.2, 0.5), cabinetMat);
+            cabinet.position.set(x, 0.6, -2);
+            cabinet.castShadow = true;
+            adminRoom.add(cabinet);
+        });
+
+        // Add all rooms to scene with different positions
+        entranceRoom.position.set(0, 0, 0);
+        classroomRoom.position.set(0, 0, -18);
+        libraryRoom.position.set(0, 0, -36);
+        sportsRoom.position.set(0, 0, -54);
+        adminRoom.position.set(0, 0, -72);
+
+        scene.add(entranceRoom);
+        scene.add(classroomRoom);
+        scene.add(libraryRoom);
+        scene.add(sportsRoom);
+        scene.add(adminRoom);
+
+        // Store rooms for scroll control
+        const rooms = [
+            { group: entranceRoom, name: 'ENTRANCE', z: 0 },
+            { group: classroomRoom, name: 'CLASSROOM', z: -18 },
+            { group: libraryRoom, name: 'LIBRARY', z: -36 },
+            { group: sportsRoom, name: 'SPORTS HALL', z: -54 },
+            { group: adminRoom, name: 'ADMIN', z: -72 }
+        ];
+
+        // --- Scroll Control for 3D Rooms ---
+        let currentRoomIndex = 0;
+        const roomDots = document.querySelectorAll('.room-dot');
+        const roomLabel = document.getElementById('roomLabel');
+
+        function updateRoom(scrollPercent) {
+            // Map scroll 0-100% to room positions
+            const totalZ = rooms.length - 1;
+            const targetZ = -(scrollPercent / 100) * totalZ * 18;
+
+            // Smoothly move camera
+            camera.position.z += (targetZ - camera.position.z) * 0.05;
+            camera.lookAt(0, 0, camera.position.z + 5);
+
+            // Update room indicator
+            const roomIndex = Math.min(Math.floor((scrollPercent / 100) * rooms.length), rooms.length - 1);
+            if (roomIndex !== currentRoomIndex) {
+                currentRoomIndex = roomIndex;
+                roomDots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === roomIndex);
+                });
+                roomLabel.textContent = rooms[roomIndex].name;
+            }
+        }
+
+        // --- Scroll Event ---
+        let scrollTimeout;
+
+        function handleScroll() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+            updateRoom(scrollPercent);
+
+            // Update active nav link
+            const sections = document.querySelectorAll('section[id]');
+            let activeId = '';
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100) {
+                    activeId = section.id;
+                }
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.style.color = link.getAttribute('href') === '#' + activeId ? 'var(--cyan)' :
+                'rgba(255,255,255,0.8)';
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        // --- Room dot click navigation ---
+        roomDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const targetScroll = (index / (rooms.length - 1)) * scrollHeight;
+                window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+            });
+        });
+
+        // --- Resize ---
+        window.addEventListener('resize', () => {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+            renderer.setSize(width, height);
+        });
+
+        // --- Animation Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // --- Initial update ---
+        setTimeout(handleScroll, 100);
+
         // ==========================================
         // MOBILE MENU
         // ==========================================
@@ -1402,7 +1942,6 @@
             navLinks.classList.toggle('open');
         });
 
-        // Close menu on link click (mobile)
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('open');
@@ -1424,14 +1963,12 @@
         const formSuccess = document.getElementById('formSuccess');
         const submitBtn = document.getElementById('submitBtn');
 
-        // Google Apps Script URL (provided by user)
         const SCRIPT_URL =
-            'https://script.google.com/macros/s/AKfycby45t5k8rnTDauciOQ_GV5jVqqutVbumimPDaOdNdDWUJXLxovL3v3f709hQa1Z4F9kkw/exec';
+            'https://script.google.com/macros/s/AKfycbzh0eRIvGJpqfhdrYK5uIsfq0U38nfyESNMdtR6VSfmc_PkWK0AUqM6kmM36xIn9XgUeA/exec';
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            // Collect data
             const data = {
                 parentName: document.getElementById('parentName').value.trim(),
                 phone: document.getElementById('phone').value.trim(),
@@ -1444,14 +1981,12 @@
                 additionalInfo: document.getElementById('additionalInfo').value.trim(),
             };
 
-            // Basic validation
             if (!data.parentName || !data.phone || !data.studentName || !data.studentDOB ||
                 !data.studentGender || !data.levelApplying) {
                 showError('Please fill in all required fields.');
                 return;
             }
 
-            // Hide previous error
             formError.classList.remove('show');
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
@@ -1460,14 +1995,10 @@
                 const response = await fetch(SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data),
                 });
 
-                // With no-cors, we can't read the response, but the request was sent.
-                // Show success.
                 form.style.display = 'none';
                 formSuccess.style.display = 'block';
 
@@ -1494,7 +2025,245 @@
         }
 
         // ==========================================
-        // AI CHAT - PURELY CLIENT SIDE (No API Calls)
+        // AI ASSISTANT WITH MEMORY & REASONING
+        // ==========================================
+
+        // School Knowledge Base
+        const knowledgeBase = {
+            school: {
+                name: 'G.S Nyirarukobwa',
+                founded: '2005',
+                location: 'Nyirarukobwa, Rwanda',
+                levels: ['Nursery', 'Lower Primary', 'Upper Primary', 'O-Level'],
+                mission: 'To provide quality education that prepares students for the future.',
+                vision: 'To be a center of academic excellence and character development.',
+                values: ['Excellence', 'Discipline', 'Integrity', 'Community', 'Innovation'],
+                history: 'G.S Nyirarukobwa was established in 2005 with a vision to serve the community with quality education. Starting with only a few students, the school has grown to offer education from Nursery through O-Level.',
+                achievements: [
+                    'Consistent performance in national examinations',
+                    'Winner of district sports competitions 2019, 2021, 2023',
+                    'Pioneered digital learning initiatives in the region',
+                    'Recognized for excellence in character education'
+                ],
+                motto: 'Learning Today. Building Tomorrow.'
+            },
+            academics: {
+                nursery: {
+                    description: 'Early childhood education focusing on foundational skills, socialization, and cognitive development.',
+                    activities: ['Play-based learning', 'Arts and crafts', 'Storytelling', 'Basic numeracy and literacy']
+                },
+                lowerPrimary: {
+                    description: 'Building strong foundations in literacy, numeracy, and social skills.',
+                    subjects: ['Mathematics', 'English', 'Kinyarwanda', 'Science', 'Social Studies', 'Physical Education']
+                },
+                upperPrimary: {
+                    description: 'Strengthening core academic subjects and developing critical thinking skills.',
+                    subjects: ['Mathematics', 'English', 'Kinyarwanda', 'Science', 'Social Studies', 'ICT']
+                },
+                oLevel: {
+                    description: 'Preparing students for higher education and future careers.',
+                    subjects: ['Mathematics', 'English', 'Kinyarwanda', 'Physics', 'Chemistry', 'Biology', 'History',
+                        'Geography', 'ICT'
+                    ]
+                }
+            },
+            staff: {
+                headTeacher: { name: '[Head Teacher Name]', role: 'Head Teacher' },
+                dos: { name: '[DOS Name]', role: 'Director of Studies' },
+                dod: { name: '[DOD Name]', role: 'Director of Discipline' }
+            },
+            admissions: {
+                requirements: [
+                    'Birth certificate',
+                    'Previous school report (if applicable)',
+                    'Medical records',
+                    'Parent/guardian identification'
+                ],
+                process: 'Visit our Apply section to complete the online application form.',
+                fees: 'Please contact the school administration for current fee structure.'
+            },
+            contact: {
+                phone: '[School Phone Number]',
+                email: '[School Email]',
+                address: '[School Address]'
+            },
+            faq: [
+                { q: 'Where is the school located?', a: 'The school is located at [School Address].' },
+                { q: 'What levels does the school offer?', a: 'We offer Nursery, Lower Primary, Upper Primary, and O-Level.' },
+                { q: 'How can I apply?', a: 'Visit our Apply section to complete the online application form.' },
+                { q: 'What documents are needed?', a: 'You need a birth certificate, previous school report, medical records, and parent/guardian identification.' },
+                { q: 'What are the school fees?', a: 'Please contact the school administration for current fee structure.' },
+                { q: 'How can I contact the school?', a: 'Call us at [School Phone Number] or email [School Email].' },
+                { q: 'What activities does the school have?', a: 'We offer sports, clubs, cultural activities, and various student events.' },
+                { q: 'What is the school\'s mission?', a: 'To provide quality education that prepares students for the future.' }
+            ]
+        };
+
+        // AI Assistant Class
+        class SchoolAIAssistant {
+            constructor() {
+                this.userMemory = {
+                    userId: 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
+                    conversationHistory: [],
+                    interactionCount: 0
+                };
+                this.learningData = {
+                    commonQuestions: {},
+                    responseEffectiveness: {}
+                };
+                this.knowledgeBase = knowledgeBase;
+            }
+
+            process(question) {
+                const lower = question.toLowerCase();
+                const reasoning = [];
+
+                reasoning.push('🔍 Analyzing question...');
+                const intent = this.classifyIntent(lower);
+                reasoning.push(`📌 Intent: ${intent}`);
+
+                reasoning.push('📚 Searching knowledge base...');
+                const result = this.search(lower, intent);
+                reasoning.push(`📖 Found ${result.confidence > 0 ? 'relevant' : 'no'} matches`);
+
+                reasoning.push('💭 Generating response...');
+                const response = result.answer || this.fallbackResponse(intent);
+                reasoning.push('✅ Response ready');
+
+                // Store in memory
+                this.userMemory.conversationHistory.push({ question, response, timestamp: new Date().toISOString() });
+                this.userMemory.interactionCount++;
+
+                return {
+                    response: response,
+                    reasoning: reasoning,
+                    intent: intent,
+                    confidence: result.confidence || 0
+                };
+            }
+
+            classifyIntent(text) {
+                const intents = {
+                    greeting: ['hello', 'hi', 'hey', 'bonjour', 'good morning', 'good afternoon'],
+                    location: ['where', 'location', 'address', 'find', 'located'],
+                    levels: ['levels', 'classes', 'grades', 'offer', 'nursery', 'primary', 'secondary', 'o-level'],
+                    application: ['apply', 'application', 'register', 'admission', 'enroll'],
+                    documents: ['documents', 'paper', 'requirements', 'needed', 'required'],
+                    fees: ['fee', 'cost', 'payment', 'tuition', 'price'],
+                    contact: ['contact', 'call', 'phone', 'email', 'reach', 'number'],
+                    activities: ['activities', 'sports', 'clubs', 'events', 'programs'],
+                    staff: ['staff', 'teacher', 'head teacher', 'director', 'principal', 'dos', 'dod'],
+                    history: ['history', 'founded', 'started', 'beginning', 'established'],
+                    mission: ['mission', 'vision', 'values', 'goal', 'purpose'],
+                    achievements: ['achievement', 'award', 'success', 'excellence', 'trophy'],
+                    thanks: ['thank', 'thanks', 'appreciate']
+                };
+
+                for (const [intent, keywords] of Object.entries(intents)) {
+                    if (keywords.some(k => text.includes(k))) return intent;
+                }
+                return 'general';
+            }
+
+            search(text, intent) {
+                // Check FAQ
+                for (const faq of this.knowledgeBase.faq) {
+                    if (faq.q.toLowerCase().split(' ').some(word => text.includes(word))) {
+                        return { answer: faq.a, confidence: 0.9 };
+                    }
+                }
+
+                // Check school info
+                const school = this.knowledgeBase.school;
+                if (text.includes('mission')) return { answer: school.mission, confidence: 0.85 };
+                if (text.includes('vision')) return { answer: school.vision, confidence: 0.85 };
+                if (text.includes('history') || text.includes('founded')) return { answer: school.history, confidence: 0.85 };
+                if (text.includes('motto')) return { answer: school.motto, confidence: 0.85 };
+                if (text.includes('achievement') || text.includes('award')) {
+                    return { answer: school.achievements.join(', '), confidence: 0.8 };
+                }
+
+                // Check academics
+                const acad = this.knowledgeBase.academics;
+                for (const [level, info] of Object.entries(acad)) {
+                    if (text.includes(level)) {
+                        return { answer: info.description, confidence: 0.85 };
+                    }
+                }
+
+                // Check admissions
+                const adm = this.knowledgeBase.admissions;
+                if (text.includes('document') || text.includes('required')) {
+                    return { answer: adm.requirements.join(', '), confidence: 0.85 };
+                }
+                if (text.includes('process') || text.includes('apply')) {
+                    return { answer: adm.process, confidence: 0.85 };
+                }
+                if (text.includes('fee') || text.includes('cost')) {
+                    return { answer: adm.fees, confidence: 0.7 };
+                }
+
+                // Check contact
+                const contact = this.knowledgeBase.contact;
+                if (text.includes('phone') || text.includes('call')) {
+                    return { answer: contact.phone, confidence: 0.85 };
+                }
+                if (text.includes('email')) {
+                    return { answer: contact.email, confidence: 0.85 };
+                }
+                if (text.includes('address') || text.includes('location')) {
+                    return { answer: contact.address, confidence: 0.85 };
+                }
+
+                // Check staff
+                const staff = this.knowledgeBase.staff;
+                if (text.includes('head teacher') || text.includes('principal')) {
+                    return { answer: `The Head Teacher is ${staff.headTeacher.name}.`, confidence: 0.8 };
+                }
+                if (text.includes('dos') || text.includes('director of studies')) {
+                    return { answer: `The Director of Studies is ${staff.dos.name}.`, confidence: 0.8 };
+                }
+                if (text.includes('dod') || text.includes('director of discipline')) {
+                    return { answer: `The Director of Discipline is ${staff.dod.name}.`, confidence: 0.8 };
+                }
+
+                return { answer: null, confidence: 0 };
+            }
+
+            fallbackResponse(intent) {
+                const fallbacks = {
+                    greeting: 'Hello! Welcome to G.S Nyirarukobwa. How can I assist you today?',
+                    thanks: "You're very welcome! Is there anything else I can help with?",
+                    location: 'The school is located at [School Address]. We\'d love to welcome you!',
+                    levels: 'We offer Nursery, Lower Primary, Upper Primary, and O-Level education.',
+                    application: 'You can apply online through our Apply section. Just fill in the form and submit it!',
+                    documents: 'For admission, you need: birth certificate, previous school report, medical records, and parent/guardian identification.',
+                    fees: 'For current fee structure, please contact the school administration directly.',
+                    contact: 'You can reach us at [School Phone Number] or email [School Email].',
+                    activities: 'We offer sports, clubs, cultural activities, and various student events throughout the year.',
+                    staff: 'Our leadership team includes the Head Teacher, Director of Studies (DOS), and Director of Discipline (DOD).',
+                    history: 'G.S Nyirarukobwa was established in 2005 and has been serving the community with quality education ever since.',
+                    mission: 'Our mission is to provide quality education that prepares students for the future.',
+                    achievements: 'We have achieved excellence in academics, sports, and digital innovation.'
+                };
+
+                if (fallbacks[intent]) return fallbacks[intent];
+
+                const generic = [
+                    "That's a great question. Could you please rephrase or be more specific?",
+                    "I'm here to help with information about G.S Nyirarukobwa. What would you like to know?",
+                    "I appreciate your question. Could you tell me more about what you're looking for?",
+                    "That's an interesting question. Could you clarify what specific aspect you're interested in?"
+                ];
+                return generic[Math.floor(Math.random() * generic.length)];
+            }
+        }
+
+        // Initialize AI
+        const ai = new SchoolAIAssistant();
+
+        // ==========================================
+        // AI UI CONTROLS
         // ==========================================
         const chatToggle = document.getElementById('chatToggle');
         const chatWindow = document.getElementById('chatWindow');
@@ -1502,40 +2271,9 @@
         const chatMessages = document.getElementById('chatMessages');
         const chatInput = document.getElementById('chatInput');
         const chatSend = document.getElementById('chatSend');
+        const chatThinking = document.getElementById('chatThinking');
+        const reasoningLog = document.getElementById('reasoningLog');
 
-        // School info for AI responses
-        const schoolInfo = {
-            name: 'G.S Nyirarukobwa',
-            location: '[School Address]',
-            levels: 'Nursery, Lower Primary, Upper Primary, O-Level',
-            phone: '[School Phone Number]',
-            email: '[School Email]',
-        };
-
-        const faqs = [
-            { keywords: ['where', 'location', 'located', 'address'], response: 'The school is located at ' + schoolInfo
-                    .location + '.' },
-            { keywords: ['levels', 'classes', 'grades', 'offer'], response: 'The school offers ' + schoolInfo.levels +
-                    '.' },
-            { keywords: ['apply', 'application', 'register', 'admission'], response: 'You can apply online through our Apply section on this page. Just fill in the form and submit it.' },
-            { keywords: ['documents', 'paper', 'requirements', 'needed'], response: 'Please contact the school administration for the full list of required documents.' },
-            { keywords: ['contact', 'call', 'phone', 'email', 'reach'], response: 'You can call us at ' + schoolInfo
-                    .phone + ' or email us at ' + schoolInfo.email + '.' },
-            { keywords: ['activities', 'sports', 'clubs', 'events', 'programs'], response: 'The school offers sports, clubs, cultural activities, and various student events.' },
-            { keywords: ['history', 'old', 'started', 'founded', 'beginning'], response: 'G.S Nyirarukobwa has been serving the community with quality education for many years. The school started with a vision to provide excellent education from Nursery through O-Level.' },
-            { keywords: ['teachers', 'staff', 'head teacher', 'dos', 'dod', 'principal'], response: 'Our school has dedicated teachers and staff. We have a Head Teacher, Director of Studies (DOS), Director of Discipline (DOD), and many experienced teachers.' },
-            { keywords: ['fee', 'cost', 'payment', 'tuition', 'school fees'], response: 'For information about school fees, please contact the school administration directly.' },
-        ];
-
-        const genericResponses = [
-            'I\'m here to help! Could you tell me more about what you\'d like to know?',
-            'That\'s a good question. I can tell you about our school, how to apply, our levels, and more.',
-            'I\'m not sure I fully understand. Could you ask in a different way?',
-            'Thanks for your question! For detailed information, please contact the school administration.',
-            'I\'d love to help with that. Can you be more specific about what you\'re looking for?',
-        ];
-
-        // Open/close chat
         chatToggle.addEventListener('click', () => {
             chatWindow.classList.toggle('open');
         });
@@ -1543,55 +2281,6 @@
         chatClose.addEventListener('click', () => {
             chatWindow.classList.remove('open');
         });
-
-        // Send message
-        function sendChatMessage() {
-            const text = chatInput.value.trim();
-            if (!text) return;
-
-            // Add user message
-            addMessage('user', text);
-            chatInput.value = '';
-
-            // Show loading
-            const loadingId = addLoadingMessage();
-
-            // Simulate response delay (like real AI)
-            setTimeout(() => {
-                removeLoadingMessage(loadingId);
-                const reply = getLocalReply(text);
-                addMessage('assistant', reply);
-            }, 500 + Math.random() * 500);
-        }
-
-        function getLocalReply(text) {
-            const lower = text.toLowerCase();
-
-            // Check keywords
-            for (const faq of faqs) {
-                for (const keyword of faq.keywords) {
-                    if (lower.includes(keyword)) {
-                        return faq.response;
-                    }
-                }
-            }
-
-            // Check for greetings
-            const greetings = ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening'];
-            for (const greet of greetings) {
-                if (lower.includes(greet)) {
-                    return 'Hello! Welcome to G.S Nyirarukobwa. How can I assist you today?';
-                }
-            }
-
-            // Check for thanks
-            if (lower.includes('thank') || lower.includes('thanks')) {
-                return 'You\'re welcome! Is there anything else I can help you with?';
-            }
-
-            // Random generic response
-            return genericResponses[Math.floor(Math.random() * genericResponses.length)];
-        }
 
         function addMessage(role, content) {
             const div = document.createElement('div');
@@ -1623,13 +2312,44 @@
             if (el) el.remove();
         }
 
+        async function sendChatMessage() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+
+            addMessage('user', text);
+            chatInput.value = '';
+
+            // Show thinking
+            chatThinking.classList.add('active');
+            reasoningLog.classList.remove('active');
+            reasoningLog.innerHTML = '';
+
+            // Simulate thinking delay
+            await new Promise(resolve => setTimeout(resolve, 600 + Math.random() * 500));
+
+            // Process
+            const result = ai.process(text);
+
+            chatThinking.classList.remove('active');
+
+            // Show reasoning
+            if (result.reasoning && result.reasoning.length > 0) {
+                reasoningLog.innerHTML = result.reasoning.map(step =>
+                    `<div class="step">${step}</div>`
+                ).join('');
+                reasoningLog.classList.add('active');
+            }
+
+            addMessage('assistant', result.response);
+        }
+
         chatSend.addEventListener('click', sendChatMessage);
         chatInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') sendChatMessage();
         });
 
         // ==========================================
-        // SMOOTH SCROLL FOR NAV LINKS
+        // SMOOTH SCROLL
         // ==========================================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1645,6 +2365,5 @@
             });
         });
     </script>
-
 </body>
 </html>
