@@ -5,7 +5,6 @@ export default function Footer() {
     <footer className="bg-navy/95 border-t border-white/10 py-12">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* School Info */}
           <div>
             <h3 className="text-xl font-bold mb-4">
               G.S <span className="text-cyan">Nyirarukobwa</span>
@@ -15,7 +14,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-white/60">
@@ -26,7 +24,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-white/60">
@@ -36,7 +33,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social */}
           <div>
             <h4 className="font-semibold mb-4">Connect</h4>
             <ul className="space-y-2 text-sm text-white/60">
@@ -49,9 +45,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 mt-8 pt-8 text-center text-sm text-white/40">
           <p>© 2026 G.S Nyirarukobwa. All rights reserved.</p>
-          <p className="mt-1">
-            Designed & developed by TUYISENGE Jean Chrisostom.
-          </p>
+          <p className="mt-1">Designed & developed by TUYISENGE Jean Chrisostom.</p>
         </div>
       </div>
     </footer>
