@@ -9,6 +9,11 @@ export const metadata = {
   title: 'G.S Nyirarukobwa — Official School Website',
   description: 'A modern, connected school experience. Explore our history, academics, staff, and apply online.',
 }
+// Add this import at the top
+import AIAssistant from '@/components/AIAssistant'
+
+// Add this just before the closing body tag
+<AIAssistant />
 
 export default function RootLayout({ children }) {
   return (
