@@ -146,7 +146,7 @@
         }
 
         /* ============================================
-                   HEADER
+                   HEADER WITH TRANSLATION
                    ============================================ */
         header {
             position: fixed;
@@ -166,12 +166,14 @@
             align-items: center;
             justify-content: space-between;
             height: 70px;
+            gap: 12px;
         }
 
         .logo {
             font-size: 1.2rem;
             font-weight: 800;
             color: var(--white);
+            white-space: nowrap;
         }
 
         .logo span {
@@ -182,6 +184,7 @@
             display: flex;
             gap: 28px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -193,6 +196,41 @@
 
         .nav-links a:hover {
             color: var(--cyan);
+        }
+
+        /* Translation Selector in Nav */
+        .nav-translate {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-translate select {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--white);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 4px 12px 4px 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.3s ease;
+            height: 32px;
+        }
+
+        .nav-translate select:hover {
+            border-color: var(--cyan);
+        }
+
+        .nav-translate select option {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .nav-translate .globe-icon {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.9rem;
         }
 
         .menu-toggle {
@@ -900,168 +938,133 @@
         }
 
         /* ============================================
-                   MAP & SCHOOL INFO SECTIONS
+                   DIGITAL HOME - MAP & FOOTER COMBINED
                    ============================================ */
-        .info-grid {
+        .digital-home {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .digital-home-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .digital-home-left {
+            display: flex;
+            flex-direction: column;
             gap: 24px;
         }
 
-        .info-card {
-            padding: 24px;
-            text-align: center;
+        .digital-home-right {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
 
-        .info-card .icon {
-            font-size: 2.5rem;
+        .digital-home .school-brand h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .digital-home .school-brand h2 span {
             color: var(--cyan);
-            display: block;
-            margin-bottom: 12px;
         }
 
-        .info-card h4 {
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .info-card p {
-            color: rgba(255, 255, 255, 0.6);
+        .digital-home .school-brand .tagline {
+            color: rgba(255, 255, 255, 0.5);
             font-size: 0.95rem;
+            margin-top: 4px;
         }
 
-        .timeline-item {
-            display: flex;
-            gap: 16px;
-            padding: 12px 16px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        .digital-home .school-brand .established {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
+            margin-top: 8px;
         }
 
-        .timeline-item .year {
-            color: var(--cyan);
-            font-weight: 700;
-            min-width: 80px;
-        }
-
-        .timeline-item .desc {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .partner-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-        }
-
-        .partner-card {
-            padding: 16px;
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .partner-card h4 {
-            color: var(--cyan);
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .partner-card p {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.85rem;
-        }
-
-        .counter-grid {
-            display: flex;
-            justify-content: center;
-            gap: 48px;
-            flex-wrap: wrap;
-        }
-
-        .counter-item {
-            text-align: center;
-        }
-
-        .counter-item .number {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--cyan);
-        }
-
-        .counter-item .label {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-        }
-
-        .map-container {
+        .digital-home .map-container {
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid var(--glass-border);
+            height: 350px;
         }
 
-        .map-container iframe {
+        .digital-home .map-container iframe {
             width: 100%;
-            height: 400px;
+            height: 100%;
             display: block;
         }
 
-        /* ============================================
-                   FOOTER
-                   ============================================ */
-        footer {
-            border-top: 1px solid var(--glass-border);
-            padding: 48px 0 24px;
-            background: rgba(0, 0, 0, 0.5);
-            position: relative;
-            z-index: 2;
-        }
-
-        .footer-grid {
+        .digital-home-links {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 32px;
-            margin-bottom: 32px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
         }
 
-        .footer-col h4 {
+        .digital-home-links .link-group h4 {
+            color: var(--cyan);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
             font-weight: 600;
-            margin-bottom: 12px;
-            font-size: 1rem;
         }
 
-        .footer-col ul {
+        .digital-home-links .link-group ul {
             list-style: none;
         }
 
-        .footer-col ul li {
-            margin-bottom: 6px;
+        .digital-home-links .link-group ul li {
+            margin-bottom: 4px;
         }
 
-        .footer-col ul a {
+        .digital-home-links .link-group ul a {
             color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: color 0.3s ease;
         }
 
-        .footer-col ul a:hover {
+        .digital-home-links .link-group ul a:hover {
             color: var(--cyan);
         }
 
-        .footer-bottom {
-            border-top: 1px solid var(--glass-border);
-            padding-top: 20px;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 0.85rem;
+        .digital-home .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
         }
 
-        .footer-bottom .dev a {
+        .digital-home .social-links a {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 1.4rem;
+            transition: color 0.3s ease;
+        }
+
+        .digital-home .social-links a:hover {
+            color: var(--cyan);
+        }
+
+        .digital-home .copyright {
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.75rem;
+            margin-top: 16px;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 16px;
+        }
+
+        .digital-home .copyright .dev a {
             color: var(--cyan);
             transition: color 0.3s ease;
             font-weight: 500;
         }
 
-        .footer-bottom .dev a:hover {
+        .digital-home .copyright .dev a:hover {
             color: var(--white);
         }
 
@@ -1080,10 +1083,26 @@
                 padding: 20px;
                 gap: 16px;
                 border-bottom: 1px solid var(--glass-border);
+                align-items: stretch;
             }
 
             .nav-links.open {
                 display: flex;
+            }
+
+            .nav-links .nav-translate {
+                margin-top: 8px;
+                padding-top: 12px;
+                border-top: 1px solid var(--glass-border);
+                justify-content: center;
+            }
+
+            .nav-links .nav-translate select {
+                width: 100%;
+                max-width: 200px;
+                padding: 8px 16px;
+                height: auto;
+                font-size: 0.9rem;
             }
 
             .menu-toggle {
@@ -1122,16 +1141,17 @@
                 display: none;
             }
 
-            .counter-grid {
+            .digital-home-grid {
+                grid-template-columns: 1fr;
                 gap: 24px;
             }
 
-            .counter-item .number {
-                font-size: 2.5rem;
+            .digital-home .map-container {
+                height: 280px;
             }
 
-            .map-container iframe {
-                height: 300px;
+            .digital-home-links {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -1164,21 +1184,17 @@
                 padding: 24px 16px;
             }
 
-            .counter-item .number {
-                font-size: 2rem;
+            .digital-home-links {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
             }
 
-            .map-container iframe {
-                height: 250px;
+            .digital-home .map-container {
+                height: 200px;
             }
 
-            .timeline-item {
-                flex-direction: column;
-                gap: 4px;
-            }
-
-            .timeline-item .year {
-                min-width: auto;
+            .logo {
+                font-size: 1rem;
             }
         }
     </style>
@@ -1204,7 +1220,7 @@
     <div class="room-label" id="roomLabel">CAMPUS</div>
 
     <!-- ==========================================
-    HEADER
+    HEADER WITH TRANSLATION IN NAV
     ========================================== -->
     <header>
         <div class="header-inner">
@@ -1220,7 +1236,15 @@
                 <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#apply">Apply</a></li>
                 <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#digital-home">Contact</a></li>
+                <li class="nav-translate">
+                    <span class="globe-icon"><i class="fas fa-globe"></i></span>
+                    <select id="languageSelect" aria-label="Translate website">
+                        <option value="en">English</option>
+                        <option value="rw">Kinyarwanda</option>
+                        <option value="fr">Français</option>
+                    </select>
+                </li>
             </ul>
         </div>
     </header>
@@ -1254,26 +1278,26 @@
                 our students, and our commitment to educational excellence and digital innovation.
             </p>
 
-            <div class="info-grid">
-                <div class="info-card glass">
-                    <span class="icon">📅</span>
-                    <h4>Founded</h4>
-                    <p>1974 — Over 50 years of excellence</p>
+            <div class="info-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px;">
+                <div class="info-card glass" style="padding:24px; text-align:center;">
+                    <span style="font-size:2.5rem; color:var(--cyan); display:block; margin-bottom:12px;">📅</span>
+                    <h4 style="font-weight:600; margin-bottom:8px;">Founded</h4>
+                    <p style="color:rgba(255,255,255,0.6);">1974 — Over 50 years of excellence</p>
                 </div>
-                <div class="info-card glass">
-                    <span class="icon">📍</span>
-                    <h4>Location</h4>
-                    <p>Ntarama Sector, Bugesera District, Eastern Province</p>
+                <div class="info-card glass" style="padding:24px; text-align:center;">
+                    <span style="font-size:2.5rem; color:var(--cyan); display:block; margin-bottom:12px;">📍</span>
+                    <h4 style="font-weight:600; margin-bottom:8px;">Location</h4>
+                    <p style="color:rgba(255,255,255,0.6);">Ntarama Sector, Bugesera District, Eastern Province</p>
                 </div>
-                <div class="info-card glass">
-                    <span class="icon">👨‍🎓</span>
-                    <h4>Students</h4>
-                    <p>1,230+ students — 406+ girls, 399+ boys</p>
+                <div class="info-card glass" style="padding:24px; text-align:center;">
+                    <span style="font-size:2.5rem; color:var(--cyan); display:block; margin-bottom:12px;">👨‍🎓</span>
+                    <h4 style="font-weight:600; margin-bottom:8px;">Students</h4>
+                    <p style="color:rgba(255,255,255,0.6);">1,230+ students — 406+ girls, 399+ boys</p>
                 </div>
-                <div class="info-card glass">
-                    <span class="icon">👨‍🏫</span>
-                    <h4>Head Teacher</h4>
-                    <p>NKUNDINGABO Theophile</p>
+                <div class="info-card glass" style="padding:24px; text-align:center;">
+                    <span style="font-size:2.5rem; color:var(--cyan); display:block; margin-bottom:12px;">👨‍🏫</span>
+                    <h4 style="font-weight:600; margin-bottom:8px;">Head Teacher</h4>
+                    <p style="color:rgba(255,255,255,0.6);">NKUNDINGABO Theophile</p>
                 </div>
             </div>
 
@@ -1313,55 +1337,57 @@
 
             <div class="glass" style="padding:32px; margin-bottom:32px;">
                 <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:20px;">📅 School Timeline</h3>
-                <div class="timeline-item">
-                    <span class="year">1974</span>
-                    <span class="desc">École Primaire Nyirarukobwa was founded</span>
-                </div>
-                <div class="timeline-item">
-                    <span class="year">2013</span>
-                    <span class="desc"><strong>Airtel Rwanda</strong> renovated the school with a <strong>20 million Franc</strong> investment — covering roofs of 11 classrooms, doors, windows, benches for 200 students, three water tanks, and toilet construction</span>
-                </div>
-                <div class="timeline-item">
-                    <span class="year">2013</span>
-                    <span class="desc"><strong>ISOC Rwanda Chapter</strong> provided a <strong>$10,000 grant</strong> to bring connectivity to the school, purchasing five computers and setting up a computer lab</span>
-                </div>
-                <div class="timeline-item">
-                    <span class="year">2020</span>
-                    <span class="desc">First <strong>Safer Internet Day</strong> celebrated at G.S Nyirarukobwa</span>
-                </div>
-                <div class="timeline-item">
-                    <span class="year">2021</span>
-                    <span class="desc"><strong>Smart Teacher Project</strong> launched — 10 teachers received smartphones and training</span>
-                </div>
-                <div class="timeline-item">
-                    <span class="year">2024</span>
-                    <span class="desc"><strong>Global Encryption Day</strong> celebrated at the school</span>
-                </div>
-                <div class="timeline-item">
-                    <span class="year">2024</span>
-                    <span class="desc"><strong>Safer Internet Day 2024</strong> hosted at G.S Nyirarukobwa with theme "Promoting personal accountability for a constructive internet atmosphere"</span>
-                </div>
-                <div class="timeline-item">
-                    <span class="year">2025</span>
-                    <span class="desc"><strong>Digital Parenting Training</strong> held at the school</span>
+                <div style="display:flex; flex-direction:column; gap:4px;">
+                    <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
+                        <span style="color:var(--cyan); font-weight:700; min-width:80px;">1974</span>
+                        <span style="color:rgba(255,255,255,0.7);">École Primaire Nyirarukobwa was founded</span>
+                    </div>
+                    <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
+                        <span style="color:var(--cyan); font-weight:700; min-width:80px;">2013</span>
+                        <span style="color:rgba(255,255,255,0.7);"><strong>Airtel Rwanda</strong> renovated the school with a <strong>20 million Franc</strong> investment — covering roofs of 11 classrooms, doors, windows, benches for 200 students, three water tanks, and toilet construction</span>
+                    </div>
+                    <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
+                        <span style="color:var(--cyan); font-weight:700; min-width:80px;">2013</span>
+                        <span style="color:rgba(255,255,255,0.7);"><strong>ISOC Rwanda Chapter</strong> provided a <strong>$10,000 grant</strong> to bring connectivity to the school, purchasing five computers and setting up a computer lab</span>
+                    </div>
+                    <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
+                        <span style="color:var(--cyan); font-weight:700; min-width:80px;">2020</span>
+                        <span style="color:rgba(255,255,255,0.7);">First <strong>Safer Internet Day</strong> celebrated at G.S Nyirarukobwa</span>
+                    </div>
+                    <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
+                        <span style="color:var(--cyan); font-weight:700; min-width:80px;">2021</span>
+                        <span style="color:rgba(255,255,255,0.7);"><strong>Smart Teacher Project</strong> launched — 10 teachers received smartphones and training</span>
+                    </div>
+                    <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
+                        <span style="color:var(--cyan); font-weight:700; min-width:80px;">2024</span>
+                        <span style="color:rgba(255,255,255,0.7);"><strong>Global Encryption Day</strong> celebrated at the school</span>
+                    </div>
+                    <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
+                        <span style="color:var(--cyan); font-weight:700; min-width:80px;">2024</span>
+                        <span style="color:rgba(255,255,255,0.7);"><strong>Safer Internet Day 2024</strong> hosted at G.S Nyirarukobwa with theme "Promoting personal accountability for a constructive internet atmosphere"</span>
+                    </div>
+                    <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
+                        <span style="color:var(--cyan); font-weight:700; min-width:80px;">2025</span>
+                        <span style="color:rgba(255,255,255,0.7);"><strong>Digital Parenting Training</strong> held at the school</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Student Counter -->
             <div class="glass" style="padding:32px; text-align:center; margin-bottom:32px;">
                 <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:20px;">👨‍🎓 Our Students</h3>
-                <div class="counter-grid">
-                    <div class="counter-item">
-                        <div class="number" id="studentCounter">1,230+</div>
-                        <div class="label">Total Students</div>
+                <div style="display:flex; justify-content:center; gap:48px; flex-wrap:wrap;">
+                    <div style="text-align:center;">
+                        <div style="font-size:3.5rem; font-weight:900; color:var(--cyan);" id="studentCounter">1,230+</div>
+                        <div style="color:rgba(255,255,255,0.5); font-size:0.9rem;">Total Students</div>
                     </div>
-                    <div class="counter-item">
-                        <div class="number" style="color:#4ecdc4;">406+</div>
-                        <div class="label">Girls</div>
+                    <div style="text-align:center;">
+                        <div style="font-size:3.5rem; font-weight:900; color:#4ecdc4;">406+</div>
+                        <div style="color:rgba(255,255,255,0.5); font-size:0.9rem;">Girls</div>
                     </div>
-                    <div class="counter-item">
-                        <div class="number" style="color:#ff6b6b;">399+</div>
-                        <div class="label">Boys</div>
+                    <div style="text-align:center;">
+                        <div style="font-size:3.5rem; font-weight:900; color:#ff6b6b;">399+</div>
+                        <div style="color:rgba(255,255,255,0.5); font-size:0.9rem;">Boys</div>
                     </div>
                 </div>
             </div>
@@ -1369,36 +1395,36 @@
             <!-- School Infrastructure -->
             <div class="glass" style="padding:32px; margin-bottom:32px;">
                 <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:16px;">🏫 School Infrastructure</h3>
-                <div class="info-grid">
-                    <div class="info-card" style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px;">
-                        <span class="icon" style="font-size:1.5rem;">🏛️</span>
-                        <h4>11 Classrooms</h4>
-                        <p>With new roofs (renovated 2013)</p>
+                <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px;">
+                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
+                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">🏛️</span>
+                        <h4 style="font-weight:600; font-size:1rem;">11 Classrooms</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">With new roofs (renovated 2013)</p>
                     </div>
-                    <div class="info-card" style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px;">
-                        <span class="icon" style="font-size:1.5rem;">🪑</span>
-                        <h4>200+ Benches</h4>
-                        <p>Seating for students</p>
+                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
+                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">🪑</span>
+                        <h4 style="font-weight:600; font-size:1rem;">200+ Benches</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Seating for students</p>
                     </div>
-                    <div class="info-card" style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px;">
-                        <span class="icon" style="font-size:1.5rem;">💧</span>
-                        <h4>3 Water Tanks</h4>
-                        <p>Clean water supply</p>
+                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
+                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">💧</span>
+                        <h4 style="font-weight:600; font-size:1rem;">3 Water Tanks</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Clean water supply</p>
                     </div>
-                    <div class="info-card" style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px;">
-                        <span class="icon" style="font-size:1.5rem;">🚻</span>
-                        <h4>New Toilets</h4>
-                        <p>Sanitary facilities</p>
+                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
+                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">🚻</span>
+                        <h4 style="font-weight:600; font-size:1rem;">New Toilets</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Sanitary facilities</p>
                     </div>
-                    <div class="info-card" style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px;">
-                        <span class="icon" style="font-size:1.5rem;">💻</span>
-                        <h4>Computer Lab</h4>
-                        <p>5 computers (initial setup)</p>
+                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
+                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">💻</span>
+                        <h4 style="font-weight:600; font-size:1rem;">Computer Lab</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">5 computers (initial setup)</p>
                     </div>
-                    <div class="info-card" style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px;">
-                        <span class="icon" style="font-size:1.5rem;">📚</span>
-                        <h4>Digital Library</h4>
-                        <p>Offline educational resources</p>
+                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
+                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">📚</span>
+                        <h4 style="font-weight:600; font-size:1rem;">Digital Library</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Offline educational resources</p>
                     </div>
                 </div>
             </div>
@@ -1406,36 +1432,36 @@
             <!-- Technology Initiatives -->
             <div class="glass" style="padding:32px; margin-bottom:32px;">
                 <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:16px;">💻 Technology & ICT Initiatives</h3>
-                <div class="info-grid">
-                    <div class="info-card" style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px;">
-                        <span class="icon" style="font-size:1.5rem;">📖</span>
-                        <h4>Digital Library</h4>
-                        <p>Offline digital educational resources reducing bandwidth costs</p>
+                <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px;">
+                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
+                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">📖</span>
+                        <h4 style="font-weight:600; font-size:0.95rem;">Digital Library</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Offline digital educational resources</p>
                     </div>
-                    <div class="info-card" style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px;">
-                        <span class="icon" style="font-size:1.5rem;">💻</span>
-                        <h4>Computer Lab</h4>
-                        <p>5 computers set up through ISOC grant</p>
+                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
+                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">💻</span>
+                        <h4 style="font-weight:600; font-size:0.95rem;">Computer Lab</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">5 computers through ISOC grant</p>
                     </div>
-                    <div class="info-card" style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px;">
-                        <span class="icon" style="font-size:1.5rem;">📱</span>
-                        <h4>Smart Teacher Project</h4>
-                        <p>10 teachers received smartphones and training (2021)</p>
+                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
+                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">📱</span>
+                        <h4 style="font-weight:600; font-size:0.95rem;">Smart Teacher Project</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">10 teachers received smartphones (2021)</p>
                     </div>
-                    <div class="info-card" style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px;">
-                        <span class="icon" style="font-size:1.5rem;">💬</span>
-                        <h4>WhatsApp Group</h4>
-                        <p>All teachers connected for easy communication</p>
+                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
+                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">💬</span>
+                        <h4 style="font-weight:600; font-size:0.95rem;">WhatsApp Group</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">All teachers connected</p>
                     </div>
-                    <div class="info-card" style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px;">
-                        <span class="icon" style="font-size:1.5rem;">🛡️</span>
-                        <h4>Safer Internet Day</h4>
-                        <p>Annual event promoting responsible internet usage</p>
+                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
+                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">🛡️</span>
+                        <h4 style="font-weight:600; font-size:0.95rem;">Safer Internet Day</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Annual event since 2020</p>
                     </div>
-                    <div class="info-card" style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px;">
-                        <span class="icon" style="font-size:1.5rem;">🔐</span>
-                        <h4>Global Encryption Day</h4>
-                        <p>School participated in 2024</p>
+                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
+                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">🔐</span>
+                        <h4 style="font-weight:600; font-size:0.95rem;">Global Encryption Day</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Participated in 2024</p>
                     </div>
                 </div>
             </div>
@@ -1443,30 +1469,30 @@
             <!-- Key Partners -->
             <div class="glass" style="padding:32px;">
                 <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:16px;">🤝 Our Partners</h3>
-                <div class="partner-grid">
-                    <div class="partner-card">
-                        <h4>ISOC Rwanda Chapter</h4>
-                        <p>Digital Library, smartphones, teacher training, ICT workshops</p>
+                <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px;">
+                    <div style="background:rgba(255,255,255,0.04); border-radius:10px; padding:16px; text-align:center;">
+                        <h4 style="color:var(--cyan); font-weight:600;">ISOC Rwanda</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Digital Library, smartphones, teacher training</p>
                     </div>
-                    <div class="partner-card">
-                        <h4>Airtel Rwanda</h4>
-                        <p>20 Million Franc school renovation (2013)</p>
+                    <div style="background:rgba(255,255,255,0.04); border-radius:10px; padding:16px; text-align:center;">
+                        <h4 style="color:var(--cyan); font-weight:600;">Airtel Rwanda</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">20M FRW school renovation (2013)</p>
                     </div>
-                    <div class="partner-card">
-                        <h4>MINEDUC</h4>
-                        <p>Education policy and support</p>
+                    <div style="background:rgba(255,255,255,0.04); border-radius:10px; padding:16px; text-align:center;">
+                        <h4 style="color:var(--cyan); font-weight:600;">MINEDUC</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Education policy and support</p>
                     </div>
-                    <div class="partner-card">
-                        <h4>Bugesera District</h4>
-                        <p>Local government support and education oversight</p>
+                    <div style="background:rgba(255,255,255,0.04); border-radius:10px; padding:16px; text-align:center;">
+                        <h4 style="color:var(--cyan); font-weight:600;">Bugesera District</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Local government support</p>
                     </div>
-                    <div class="partner-card">
-                        <h4>Rwanda Investigation Bureau (RIB)</h4>
-                        <p>Safer Internet Day participation and cybercrime awareness</p>
+                    <div style="background:rgba(255,255,255,0.04); border-radius:10px; padding:16px; text-align:center;">
+                        <h4 style="color:var(--cyan); font-weight:600;">Rwanda Investigation Bureau</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Safer Internet Day participation</p>
                     </div>
-                    <div class="partner-card">
-                        <h4>UNICEF</h4>
-                        <p>School Data Management System (SDMS) implementation support</p>
+                    <div style="background:rgba(255,255,255,0.04); border-radius:10px; padding:16px; text-align:center;">
+                        <h4 style="color:var(--cyan); font-weight:600;">UNICEF</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">SDMS implementation support</p>
                     </div>
                 </div>
             </div>
@@ -1730,7 +1756,7 @@
                         <span>Where is the school located?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer">Ntarama Sector, Bugesera District, Eastern Province, Rwanda. <a href="#map" style="color:var(--cyan);">View on map →</a></div>
+                    <div class="faq-answer">Ntarama Sector, Bugesera District, Eastern Province, Rwanda. <a href="#digital-home" style="color:var(--cyan);">View on map →</a></div>
                 </div>
                 <div class="faq-item glass" onclick="toggleFaq(this)">
                     <div class="faq-question">
@@ -1772,92 +1798,77 @@
     </section>
 
     <!-- ==========================================
-    CONTACT & MAP
+    DIGITAL HOME - MAP & FOOTER COMBINED
     ========================================== -->
-    <section class="section" id="contact">
+    <section class="digital-home" id="digital-home">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <p class="section-subtitle">Get in touch with G.S Nyirarukobwa</p>
+            <div class="digital-home-grid">
 
-            <div class="info-grid" style="margin-bottom:32px;">
-                <div class="info-card glass">
-                    <span class="icon">📍</span>
-                    <h4>Address</h4>
-                    <p>Ntarama Sector, Bugesera District<br />Eastern Province, Rwanda</p>
-                </div>
-                <div class="info-card glass">
-                    <span class="icon">📞</span>
-                    <h4>Phone</h4>
-                    <p>[School Phone Number]</p>
-                </div>
-                <div class="info-card glass">
-                    <span class="icon">✉️</span>
-                    <h4>Email</h4>
-                    <p>[School Email]</p>
-                </div>
-                <div class="info-card glass">
-                    <span class="icon">👨‍🏫</span>
-                    <h4>Head Teacher</h4>
-                    <p>NKUNDINGABO Theophile</p>
-                </div>
-            </div>
+                <!-- Left Column: Brand + Map -->
+                <div class="digital-home-left">
+                    <div class="school-brand">
+                        <h2>G.S <span>Nyirarukobwa</span></h2>
+                        <p class="tagline">Learning Today. Building Tomorrow.</p>
+                        <p class="established">🏛️ Since 1974</p>
+                    </div>
 
-            <!-- Google Maps -->
-            <div id="map" class="glass" style="padding:32px;">
-                <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:16px;">📍 Find Us on Google Maps</h3>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1804.1014922726688!2d30.090682061751547!3d-2.078193123410155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dcabbf780ff707%3A0xbeeb8f8e5bf6795e!2sNyirarukobwa%20Primary%20School!5e1!3m2!1sen!2srw!4v1787040623292!5m2!1sen!2srw" width="100%" height="400" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1804.1014922726688!2d30.090682061751547!3d-2.078193123410155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dcabbf780ff707%3A0xbeeb8f8e5bf6795e!2sNyirarukobwa%20Primary%20School!5e1!3m2!1sen!2srw!4v1787040623292!5m2!1sen!2srw" width="100%" height="100%" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
                 </div>
+
+                <!-- Right Column: Links + Social + Copyright -->
+                <div class="digital-home-right">
+                    <div class="digital-home-links">
+                        <div class="link-group">
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#history">History</a></li>
+                                <li><a href="#academics">Academics</a></li>
+                                <li><a href="#staff">Staff</a></li>
+                                <li><a href="#apply">Admissions</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="link-group">
+                            <h4>More</h4>
+                            <ul>
+                                <li><a href="#achievements">Achievements</a></li>
+                                <li><a href="#testimonials">Testimonials</a></li>
+                                <li><a href="#faq">FAQ</a></li>
+                                <li><a href="#digital-home">Contact</a></li>
+                                <li><a href="#digital-home">Map</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="link-group">
+                            <h4>Connect</h4>
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook" style="margin-right:6px;"></i> Facebook</a></li>
+                                <li><a href="#"><i class="fab fa-youtube" style="margin-right:6px;"></i> YouTube</a></li>
+                                <li><a href="#"><i class="fab fa-whatsapp" style="margin-right:6px;"></i> WhatsApp</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+
+                    <div class="copyright">
+                        <p>© 2026 G.S Nyirarukobwa. All rights reserved.</p>
+                        <p class="dev">Designed &amp; developed by <a href="https://imena-tech.vercel.app/" target="_blank"><strong>iMENA Tech</strong></a></p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
-
-    <!-- ==========================================
-    FOOTER
-    ========================================== -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>G.S Nyirarukobwa</h4>
-                    <p style="color:rgba(255,255,255,0.4); font-size:0.9rem;">Learning Today. Building Tomorrow.</p>
-                    <p style="color:rgba(255,255,255,0.3); font-size:0.8rem; margin-top:8px;">Since 1974</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#history">History</a></li>
-                        <li><a href="#academics">Academics</a></li>
-                        <li><a href="#staff">Staff</a></li>
-                        <li><a href="#apply">Admissions</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>More</h4>
-                    <ul>
-                        <li><a href="#achievements">Achievements</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="#map">Map</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
-                        <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 G.S Nyirarukobwa. All rights reserved.</p>
-                <p class="dev">Designed &amp; developed by <a href="https://imena-tech.vercel.app/" target="_blank"><strong>iMENA Tech</strong></a></p>
-            </div>
-        </div>
-    </footer>
 
     <!-- ==========================================
     AI CHAT WIDGET
@@ -1909,6 +1920,23 @@
     MAIN JAVASCRIPT - COMPLETE 3D SCHOOL ENVIRONMENT
     ========================================== -->
     <script>
+        // ==========================================
+        // TRANSLATION - FIX: Simple Language Switcher
+        // ==========================================
+        const langSelect = document.getElementById('languageSelect');
+        langSelect.addEventListener('change', function() {
+            const lang = this.value;
+            if (lang === 'en') {
+                window.location.href = window.location.pathname;
+            } else if (lang === 'rw') {
+                window.location.href = 'https://translate.google.com/translate?hl=en&sl=en&tl=rw&u=' + encodeURIComponent(window
+                    .location.href);
+            } else if (lang === 'fr') {
+                window.location.href = 'https://translate.google.com/translate?hl=en&sl=en&tl=fr&u=' + encodeURIComponent(window
+                    .location.href);
+            }
+        });
+
         // ==========================================
         // SCENE SETUP
         // ==========================================
@@ -3288,7 +3316,6 @@
                     return { answer: `The school was founded in ${school.founded}.`, confidence: 0.9 };
                 }
 
-                // Check SDMS
                 if (text.includes('sdms')) {
                     const sdms = this.knowledgeBase.sdms;
                     return { answer: `${sdms.description} Learn more at ${sdms.website}`, confidence: 0.95 };
@@ -3316,7 +3343,6 @@
                     return { answer: contact.address, confidence: 0.85 };
                 }
 
-                // Check staff
                 const staff = this.knowledgeBase.staff;
                 if (text.includes('teacher')) {
                     return { answer: `Our teachers include: ${staff.teachers.join(', ')}`, confidence: 0.8 };
@@ -3444,6 +3470,7 @@
         console.log('📝 Form: Connected to Google Sheets');
         console.log('📍 Location: Ntarama Sector, Bugesera District, Eastern Province');
         console.log('👨‍🏫 Head Teacher: NKUNDINGABO Theophile');
+        console.log('🌍 Translation: English, Kinyarwanda, Français available');
         console.log('🚀 Welcome to the future of education!');
     </script>
 </body>
