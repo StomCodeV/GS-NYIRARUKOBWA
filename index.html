@@ -11,6 +11,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
+    <!-- Google Translate Widget -->
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <style>
         /* ============================================
                    CSS VARIABLES & RESET
@@ -170,10 +173,19 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 1.2rem;
             font-weight: 800;
             color: var(--white);
             white-space: nowrap;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            border-radius: 8px;
         }
 
         .logo span {
@@ -694,6 +706,62 @@
         }
 
         /* ============================================
+                   GALLERY SECTION
+                   ============================================ */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            aspect-ratio: 4 / 3;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .gallery-item .overlay span {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* ============================================
                    AI CHAT WIDGET
                    ============================================ */
         .chat-toggle {
@@ -993,12 +1061,14 @@
             overflow: hidden;
             border: 1px solid var(--glass-border);
             height: 350px;
+            width: 100%;
         }
 
         .digital-home .map-container iframe {
             width: 100%;
             height: 100%;
             display: block;
+            border: 0;
         }
 
         .digital-home-links {
@@ -1153,6 +1223,10 @@
             .digital-home-links {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
         }
 
         @media (max-width: 600px) {
@@ -1196,6 +1270,14 @@
             .logo {
                 font-size: 1rem;
             }
+
+            .logo img {
+                height: 30px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
         }
     </style>
 </head>
@@ -1220,11 +1302,14 @@
     <div class="room-label" id="roomLabel">CAMPUS</div>
 
     <!-- ==========================================
-    HEADER WITH TRANSLATION IN NAV
+    HEADER WITH LOGO & TRANSLATION
     ========================================== -->
     <header>
         <div class="header-inner">
-            <div class="logo">G.S <span>Nyirarukobwa</span></div>
+            <div class="logo">
+                <img src="https://i.postimg.cc/nr2BhzP7/4fc898af2659ec47a3e1f3173b30fa20c0711063a64217243f4ab5ae6dc74da6.png" alt="G.S Nyirarukobwa Logo" />
+                G.S <span>Nyirarukobwa</span>
+            </div>
             <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
@@ -1234,6 +1319,7 @@
                 <li><a href="#academics">Academics</a></li>
                 <li><a href="#staff">Staff</a></li>
                 <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#apply">Apply</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#digital-home">Contact</a></li>
@@ -1639,6 +1725,164 @@
     </section>
 
     <!-- ==========================================
+    GALLERY
+    ========================================== -->
+    <section class="section" id="gallery" style="background: rgba(26,58,107,0.15);">
+        <div class="container">
+            <h2 class="section-title">📸 School Gallery</h2>
+            <p class="section-subtitle">Moments from our school life</p>
+
+            <div class="gallery-grid">
+                <!-- Gallery images from the provided list -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/DZr4ZZM1/F31f-QDLX0AA6KPD.jpg" alt="School event 1" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/Hxw8xxhX/F31z-Ax8Xs-AQ6DO8.jpg" alt="School event 2" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/V6q066Vd/Fgl-F7zq-Xw-AEYe7M.jpg" alt="School event 3" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/Y96L99sj/Fgl-Fpq2WAAIr-P7E.jpg" alt="School event 4" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/85Rf550v/Fhsee3IWYAAf-Pkc.jpg" alt="School event 5" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/B6TP66Vx/Fvhnum0Xg-AMZG2C.jpg" alt="School event 6" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/tT3nTTMt/Fyg-Rr-NEX0AEYq72.jpg" alt="School event 7" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/wM9yspC2/Fym-Wws-AWYAAPDk-P.jpg" alt="School event 8" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/ncc9FnYL/G-OCm-UMWk-AA5bcl.jpg" alt="School event 9" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/T1TLWx8M/Ga-B4Kpx-Xo-AAC5IR.jpg" alt="School event 10" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/HnTc7mGp/Ga-Bzh-SWWYAEBZ1A.jpg" alt="School event 11" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/90cRq23C/Ga-Bzhx8WQAAbv1a.jpg" alt="School event 12" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/zvpLCQN9/GAHTIzmaw-AAj-YK.jpg" alt="School event 13" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/SRVX6Pqs/GAHTMvka0AAKSq-C.jpg" alt="School event 14" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/SRVX6PqN/GDT3SRIW0AA0ffp.jpg" alt="School event 15" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/GtzBFfr8/GJXfrd-WQAAk-OES.jpg" alt="School event 16" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/tRzVGs62/GJXfv-DPWs-AEup-Cs.jpg" alt="School event 17" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/xjPbVXmg/GJYDKlz-XEAAo-IV8.jpg" alt="School event 18" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/c1c8Gv3k/GMQJPIHW8AAl-KGj.jpg" alt="School event 19" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/jddnxRQn/Gn-NEq-M6Xw-AAtrs-G.jpg" alt="School event 20" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/Nff2sQ7M/GPI0HSMXEAAnzs-Q.jpg" alt="School event 21" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/155Vmycg/GPI0HXm-XAAASd-Ab.jpg" alt="School event 22" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/yYY317XX/GRE2BDp-XYAALSz-J.jpg" alt="School event 23" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/VLL0fzBR/GREj86HWg-AA9g-LQ.jpg" alt="School event 24" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/02WMrhch/Gs-Hufxc-XUAAej12.jpg" alt="School event 25" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/qMbhgW1f/Gs-Huim-HWUAEa4e-F.jpg" alt="School event 26" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/28cb3g2n/Gs-Ik-Uo-JXo-AENn-PV.jpg" alt="School event 27" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/CxRZ8J2K/Gt-GEca-RWAAABDPj.jpg" alt="School event 28" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/wj1tNFrM/Gt-GEdnv-Ww-AAAWr-T.jpg" alt="School event 29" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/Z5XWxpkD/GVHCsgy-XEAEVgy-K.jpg" alt="School event 30" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/T3BKJg85/GW1Epkt-WIAAlko9.jpg" alt="School event 31" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/6pF8fnsM/GW1Eps-HXk-AAXw-R1.jpg" alt="School event 32" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/HkFr9XGZ/Gy-PDck8WUAA-OCO.jpg" alt="School event 33" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/sgbM47FH/Gy-PDcma-WIAAu-4z.jpg" alt="School event 34" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/0NmbWjxd/Gy-PDct-XWk-AATPe4.jpg" alt="School event 35" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/pd8pGrxC/Gy-PYp4v-WUAAu-IB5.jpg" alt="School event 36" loading="lazy" />
+                    <div class="overlay"><span>📸 School Event</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
     APPLICATION FORM
     ========================================== -->
     <section class="section" id="apply">
@@ -1836,9 +2080,9 @@
                             <ul>
                                 <li><a href="#achievements">Achievements</a></li>
                                 <li><a href="#testimonials">Testimonials</a></li>
+                                <li><a href="#gallery">Gallery</a></li>
                                 <li><a href="#faq">FAQ</a></li>
                                 <li><a href="#digital-home">Contact</a></li>
-                                <li><a href="#digital-home">Map</a></li>
                             </ul>
                         </div>
 
@@ -1917,25 +2161,20 @@
     </script>
 
     <!-- ==========================================
-    MAIN JAVASCRIPT - COMPLETE 3D SCHOOL ENVIRONMENT
+    MAIN JAVASCRIPT
     ========================================== -->
     <script>
         // ==========================================
-        // TRANSLATION - FIX: Simple Language Switcher
+        // TRANSLATION - Google Translate Widget
         // ==========================================
-        const langSelect = document.getElementById('languageSelect');
-        langSelect.addEventListener('change', function() {
-            const lang = this.value;
-            if (lang === 'en') {
-                window.location.href = window.location.pathname;
-            } else if (lang === 'rw') {
-                window.location.href = 'https://translate.google.com/translate?hl=en&sl=en&tl=rw&u=' + encodeURIComponent(window
-                    .location.href);
-            } else if (lang === 'fr') {
-                window.location.href = 'https://translate.google.com/translate?hl=en&sl=en&tl=fr&u=' + encodeURIComponent(window
-                    .location.href);
-            }
-        });
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,fr,rw',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'languageSelect');
+        }
 
         // ==========================================
         // SCENE SETUP
@@ -3112,15 +3351,16 @@
         }
 
         // ==========================================
-        // FORM SUBMISSION
+        // FORM SUBMISSION - UPDATED SCRIPT URL
         // ==========================================
         const form = document.getElementById('applicationForm');
         const formError = document.getElementById('formError');
         const formSuccess = document.getElementById('formSuccess');
         const submitBtn = document.getElementById('submitBtn');
 
+        // NEW Google Apps Script URL
         const SCRIPT_URL =
-            'https://script.google.com/macros/s/AKfycbzh0eRIvGJpqfhdrYK5uIsfq0U38nfyESNMdtR6VSfmc_PkWK0AUqM6kmM36xIn9XgUeA/exec';
+            'https://script.google.com/macros/s/AKfycby6jtvBTeXmnksk_18aiV3rF63NnZsXioY5jampOBXQvGAv3fpnw6RMZ2Igu2UtHAsY/exec';
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -3467,7 +3707,7 @@
         console.log('📖 Bookshelves:', shelfPos.length);
         console.log('🏆 Trophies:', trophyPos.length);
         console.log('🤖 AI Assistant: Ready');
-        console.log('📝 Form: Connected to Google Sheets');
+        console.log('📝 Form: Connected to Google Sheets (Updated URL)');
         console.log('📍 Location: Ntarama Sector, Bugesera District, Eastern Province');
         console.log('👨‍🏫 Head Teacher: NKUNDINGABO Theophile');
         console.log('🌍 Translation: English, Kinyarwanda, Français available');
