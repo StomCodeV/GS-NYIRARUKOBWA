@@ -45,7 +45,12 @@ export default function Footer() {
 
         <div className="border-t border-white/10 mt-8 pt-8 text-center text-sm text-white/40">
           <p>© 2026 G.S Nyirarukobwa. All rights reserved.</p>
-          <p className="mt-1">Designed & developed by TUYISENGE Jean Chrisostom.</p>
+         <p class="dev">
+    Designed & developed by 
+    <a href="https://imena-tech.vercel.app/" target="_blank" style="color:var(--cyan); hover:text-white; transition;">
+        iMENA Tech
+    </a>
+</p>
         </div>
       </div>
     </footer>
