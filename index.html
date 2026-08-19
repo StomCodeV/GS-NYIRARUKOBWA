@@ -1022,6 +1022,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
+            align-items: start;
         }
 
         .digital-home-left {
@@ -1064,6 +1065,7 @@
             border: 1px solid var(--glass-border);
             height: 350px;
             width: 100%;
+            position: relative;
         }
 
         .digital-home .map-container iframe {
@@ -1071,6 +1073,9 @@
             height: 100%;
             display: block;
             border: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .digital-home-links {
@@ -2127,11 +2132,14 @@
         <div class="chat-header">
             <div class="chat-avatar">
                 <img src="https://i.postimg.cc/zfn1bpyP/GS-NYIRARUKOBWA-Assistant-Ai.png" 
-                     alt="Madame Marie - AI Assistant" 
-                     loading="lazy" />
+                     alt="GS NYIRARUKOBWA Assistant Ai" 
+                     loading="lazy"
+                     width="48" 
+                     height="48"
+                     style="width:100%; height:100%; object-fit:cover; display:block;" />
             </div>
             <div class="chat-header-info">
-                <h4>Madame Marie — AI Assistant</h4>
+                <h4>GS NYIRARUKOBWA Assistant Ai</h4>
                 <p>G.S Nyirarukobwa • Online</p>
             </div>
             <button class="chat-close" id="chatClose"><i class="fas fa-times"></i></button>
@@ -2139,7 +2147,7 @@
 
         <div class="chat-messages" id="chatMessages">
             <div class="chat-message assistant" data-translate="ai-welcome">
-                👋 Bonjour! I'm Madame Marie, your AI assistant for G.S Nyirarukobwa. I can help you with information about our history, academics, admissions, SDMS, and more. What would you like to know?
+                👋 Bonjour! I'm GS NYIRARUKOBWA Assistant Ai. I can help you with information about our history, academics, admissions, SDMS, and more. What would you like to know?
             </div>
         </div>
 
@@ -2343,7 +2351,7 @@
                 'social-whatsapp': 'WhatsApp',
                 'social-twitter': 'Twitter',
                 'social-instagram': 'Instagram',
-                'ai-welcome': '👋 Bonjour! I\'m Madame Marie, your AI assistant for G.S Nyirarukobwa. I can help you with information about our history, academics, admissions, SDMS, and more. What would you like to know?',
+                'ai-welcome': '👋 Bonjour! I\'m GS NYIRARUKOBWA Assistant Ai. I can help you with information about our history, academics, admissions, SDMS, and more. What would you like to know?',
                 'ai-thinking': '🧠 Thinking',
                 'ai-placeholder': 'Ask me anything...'
             },
@@ -2511,7 +2519,7 @@
                 'social-whatsapp': 'WhatsApp',
                 'social-twitter': 'Twitter',
                 'social-instagram': 'Instagram',
-                'ai-welcome': '👋 Muraho! Ndi Madame Marie, ubufasha bwa AI bwa G.S Nyirarukobwa. Nshobora kugufasha kubijyanye n\'amateka, amasomo, kwandika, SDMS, n\'ibindi. Ni iki ushaka kumenya?',
+                'ai-welcome': '👋 Muraho! Ndi GS NYIRARUKOBWA Assistant Ai. Nshobora kugufasha kubijyanye n\'amateka, amasomo, kwandika, SDMS, n\'ibindi. Ni iki ushaka kumenya?',
                 'ai-thinking': '🧠 Ntekereza...',
                 'ai-placeholder': 'Mbaza ikintu...'
             },
@@ -2679,7 +2687,7 @@
                 'social-whatsapp': 'WhatsApp',
                 'social-twitter': 'Twitter',
                 'social-instagram': 'Instagram',
-                'ai-welcome': '👋 Bonjour! Je suis Madame Marie, votre assistante IA pour G.S Nyirarukobwa. Je peux vous aider avec des informations sur notre histoire, nos programmes, les admissions, SDMS, et plus encore. Que souhaitez-vous savoir?',
+                'ai-welcome': '👋 Bonjour! Je suis GS NYIRARUKOBWA Assistant Ai. Je peux vous aider avec des informations sur notre histoire, nos programmes, les admissions, SDMS, et plus encore. Que souhaitez-vous savoir?',
                 'ai-thinking': '🧠 Réflexion...',
                 'ai-placeholder': 'Posez-moi une question...'
             }
@@ -2689,7 +2697,7 @@
 
         function translatePage(lang) {
             currentLanguage = lang;
-            
+
             document.querySelectorAll('[data-translate]').forEach(el => {
                 const key = el.getAttribute('data-translate');
                 if (translations[lang] && translations[lang][key]) {
@@ -2698,12 +2706,10 @@
                     } else if (el.tagName === 'IMG') {
                         el.alt = translations[lang][key];
                     } else {
-                        // Check if element has HTML inside
                         const hasChildren = el.children.length > 0;
                         if (!hasChildren) {
                             el.textContent = translations[lang][key];
                         } else {
-                            // For elements with children, preserve HTML structure
                             const textNode = el.childNodes[0];
                             if (textNode && textNode.nodeType === Node.TEXT_NODE) {
                                 textNode.textContent = translations[lang][key];
@@ -3922,7 +3928,6 @@
         const formSuccess = document.getElementById('formSuccess');
         const submitBtn = document.getElementById('submitBtn');
 
-        // NEW Google Apps Script URL
         const SCRIPT_URL =
             'https://script.google.com/macros/s/AKfycby6jtvBTeXmnksk_18aiV3rF63NnZsXioY5jampOBXQvGAv3fpnw6RMZ2Igu2UtHAsY/exec';
 
@@ -3988,8 +3993,6 @@
         // ==========================================
         // AI ASSISTANT - Using External ai.js
         // ==========================================
-        // The AI is now loaded from ai.js
-        // Initialize it
         const ai = new SchoolAIAssistant();
 
         // ==========================================
