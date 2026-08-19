@@ -11,13 +11,10 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <!-- Google Translate Widget -->
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
-<!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
     <style>
         /* ============================================
                    CSS VARIABLES & RESET
@@ -214,7 +211,6 @@
             color: var(--cyan);
         }
 
-        /* Translation Selector in Nav */
         .nav-translate {
             display: flex;
             align-items: center;
@@ -289,7 +285,6 @@
             background: radial-gradient(ellipse at center, rgba(10, 22, 40, 0.2) 0%, rgba(10, 22, 40, 0.6) 100%);
         }
 
-        /* Room Indicator */
         .room-indicator {
             position: fixed;
             right: 24px;
@@ -828,14 +823,17 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--cyan), var(--purple));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            color: white;
+            overflow: hidden;
             flex-shrink: 0;
             border: 2px solid var(--cyan);
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+        }
+
+        .chat-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .chat-header-info h4 {
@@ -1318,15 +1316,15 @@
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#about">About</a></li>
-                <li><a href="#history">History</a></li>
-                <li><a href="#academics">Academics</a></li>
-                <li><a href="#staff">Staff</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#apply">Apply</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#digital-home">Contact</a></li>
+                <li><a href="#about" data-translate="nav-about">About</a></li>
+                <li><a href="#history" data-translate="nav-history">History</a></li>
+                <li><a href="#academics" data-translate="nav-academics">Academics</a></li>
+                <li><a href="#staff" data-translate="nav-staff">Staff</a></li>
+                <li><a href="#achievements" data-translate="nav-achievements">Achievements</a></li>
+                <li><a href="#gallery" data-translate="nav-gallery">Gallery</a></li>
+                <li><a href="#apply" data-translate="nav-apply">Apply</a></li>
+                <li><a href="#faq" data-translate="nav-faq">FAQ</a></li>
+                <li><a href="#digital-home" data-translate="nav-contact">Contact</a></li>
                 <li class="nav-translate">
                     <span class="globe-icon"><i class="fas fa-globe"></i></span>
                     <select id="languageSelect" aria-label="Translate website">
@@ -1344,15 +1342,15 @@
     ========================================== -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>G.S <span>Nyirarukobwa</span></h1>
-            <p class="tagline">Knowledge. Culture. Success</p>
+            <h1 data-translate="hero-title">G.S <span>Nyirarukobwa</span></h1>
+            <p class="tagline" data-translate="hero-tagline">Knowledge. Culture. Success</p>
             <div class="hero-buttons">
-                <a href="#about" class="btn-primary">Explore Our School</a>
-                <a href="#apply" class="btn-secondary">Apply Online</a>
+                <a href="#about" class="btn-primary" data-translate="hero-btn-explore">Explore Our School</a>
+                <a href="#apply" class="btn-secondary" data-translate="hero-btn-apply">Apply Online</a>
             </div>
         </div>
         <div class="scroll-hint">
-            <span>Scroll to explore the 3D campus</span>
+            <span data-translate="hero-scroll">Scroll to explore the 3D campus</span>
             <i class="fas fa-chevron-down"></i>
         </div>
     </section>
@@ -1362,8 +1360,8 @@
     ========================================== -->
     <section class="section" id="about">
         <div class="container">
-            <h2 class="section-title gradient-text">Welcome to G.S Nyirarukobwa</h2>
-            <p class="section-subtitle">
+            <h2 class="section-title gradient-text" data-translate="welcome-title">Welcome to G.S Nyirarukobwa</h2>
+            <p class="section-subtitle" data-translate="welcome-desc">
                 A school that has been shaping young minds since 1974. We are proud of our history,
                 our students, and our commitment to educational excellence and digital innovation.
             </p>
@@ -1371,47 +1369,47 @@
             <div class="info-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px;">
                 <div class="info-card glass" style="padding:24px; text-align:center;">
                     <span style="font-size:2.5rem; color:var(--cyan); display:block; margin-bottom:12px;">📅</span>
-                    <h4 style="font-weight:600; margin-bottom:8px;">Founded</h4>
+                    <h4 style="font-weight:600; margin-bottom:8px;" data-translate="welcome-founded">Founded</h4>
                     <p style="color:rgba(255,255,255,0.6);">1974 — Over 50 years of excellence</p>
                 </div>
                 <div class="info-card glass" style="padding:24px; text-align:center;">
                     <span style="font-size:2.5rem; color:var(--cyan); display:block; margin-bottom:12px;">📍</span>
-                    <h4 style="font-weight:600; margin-bottom:8px;">Location</h4>
+                    <h4 style="font-weight:600; margin-bottom:8px;" data-translate="welcome-location">Location</h4>
                     <p style="color:rgba(255,255,255,0.6);">Ntarama Sector, Bugesera District, Eastern Province</p>
                 </div>
                 <div class="info-card glass" style="padding:24px; text-align:center;">
                     <span style="font-size:2.5rem; color:var(--cyan); display:block; margin-bottom:12px;">👨‍🎓</span>
-                    <h4 style="font-weight:600; margin-bottom:8px;">Students</h4>
+                    <h4 style="font-weight:600; margin-bottom:8px;" data-translate="welcome-students">Students</h4>
                     <p style="color:rgba(255,255,255,0.6);">1,230+ students</p>
                 </div>
                 <div class="info-card glass" style="padding:24px; text-align:center;">
                     <span style="font-size:2.5rem; color:var(--cyan); display:block; margin-bottom:12px;">👨‍🏫</span>
-                    <h4 style="font-weight:600; margin-bottom:8px;">Head Teacher</h4>
+                    <h4 style="font-weight:600; margin-bottom:8px;" data-translate="welcome-headteacher">Head Teacher</h4>
                     <p style="color:rgba(255,255,255,0.6);">NYIRASAFI Olive</p>
                 </div>
             </div>
 
-            <h3 style="text-align:center; font-size:1.6rem; margin:48px 0 32px;">Why G.S Nyirarukobwa?</h3>
+            <h3 style="text-align:center; font-size:1.6rem; margin:48px 0 32px;" data-translate="welcome-why">Why G.S Nyirarukobwa?</h3>
             <div class="why-grid">
                 <div class="why-card glass">
                     <span class="icon">🎓</span>
-                    <h3>Quality Education</h3>
-                    <p>Strong academic foundation from nursery to O-Level with consistent performance in national examinations.</p>
+                    <h3 data-translate="why-quality">Quality Education</h3>
+                    <p data-translate="why-quality-desc">Strong academic foundation from nursery to O-Level with consistent performance in national examinations.</p>
                 </div>
                 <div class="why-card glass">
                     <span class="icon">👨‍🏫</span>
-                    <h3>Dedicated Teachers</h3>
-                    <p>Experienced educators who care about student growth and success.</p>
+                    <h3 data-translate="why-teachers">Dedicated Teachers</h3>
+                    <p data-translate="why-teachers-desc">Experienced educators who care about student growth and success.</p>
                 </div>
                 <div class="why-card glass">
                     <span class="icon">💻</span>
-                    <h3>Digital Innovation</h3>
-                    <p>One of the first schools in Bugesera District to embrace educational technology.</p>
+                    <h3 data-translate="why-digital">Digital Innovation</h3>
+                    <p data-translate="why-digital-desc">One of the first schools in Bugesera District to embrace educational technology.</p>
                 </div>
                 <div class="why-card glass">
                     <span class="icon">🏫</span>
-                    <h3>Safe Environment</h3>
-                    <p>A nurturing community where students feel valued, supported, and inspired.</p>
+                    <h3 data-translate="why-safe">Safe Environment</h3>
+                    <p data-translate="why-safe-desc">A nurturing community where students feel valued, supported, and inspired.</p>
                 </div>
             </div>
         </div>
@@ -1422,167 +1420,167 @@
     ========================================== -->
     <section class="section" id="history" style="background: rgba(26,58,107,0.15);">
         <div class="container">
-            <h2 class="section-title">Our History & Legacy</h2>
-            <p class="section-subtitle">A journey of excellence since 1974</p>
+            <h2 class="section-title" data-translate="history-title">Our History & Legacy</h2>
+            <p class="section-subtitle" data-translate="history-subtitle">A journey of excellence since 1974</p>
 
             <div class="glass" style="padding:32px; margin-bottom:32px;">
-                <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:20px;">📅 School Timeline</h3>
+                <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:20px;" data-translate="history-timeline">📅 School Timeline</h3>
                 <div style="display:flex; flex-direction:column; gap:4px;">
                     <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
                         <span style="color:var(--cyan); font-weight:700; min-width:80px;">1974</span>
-                        <span style="color:rgba(255,255,255,0.7);">École Primaire Nyirarukobwa was founded</span>
+                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-founded">École Primaire Nyirarukobwa was founded</span>
                     </div>
                     <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
                         <span style="color:var(--cyan); font-weight:700; min-width:80px;">2013</span>
-                        <span style="color:rgba(255,255,255,0.7);"><strong>Airtel Rwanda</strong> renovated the school with a <strong>20 million Franc</strong> investment — covering roofs of 11 classrooms, doors, windows, benches for 200 students, three water tanks, and toilet construction</span>
+                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-airtel"><strong>Airtel Rwanda</strong> renovated the school with a <strong>20 million Franc</strong> investment — covering roofs of 11 classrooms, doors, windows, benches for 200 students, three water tanks, and toilet construction</span>
                     </div>
                     <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
                         <span style="color:var(--cyan); font-weight:700; min-width:80px;">2013</span>
-                        <span style="color:rgba(255,255,255,0.7);"><strong>ISOC Rwanda Chapter</strong> provided a <strong>$10,000 grant</strong> to bring connectivity to the school, purchasing five computers and setting up a computer lab</span>
+                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-isoc"><strong>ISOC Rwanda Chapter</strong> provided a <strong>$10,000 grant</strong> to bring connectivity to the school, purchasing five computers and setting up a computer lab</span>
                     </div>
                     <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
                         <span style="color:var(--cyan); font-weight:700; min-width:80px;">2020</span>
-                        <span style="color:rgba(255,255,255,0.7);">First <strong>Safer Internet Day</strong> celebrated at G.S Nyirarukobwa</span>
+                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-safer">First <strong>Safer Internet Day</strong> celebrated at G.S Nyirarukobwa</span>
                     </div>
                     <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
                         <span style="color:var(--cyan); font-weight:700; min-width:80px;">2021</span>
-                        <span style="color:rgba(255,255,255,0.7);"><strong>Smart Teacher Project</strong> launched — 10 teachers received smartphones and training</span>
+                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-smart"><strong>Smart Teacher Project</strong> launched — 10 teachers received smartphones and training</span>
                     </div>
                     <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
                         <span style="color:var(--cyan); font-weight:700; min-width:80px;">2024</span>
-                        <span style="color:rgba(255,255,255,0.7);"><strong>Global Encryption Day</strong> celebrated at the school</span>
+                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-encryption"><strong>Global Encryption Day</strong> celebrated at the school</span>
                     </div>
                     <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
                         <span style="color:var(--cyan); font-weight:700; min-width:80px;">2024</span>
-                        <span style="color:rgba(255,255,255,0.7);"><strong>Safer Internet Day 2024</strong> hosted at G.S Nyirarukobwa with theme "Promoting personal accountability for a constructive internet atmosphere"</span>
+                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-safer2024"><strong>Safer Internet Day 2024</strong> hosted at G.S Nyirarukobwa with theme "Promoting personal accountability for a constructive internet atmosphere"</span>
                     </div>
                     <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
                         <span style="color:var(--cyan); font-weight:700; min-width:80px;">2025</span>
-                        <span style="color:rgba(255,255,255,0.7);"><strong>Digital Parenting Training</strong> held at the school</span>
+                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-parenting"><strong>Digital Parenting Training</strong> held at the school</span>
                     </div>
                 </div>
             </div>
 
             <!-- Student Counter -->
             <div class="glass" style="padding:32px; text-align:center; margin-bottom:32px;">
-                <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:20px;">👨‍🎓 Our Students</h3>
+                <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:20px;" data-translate="students-title">👨‍🎓 Our Students</h3>
                 <div style="display:flex; justify-content:center; gap:48px; flex-wrap:wrap;">
                     <div style="text-align:center;">
                         <div style="font-size:3.5rem; font-weight:900; color:var(--cyan);" id="studentCounter">1,230+</div>
-                        <div style="color:rgba(255,255,255,0.5); font-size:0.9rem;">Total Students</div>
+                        <div style="color:rgba(255,255,255,0.5); font-size:0.9rem;" data-translate="students-total">Total Students</div>
                     </div>
                     <div style="text-align:center;">
                         <div style="font-size:3.5rem; font-weight:900; color:#4ecdc4;">406+</div>
-                        <div style="color:rgba(255,255,255,0.5); font-size:0.9rem;">Girls</div>
+                        <div style="color:rgba(255,255,255,0.5); font-size:0.9rem;" data-translate="students-girls">Girls</div>
                     </div>
                     <div style="text-align:center;">
                         <div style="font-size:3.5rem; font-weight:900; color:#ff6b6b;">399+</div>
-                        <div style="color:rgba(255,255,255,0.5); font-size:0.9rem;">Boys</div>
+                        <div style="color:rgba(255,255,255,0.5); font-size:0.9rem;" data-translate="students-boys">Boys</div>
                     </div>
                 </div>
             </div>
 
             <!-- School Infrastructure -->
             <div class="glass" style="padding:32px; margin-bottom:32px;">
-                <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:16px;">🏫 School Infrastructure</h3>
+                <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:16px;" data-translate="infrastructure-title">🏫 School Infrastructure</h3>
                 <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px;">
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">🏛️</span>
-                        <h4 style="font-weight:600; font-size:1rem;">11 Classrooms</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">With new roofs (renovated 2013)</p>
+                        <h4 style="font-weight:600; font-size:1rem;" data-translate="infra-classrooms">11 Classrooms</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="infra-classrooms-desc">With new roofs (renovated 2013)</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">🪑</span>
-                        <h4 style="font-weight:600; font-size:1rem;">200+ Benches</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Seating for students</p>
+                        <h4 style="font-weight:600; font-size:1rem;" data-translate="infra-benches">200+ Benches</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="infra-benches-desc">Seating for students</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">💧</span>
-                        <h4 style="font-weight:600; font-size:1rem;">3 Water Tanks</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Clean water supply</p>
+                        <h4 style="font-weight:600; font-size:1rem;" data-translate="infra-tanks">3 Water Tanks</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="infra-tanks-desc">Clean water supply</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">🚻</span>
-                        <h4 style="font-weight:600; font-size:1rem;">New Toilets</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Sanitary facilities</p>
+                        <h4 style="font-weight:600; font-size:1rem;" data-translate="infra-toilets">New Toilets</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="infra-toilets-desc">Sanitary facilities</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">💻</span>
-                        <h4 style="font-weight:600; font-size:1rem;">Computer Lab</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">5 computers (initial setup)</p>
+                        <h4 style="font-weight:600; font-size:1rem;" data-translate="infra-computers">Computer Lab</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="infra-computers-desc">5 computers (initial setup)</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">📚</span>
-                        <h4 style="font-weight:600; font-size:1rem;">Digital Library</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Offline educational resources</p>
+                        <h4 style="font-weight:600; font-size:1rem;" data-translate="infra-library">Digital Library</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="infra-library-desc">Offline educational resources</p>
                     </div>
                 </div>
             </div>
 
             <!-- Technology Initiatives -->
             <div class="glass" style="padding:32px; margin-bottom:32px;">
-                <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:16px;">💻 Technology & ICT Initiatives</h3>
+                <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:16px;" data-translate="tech-title">💻 Technology & ICT Initiatives</h3>
                 <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px;">
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">📖</span>
-                        <h4 style="font-weight:600; font-size:0.95rem;">Digital Library</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Offline digital educational resources</p>
+                        <h4 style="font-weight:600; font-size:0.95rem;" data-translate="tech-digital">Digital Library</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="tech-digital-desc">Offline digital educational resources</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">💻</span>
-                        <h4 style="font-weight:600; font-size:0.95rem;">Computer Lab</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">5 computers through ISOC grant</p>
+                        <h4 style="font-weight:600; font-size:0.95rem;" data-translate="tech-computers">Computer Lab</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="tech-computers-desc">5 computers through ISOC grant</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">📱</span>
-                        <h4 style="font-weight:600; font-size:0.95rem;">Smart Teacher Project</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">10 teachers received smartphones (2021)</p>
+                        <h4 style="font-weight:600; font-size:0.95rem;" data-translate="tech-smart">Smart Teacher Project</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="tech-smart-desc">10 teachers received smartphones (2021)</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">💬</span>
-                        <h4 style="font-weight:600; font-size:0.95rem;">WhatsApp Group</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">All teachers connected</p>
+                        <h4 style="font-weight:600; font-size:0.95rem;" data-translate="tech-whatsapp">WhatsApp Group</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="tech-whatsapp-desc">All teachers connected</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">🛡️</span>
-                        <h4 style="font-weight:600; font-size:0.95rem;">Safer Internet Day</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Annual event since 2020</p>
+                        <h4 style="font-weight:600; font-size:0.95rem;" data-translate="tech-safer">Safer Internet Day</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="tech-safer-desc">Annual event since 2020</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">🔐</span>
-                        <h4 style="font-weight:600; font-size:0.95rem;">Global Encryption Day</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Participated in 2024</p>
+                        <h4 style="font-weight:600; font-size:0.95rem;" data-translate="tech-encryption">Global Encryption Day</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="tech-encryption-desc">Participated in 2024</p>
                     </div>
                 </div>
             </div>
 
             <!-- Key Partners -->
             <div class="glass" style="padding:32px;">
-                <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:16px;">🤝 Our Partners</h3>
+                <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:16px;" data-translate="partners-title">🤝 Our Partners</h3>
                 <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px;">
                     <div style="background:rgba(255,255,255,0.04); border-radius:10px; padding:16px; text-align:center;">
-                        <h4 style="color:var(--cyan); font-weight:600;">ISOC Rwanda</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Digital Library, smartphones, teacher training</p>
+                        <h4 style="color:var(--cyan); font-weight:600;" data-translate="partner-isoc">ISOC Rwanda</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="partner-isoc-desc">Digital Library, smartphones, teacher training</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.04); border-radius:10px; padding:16px; text-align:center;">
-                        <h4 style="color:var(--cyan); font-weight:600;">Airtel Rwanda</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">20M FRW school renovation (2013)</p>
+                        <h4 style="color:var(--cyan); font-weight:600;" data-translate="partner-airtel">Airtel Rwanda</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="partner-airtel-desc">20M FRW school renovation (2013)</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.04); border-radius:10px; padding:16px; text-align:center;">
-                        <h4 style="color:var(--cyan); font-weight:600;">MINEDUC</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Education policy and support</p>
+                        <h4 style="color:var(--cyan); font-weight:600;" data-translate="partner-mineduc">MINEDUC</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="partner-mineduc-desc">Education policy and support</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.04); border-radius:10px; padding:16px; text-align:center;">
-                        <h4 style="color:var(--cyan); font-weight:600;">Bugesera District</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Local government support</p>
+                        <h4 style="color:var(--cyan); font-weight:600;" data-translate="partner-district">Bugesera District</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="partner-district-desc">Local government support</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.04); border-radius:10px; padding:16px; text-align:center;">
-                        <h4 style="color:var(--cyan); font-weight:600;">Rwanda Investigation Bureau</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Safer Internet Day participation</p>
+                        <h4 style="color:var(--cyan); font-weight:600;" data-translate="partner-rib">Rwanda Investigation Bureau</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="partner-rib-desc">Safer Internet Day participation</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.04); border-radius:10px; padding:16px; text-align:center;">
-                        <h4 style="color:var(--cyan); font-weight:600;">UNICEF</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">SDMS implementation support</p>
+                        <h4 style="color:var(--cyan); font-weight:600;" data-translate="partner-unicef">UNICEF</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="partner-unicef-desc">SDMS implementation support</p>
                     </div>
                 </div>
             </div>
@@ -1594,24 +1592,24 @@
     ========================================== -->
     <section class="section" id="academics">
         <div class="container">
-            <h2 class="section-title">Our Academic Levels</h2>
-            <p class="section-subtitle">From early years to secondary education</p>
+            <h2 class="section-title" data-translate="academics-title">Our Academic Levels</h2>
+            <p class="section-subtitle" data-translate="academics-subtitle">From early years to secondary education</p>
             <div class="levels-grid">
                 <div class="level-card glass">
-                    <h3>Nursery</h3>
-                    <p>Early childhood education focusing on foundational skills, socialization, and cognitive development.</p>
+                    <h3 data-translate="academics-nursery">Nursery</h3>
+                    <p data-translate="academics-nursery-desc">Early childhood education focusing on foundational skills, socialization, and cognitive development.</p>
                 </div>
                 <div class="level-card glass">
-                    <h3>Lower Primary</h3>
-                    <p>Building strong foundations in literacy, numeracy, and social skills.</p>
+                    <h3 data-translate="academics-lower">Lower Primary</h3>
+                    <p data-translate="academics-lower-desc">Building strong foundations in literacy, numeracy, and social skills.</p>
                 </div>
                 <div class="level-card glass">
-                    <h3>Upper Primary</h3>
-                    <p>Strengthening core subjects and developing critical thinking skills.</p>
+                    <h3 data-translate="academics-upper">Upper Primary</h3>
+                    <p data-translate="academics-upper-desc">Strengthening core subjects and developing critical thinking skills.</p>
                 </div>
                 <div class="level-card glass">
-                    <h3>O-Level</h3>
-                    <p>Preparing students for higher education and future careers.</p>
+                    <h3 data-translate="academics-olevel">O-Level</h3>
+                    <p data-translate="academics-olevel-desc">Preparing students for higher education and future careers.</p>
                 </div>
             </div>
         </div>
@@ -1622,8 +1620,8 @@
     ========================================== -->
     <section class="section" id="staff" style="background: rgba(26,58,107,0.15);">
         <div class="container">
-            <h2 class="section-title">Meet Our Team</h2>
-            <p class="section-subtitle">Dedicated professionals shaping the future</p>
+            <h2 class="section-title" data-translate="staff-title">Meet Our Team</h2>
+            <p class="section-subtitle" data-translate="staff-subtitle">Dedicated professionals shaping the future</p>
             <div class="staff-grid">
                 <div class="staff-card glass">
                     <div class="staff-avatar"><i class="fas fa-user-tie"></i></div>
@@ -1664,38 +1662,38 @@
     ========================================== -->
     <section class="section" id="achievements">
         <div class="container">
-            <h2 class="section-title">Our Achievements</h2>
-            <p class="section-subtitle">A legacy of excellence</p>
+            <h2 class="section-title" data-translate="achievements-title">Our Achievements</h2>
+            <p class="section-subtitle" data-translate="achievements-subtitle">A legacy of excellence</p>
             <div class="achievement-grid">
                 <div class="achievement-card glass">
                     <span class="icon">📚</span>
-                    <h4>Academic Excellence</h4>
-                    <p>Consistent performance in national examinations, improved school ranking, test scores, and enrollment.</p>
+                    <h4 data-translate="achievement-academic">Academic Excellence</h4>
+                    <p data-translate="achievement-academic-desc">Consistent performance in national examinations, improved school ranking, test scores, and enrollment.</p>
                 </div>
                 <div class="achievement-card glass">
                     <span class="icon">⚽</span>
-                    <h4>Sports Achievements</h4>
-                    <p>Winner of district sports competitions 2019, 2021, 2023. Active participation in school competitions.</p>
+                    <h4 data-translate="achievement-sports">Sports Achievements</h4>
+                    <p data-translate="achievement-sports-desc">Winner of district sports competitions 2019, 2021, 2023. Active participation in school competitions.</p>
                 </div>
                 <div class="achievement-card glass">
                     <span class="icon">💻</span>
-                    <h4>Digital Innovation</h4>
-                    <p>Pioneered digital learning initiatives in Bugesera District. School-based Scratch programming competition.</p>
+                    <h4 data-translate="achievement-digital">Digital Innovation</h4>
+                    <p data-translate="achievement-digital-desc">Pioneered digital learning initiatives in Bugesera District. School-based Scratch programming competition.</p>
                 </div>
                 <div class="achievement-card glass">
                     <span class="icon">🏆</span>
-                    <h4>Teacher Recognition</h4>
-                    <p>Teacher recognized for leveraging ICT in teaching. Leader in educational technology.</p>
+                    <h4 data-translate="achievement-teacher">Teacher Recognition</h4>
+                    <p data-translate="achievement-teacher-desc">Teacher recognized for leveraging ICT in teaching. Leader in educational technology.</p>
                 </div>
                 <div class="achievement-card glass">
                     <span class="icon">🌍</span>
-                    <h4>Global Participation</h4>
-                    <p>Safer Internet Day (2020, 2024) and Global Encryption Day (2024) host school.</p>
+                    <h4 data-translate="achievement-global">Global Participation</h4>
+                    <p data-translate="achievement-global-desc">Safer Internet Day (2020, 2024) and Global Encryption Day (2024) host school.</p>
                 </div>
                 <div class="achievement-card glass">
                     <span class="icon">📱</span>
-                    <h4>Digital Literacy Pioneer</h4>
-                    <p>One of the first schools in Bugesera District to embrace ICT and digital literacy.</p>
+                    <h4 data-translate="achievement-pioneer">Digital Literacy Pioneer</h4>
+                    <p data-translate="achievement-pioneer-desc">One of the first schools in Bugesera District to embrace ICT and digital literacy.</p>
                 </div>
             </div>
         </div>
@@ -1706,8 +1704,8 @@
     ========================================== -->
     <section class="section" id="testimonials" style="background: rgba(26,58,107,0.15);">
         <div class="container">
-            <h2 class="section-title">What Our Students Say</h2>
-            <p class="section-subtitle">Real voices from our school community</p>
+            <h2 class="section-title" data-translate="testimonials-title">What Our Students Say</h2>
+            <p class="section-subtitle" data-translate="testimonials-subtitle">Real voices from our school community</p>
             <div class="testimonial-grid">
                 <div class="testimonial-card glass">
                     <p class="quote">"G.S Nyirarukobwa helped me build confidence and discipline. The teachers here really care about our success."</p>
@@ -1733,8 +1731,8 @@
     ========================================== -->
     <section class="section" id="gallery" style="background: rgba(26,58,107,0.15);">
         <div class="container">
-            <h2 class="section-title">📸 School Gallery</h2>
-            <p class="section-subtitle">Moments from our school life</p>
+            <h2 class="section-title" data-translate="gallery-title">📸 School Gallery</h2>
+            <p class="section-subtitle" data-translate="gallery-subtitle">Moments from our school life</p>
 
             <div class="gallery-grid">
                 <!-- Gallery images from the provided list -->
@@ -1891,55 +1889,55 @@
     ========================================== -->
     <section class="section" id="apply">
         <div class="container">
-            <h2 class="section-title">Apply Online</h2>
-            <p class="section-subtitle">Complete this form to register your child at G.S Nyirarukobwa.</p>
+            <h2 class="section-title" data-translate="apply-title">Apply Online</h2>
+            <p class="section-subtitle" data-translate="apply-subtitle">Complete this form to register your child at G.S Nyirarukobwa.</p>
 
             <div class="form-container glass" id="formContainer">
                 <div class="form-error" id="formError"></div>
 
                 <div class="form-success" id="formSuccess" style="display:none;">
                     <span class="icon">✅</span>
-                    <h3>Application Submitted!</h3>
-                    <p>Thank you for applying to G.S Nyirarukobwa. We have received your application and will contact you soon.</p>
+                    <h3 data-translate="apply-success">Application Submitted!</h3>
+                    <p data-translate="apply-success-desc">Thank you for applying to G.S Nyirarukobwa. We have received your application and will contact you soon.</p>
                     <br />
-                    <button class="btn-primary" onclick="resetForm()">Submit Another Application</button>
+                    <button class="btn-primary" onclick="resetForm()" data-translate="apply-another">Submit Another Application</button>
                 </div>
 
                 <form id="applicationForm">
-                    <h4 style="color:var(--cyan); margin-bottom:16px; font-size:1.1rem;">
+                    <h4 style="color:var(--cyan); margin-bottom:16px; font-size:1.1rem;" data-translate="apply-parent">
                         <i class="fas fa-user"></i> Parent / Guardian Information
                     </h4>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Full Name <span class="required">*</span></label>
+                            <label data-translate="apply-parent-name">Full Name <span class="required">*</span></label>
                             <input type="text" class="form-control" id="parentName" placeholder="e.g., Jean Pierre" required />
                         </div>
                         <div class="form-group">
-                            <label>Phone Number <span class="required">*</span></label>
+                            <label data-translate="apply-phone">Phone Number <span class="required">*</span></label>
                             <input type="tel" class="form-control" id="phone" placeholder="e.g., 0788 123 456" required />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Email Address</label>
+                        <label data-translate="apply-email">Email Address</label>
                         <input type="email" class="form-control" id="email" placeholder="e.g., parent@email.com" />
                     </div>
 
-                    <h4 style="color:var(--cyan); margin:24px 0 16px; font-size:1.1rem;">
+                    <h4 style="color:var(--cyan); margin:24px 0 16px; font-size:1.1rem;" data-translate="apply-student">
                         <i class="fas fa-child"></i> Student Information
                     </h4>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Student Full Name <span class="required">*</span></label>
+                            <label data-translate="apply-student-name">Student Full Name <span class="required">*</span></label>
                             <input type="text" class="form-control" id="studentName" placeholder="e.g., Marie Aimee" required />
                         </div>
                         <div class="form-group">
-                            <label>Date of Birth <span class="required">*</span></label>
+                            <label data-translate="apply-dob">Date of Birth <span class="required">*</span></label>
                             <input type="date" class="form-control" id="studentDOB" required />
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Gender <span class="required">*</span></label>
+                            <label data-translate="apply-gender">Gender <span class="required">*</span></label>
                             <select class="form-control" id="studentGender" required>
                                 <option value="">Select Gender</option>
                                 <option value="Male">Male</option>
@@ -1947,7 +1945,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Level Applying For <span class="required">*</span></label>
+                            <label data-translate="apply-level">Level Applying For <span class="required">*</span></label>
                             <select class="form-control" id="levelApplying" required>
                                 <option value="">Select Level</option>
                                 <option value="Nursery">Nursery</option>
@@ -1958,21 +1956,21 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Previous School (if any)</label>
+                        <label data-translate="apply-previous">Previous School (if any)</label>
                         <input type="text" class="form-control" id="previousSchool" placeholder="e.g., G.S Another School" />
                     </div>
 
                     <!-- SDMS Code Field -->
                     <div class="form-group">
-                        <label>SDMS Code <span class="required">*</span></label>
+                        <label data-translate="apply-sdms">SDMS Code <span class="required">*</span></label>
                         <input type="text" class="form-control" id="sdmsCode" placeholder="e.g., SDMS-2025-001" required />
                         <small style="color:rgba(255,255,255,0.4); font-size:0.75rem; display:block; margin-top:4px;">
-                            <i class="fas fa-info-circle"></i> The <strong>SDMS (School Data Management System)</strong> code is used by the Ministry of Education to track student records.
-                            <a href="https://sdms.gov.rw" target="_blank" style="color:var(--cyan); text-decoration:underline;">Learn more about SDMS →</a>
+                            <i class="fas fa-info-circle"></i> <span data-translate="apply-sdms-desc">The <strong>SDMS (School Data Management System)</strong> code is used by the Ministry of Education to track student records.</span>
+                            <a href="https://sdms.gov.rw" target="_blank" style="color:var(--cyan); text-decoration:underline;" data-translate="apply-sdms-learn">Learn more about SDMS →</a>
                         </small>
                     </div>
 
-                    <h4 style="color:var(--cyan); margin:24px 0 16px; font-size:1.1rem;">
+                    <h4 style="color:var(--cyan); margin:24px 0 16px; font-size:1.1rem;" data-translate="apply-additional">
                         <i class="fas fa-info-circle"></i> Additional Information
                     </h4>
                     <div class="form-group">
@@ -1980,10 +1978,10 @@
                     </div>
 
                     <button type="submit" class="btn-primary" style="width:100%;" id="submitBtn">
-                        <i class="fas fa-paper-plane"></i> Submit Application
+                        <i class="fas fa-paper-plane"></i> <span data-translate="apply-submit">Submit Application</span>
                     </button>
 
-                    <p style="text-align:center; color:rgba(255,255,255,0.3); font-size:0.75rem; margin-top:12px;">
+                    <p style="text-align:center; color:rgba(255,255,255,0.3); font-size:0.75rem; margin-top:12px;" data-translate="apply-agree">
                         By submitting this form, you agree to the school's data collection policies.
                     </p>
                 </form>
@@ -1996,50 +1994,50 @@
     ========================================== -->
     <section class="section" id="faq" style="background: rgba(26,58,107,0.15);">
         <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-subtitle">Quick answers to common questions</p>
+            <h2 class="section-title" data-translate="faq-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle" data-translate="faq-subtitle">Quick answers to common questions</p>
             <div class="faq-list">
                 <div class="faq-item glass" onclick="toggleFaq(this)">
                     <div class="faq-question">
-                        <span>Where is the school located?</span>
+                        <span data-translate="faq-location">Where is the school located?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer">Ntarama Sector, Bugesera District, Eastern Province, Rwanda. <a href="#digital-home" style="color:var(--cyan);">View on map →</a></div>
+                    <div class="faq-answer">Ntarama Sector, Bugesera District, Eastern Province, Rwanda. <a href="#digital-home" style="color:var(--cyan);" data-translate="faq-view-map">View on map →</a></div>
                 </div>
                 <div class="faq-item glass" onclick="toggleFaq(this)">
                     <div class="faq-question">
-                        <span>What levels does the school offer?</span>
+                        <span data-translate="faq-levels">What levels does the school offer?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer">Nursery, Lower Primary, Upper Primary, and O-Level.</div>
+                    <div class="faq-answer" data-translate="faq-levels-answer">Nursery, Lower Primary, Upper Primary, and O-Level.</div>
                 </div>
                 <div class="faq-item glass" onclick="toggleFaq(this)">
                     <div class="faq-question">
-                        <span>How can I apply?</span>
+                        <span data-translate="faq-apply">How can I apply?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer">Visit our Apply section above to complete the online application form. You'll need the student's SDMS Code.</div>
+                    <div class="faq-answer" data-translate="faq-apply-answer">Visit our Apply section above to complete the online application form. You'll need the student's SDMS Code.</div>
                 </div>
                 <div class="faq-item glass" onclick="toggleFaq(this)">
                     <div class="faq-question">
-                        <span>What documents are needed for admission?</span>
+                        <span data-translate="faq-documents">What documents are needed for admission?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer">Birth certificate, previous school report, medical records, parent/guardian identification, and SDMS Code.</div>
+                    <div class="faq-answer" data-translate="faq-documents-answer">Birth certificate, previous school report, medical records, parent/guardian identification, and SDMS Code.</div>
                 </div>
                 <div class="faq-item glass" onclick="toggleFaq(this)">
                     <div class="faq-question">
-                        <span>How can I contact the school?</span>
+                        <span data-translate="faq-contact">How can I contact the school?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer">You can visit the school at Ntarama Sector, Bugesera District, or use the contact section below.</div>
+                    <div class="faq-answer" data-translate="faq-contact-answer">You can visit the school at Ntarama Sector, Bugesera District, or use the contact section below.</div>
                 </div>
                 <div class="faq-item glass" onclick="toggleFaq(this)">
                     <div class="faq-question">
-                        <span>What is SDMS and why do I need it?</span>
+                        <span data-translate="faq-sdms">What is SDMS and why do I need it?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer">SDMS (School Data Management System) is a system by the Ministry of Education to track student records. It's required for all students in Rwanda. <a href="https://sdms.gov.rw" target="_blank" style="color:var(--cyan);">Learn more →</a></div>
+                    <div class="faq-answer" data-translate="faq-sdms-answer">SDMS (School Data Management System) is a system by the Ministry of Education to track student records. It's required for all students in Rwanda. <a href="https://sdms.gov.rw" target="_blank" style="color:var(--cyan);" data-translate="faq-learn-more">Learn more →</a></div>
                 </div>
             </div>
         </div>
@@ -2055,9 +2053,9 @@
                 <!-- Left Column: Brand + Map -->
                 <div class="digital-home-left">
                     <div class="school-brand">
-                        <h2>G.S <span>Nyirarukobwa</span></h2>
-                        <p class="tagline">Learning Today. Building Tomorrow.</p>
-                        <p class="established">🏛️ Since 1974</p>
+                        <h2 data-translate="digital-brand">G.S <span>Nyirarukobwa</span></h2>
+                        <p class="tagline" data-translate="digital-tagline">Learning Today. Building Tomorrow.</p>
+                        <p class="established" data-translate="digital-established">🏛️ Since 1974</p>
                     </div>
 
                     <div class="map-container">
@@ -2069,33 +2067,33 @@
                 <div class="digital-home-right">
                     <div class="digital-home-links">
                         <div class="link-group">
-                            <h4>Quick Links</h4>
+                            <h4 data-translate="digital-quick">Quick Links</h4>
                             <ul>
-                                <li><a href="#about">About</a></li>
-                                <li><a href="#history">History</a></li>
-                                <li><a href="#academics">Academics</a></li>
-                                <li><a href="#staff">Staff</a></li>
-                                <li><a href="#apply">Admissions</a></li>
+                                <li><a href="#about" data-translate="nav-about">About</a></li>
+                                <li><a href="#history" data-translate="nav-history">History</a></li>
+                                <li><a href="#academics" data-translate="nav-academics">Academics</a></li>
+                                <li><a href="#staff" data-translate="nav-staff">Staff</a></li>
+                                <li><a href="#apply" data-translate="nav-apply">Admissions</a></li>
                             </ul>
                         </div>
 
                         <div class="link-group">
-                            <h4>More</h4>
+                            <h4 data-translate="digital-more">More</h4>
                             <ul>
-                                <li><a href="#achievements">Achievements</a></li>
+                                <li><a href="#achievements" data-translate="nav-achievements">Achievements</a></li>
                                 <li><a href="#testimonials">Testimonials</a></li>
-                                <li><a href="#gallery">Gallery</a></li>
-                                <li><a href="#faq">FAQ</a></li>
-                                <li><a href="#digital-home">Contact</a></li>
+                                <li><a href="#gallery" data-translate="nav-gallery">Gallery</a></li>
+                                <li><a href="#faq" data-translate="nav-faq">FAQ</a></li>
+                                <li><a href="#digital-home" data-translate="nav-contact">Contact</a></li>
                             </ul>
                         </div>
 
                         <div class="link-group">
-                            <h4>Connect</h4>
+                            <h4 data-translate="digital-connect">Connect</h4>
                             <ul>
-                                <li><a href="#"><i class="fab fa-facebook" style="margin-right:6px;"></i> Facebook</a></li>
-                                <li><a href="#"><i class="fab fa-youtube" style="margin-right:6px;"></i> YouTube</a></li>
-                                <li><a href="#"><i class="fab fa-whatsapp" style="margin-right:6px;"></i> WhatsApp</a></li>
+                                <li><a href="#"><i class="fab fa-facebook" style="margin-right:6px;"></i> <span data-translate="social-facebook">Facebook</span></a></li>
+                                <li><a href="#"><i class="fab fa-youtube" style="margin-right:6px;"></i> <span data-translate="social-youtube">YouTube</span></a></li>
+                                <li><a href="#"><i class="fab fa-whatsapp" style="margin-right:6px;"></i> <span data-translate="social-whatsapp">WhatsApp</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -2109,8 +2107,8 @@
                     </div>
 
                     <div class="copyright">
-                        <p>© 2026 G.S Nyirarukobwa. All rights reserved.</p>
-                        <p class="dev">Designed &amp; developed by <a href="https://imena-tech.vercel.app/" target="_blank"><strong>iMENA Tech</strong></a></p>
+                        <p data-translate="digital-copyright">© 2026 G.S Nyirarukobwa. All rights reserved.</p>
+                        <p class="dev"><span data-translate="digital-dev">Designed &amp; developed by</span> <a href="https://imena-tech.vercel.app/" target="_blank"><strong>iMENA Tech</strong></a></p>
                     </div>
                 </div>
 
@@ -2127,7 +2125,11 @@
 
     <div class="chat-window" id="chatWindow">
         <div class="chat-header">
-            <div class="chat-avatar">👩‍🏫</div>
+            <div class="chat-avatar">
+                <img src="https://i.postimg.cc/zfn1bpyP/GS-NYIRARUKOBWA-Assistant-Ai.png" 
+                     alt="Madame Marie - AI Assistant" 
+                     loading="lazy" />
+            </div>
             <div class="chat-header-info">
                 <h4>Madame Marie — AI Assistant</h4>
                 <p>G.S Nyirarukobwa • Online</p>
@@ -2136,13 +2138,13 @@
         </div>
 
         <div class="chat-messages" id="chatMessages">
-            <div class="chat-message assistant">
+            <div class="chat-message assistant" data-translate="ai-welcome">
                 👋 Bonjour! I'm Madame Marie, your AI assistant for G.S Nyirarukobwa. I can help you with information about our history, academics, admissions, SDMS, and more. What would you like to know?
             </div>
         </div>
 
         <div class="chat-thinking" id="chatThinking">
-            <span>🧠 Thinking</span>
+            <span data-translate="ai-thinking">🧠 Thinking</span>
             <div class="dots">
                 <span></span>
                 <span></span>
@@ -2153,7 +2155,7 @@
         <div class="reasoning-log" id="reasoningLog"></div>
 
         <div class="chat-input-area">
-            <input type="text" id="chatInput" placeholder="Ask me anything..." />
+            <input type="text" id="chatInput" placeholder="Ask me anything..." data-translate-placeholder="ai-placeholder" />
             <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
@@ -2165,20 +2167,578 @@
     </script>
 
     <!-- ==========================================
+    AI ASSISTANT (External File)
+    ========================================== -->
+    <script src="ai.js"></script>
+
+    <!-- ==========================================
     MAIN JAVASCRIPT
     ========================================== -->
     <script>
         // ==========================================
-        // TRANSLATION - Google Translate Widget
+        // TRANSLATION SYSTEM
         // ==========================================
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,fr,rw',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'languageSelect');
+        const translations = {
+            en: {
+                'nav-about': 'About',
+                'nav-history': 'History',
+                'nav-academics': 'Academics',
+                'nav-staff': 'Staff',
+                'nav-achievements': 'Achievements',
+                'nav-gallery': 'Gallery',
+                'nav-apply': 'Apply',
+                'nav-faq': 'FAQ',
+                'nav-contact': 'Contact',
+                'hero-title': 'G.S Nyirarukobwa',
+                'hero-tagline': 'Knowledge. Culture. Success',
+                'hero-btn-explore': 'Explore Our School',
+                'hero-btn-apply': 'Apply Online',
+                'hero-scroll': 'Scroll to explore the 3D campus',
+                'welcome-title': 'Welcome to G.S Nyirarukobwa',
+                'welcome-desc': 'A school that has been shaping young minds since 1974. We are proud of our history, our students, and our commitment to educational excellence and digital innovation.',
+                'welcome-founded': 'Founded',
+                'welcome-location': 'Location',
+                'welcome-students': 'Students',
+                'welcome-headteacher': 'Head Teacher',
+                'welcome-why': 'Why G.S Nyirarukobwa?',
+                'why-quality': 'Quality Education',
+                'why-quality-desc': 'Strong academic foundation from nursery to O-Level with consistent performance in national examinations.',
+                'why-teachers': 'Dedicated Teachers',
+                'why-teachers-desc': 'Experienced educators who care about student growth and success.',
+                'why-digital': 'Digital Innovation',
+                'why-digital-desc': 'One of the first schools in Bugesera District to embrace educational technology.',
+                'why-safe': 'Safe Environment',
+                'why-safe-desc': 'A nurturing community where students feel valued, supported, and inspired.',
+                'history-title': 'Our History & Legacy',
+                'history-subtitle': 'A journey of excellence since 1974',
+                'history-timeline': '📅 School Timeline',
+                'history-founded': 'École Primaire Nyirarukobwa was founded',
+                'history-airtel': 'Airtel Rwanda renovated the school with a 20 million Franc investment',
+                'history-isoc': 'ISOC Rwanda Chapter provided a $10,000 grant to bring connectivity',
+                'history-safer': 'First Safer Internet Day celebrated',
+                'history-smart': 'Smart Teacher Project launched — 10 teachers received smartphones',
+                'history-encryption': 'Global Encryption Day celebrated',
+                'history-safer2024': 'Safer Internet Day 2024 hosted',
+                'history-parenting': 'Digital Parenting Training held',
+                'students-title': '👨‍🎓 Our Students',
+                'students-total': 'Total Students',
+                'students-girls': 'Girls',
+                'students-boys': 'Boys',
+                'infrastructure-title': '🏫 School Infrastructure',
+                'infra-classrooms': '11 Classrooms',
+                'infra-classrooms-desc': 'With new roofs (renovated 2013)',
+                'infra-benches': '200+ Benches',
+                'infra-benches-desc': 'Seating for students',
+                'infra-tanks': '3 Water Tanks',
+                'infra-tanks-desc': 'Clean water supply',
+                'infra-toilets': 'New Toilets',
+                'infra-toilets-desc': 'Sanitary facilities',
+                'infra-computers': 'Computer Lab',
+                'infra-computers-desc': '5 computers (initial setup)',
+                'infra-library': 'Digital Library',
+                'infra-library-desc': 'Offline educational resources',
+                'tech-title': '💻 Technology & ICT Initiatives',
+                'tech-digital': 'Digital Library',
+                'tech-digital-desc': 'Offline digital educational resources',
+                'tech-computers': 'Computer Lab',
+                'tech-computers-desc': '5 computers through ISOC grant',
+                'tech-smart': 'Smart Teacher Project',
+                'tech-smart-desc': '10 teachers received smartphones (2021)',
+                'tech-whatsapp': 'WhatsApp Group',
+                'tech-whatsapp-desc': 'All teachers connected',
+                'tech-safer': 'Safer Internet Day',
+                'tech-safer-desc': 'Annual event since 2020',
+                'tech-encryption': 'Global Encryption Day',
+                'tech-encryption-desc': 'Participated in 2024',
+                'partners-title': '🤝 Our Partners',
+                'partner-isoc': 'ISOC Rwanda',
+                'partner-isoc-desc': 'Digital Library, smartphones, teacher training',
+                'partner-airtel': 'Airtel Rwanda',
+                'partner-airtel-desc': '20M FRW school renovation (2013)',
+                'partner-mineduc': 'MINEDUC',
+                'partner-mineduc-desc': 'Education policy and support',
+                'partner-district': 'Bugesera District',
+                'partner-district-desc': 'Local government support',
+                'partner-rib': 'Rwanda Investigation Bureau',
+                'partner-rib-desc': 'Safer Internet Day participation',
+                'partner-unicef': 'UNICEF',
+                'partner-unicef-desc': 'SDMS implementation support',
+                'academics-title': 'Our Academic Levels',
+                'academics-subtitle': 'From early years to secondary education',
+                'academics-nursery': 'Nursery',
+                'academics-nursery-desc': 'Early childhood education focusing on foundational skills, socialization, and cognitive development.',
+                'academics-lower': 'Lower Primary',
+                'academics-lower-desc': 'Building strong foundations in literacy, numeracy, and social skills.',
+                'academics-upper': 'Upper Primary',
+                'academics-upper-desc': 'Strengthening core subjects and developing critical thinking skills.',
+                'academics-olevel': 'O-Level',
+                'academics-olevel-desc': 'Preparing students for higher education and future careers.',
+                'staff-title': 'Meet Our Team',
+                'staff-subtitle': 'Dedicated professionals shaping the future',
+                'achievements-title': 'Our Achievements',
+                'achievements-subtitle': 'A legacy of excellence',
+                'achievement-academic': 'Academic Excellence',
+                'achievement-academic-desc': 'Consistent performance in national examinations, improved school ranking, test scores, and enrollment.',
+                'achievement-sports': 'Sports Achievements',
+                'achievement-sports-desc': 'Winner of district sports competitions 2019, 2021, 2023.',
+                'achievement-digital': 'Digital Innovation',
+                'achievement-digital-desc': 'Pioneered digital learning initiatives in Bugesera District.',
+                'achievement-teacher': 'Teacher Recognition',
+                'achievement-teacher-desc': 'Teacher recognized for leveraging ICT in teaching.',
+                'achievement-global': 'Global Participation',
+                'achievement-global-desc': 'Safer Internet Day (2020, 2024) and Global Encryption Day (2024) host school.',
+                'achievement-pioneer': 'Digital Literacy Pioneer',
+                'achievement-pioneer-desc': 'One of the first schools in Bugesera District to embrace ICT.',
+                'testimonials-title': 'What Our Students Say',
+                'testimonials-subtitle': 'Real voices from our school community',
+                'gallery-title': '📸 School Gallery',
+                'gallery-subtitle': 'Moments from our school life',
+                'apply-title': 'Apply Online',
+                'apply-subtitle': 'Complete this form to register your child at G.S Nyirarukobwa.',
+                'apply-parent': 'Parent / Guardian Information',
+                'apply-parent-name': 'Full Name',
+                'apply-phone': 'Phone Number',
+                'apply-email': 'Email Address',
+                'apply-student': 'Student Information',
+                'apply-student-name': 'Student Full Name',
+                'apply-dob': 'Date of Birth',
+                'apply-gender': 'Gender',
+                'apply-level': 'Level Applying For',
+                'apply-previous': 'Previous School (if any)',
+                'apply-sdms': 'SDMS Code',
+                'apply-sdms-desc': 'The SDMS (School Data Management System) code is used by the Ministry of Education to track student records.',
+                'apply-sdms-learn': 'Learn more about SDMS →',
+                'apply-additional': 'Additional Information',
+                'apply-submit': 'Submit Application',
+                'apply-agree': 'By submitting this form, you agree to the school\'s data collection policies.',
+                'apply-success': 'Application Submitted!',
+                'apply-success-desc': 'Thank you for applying to G.S Nyirarukobwa. We have received your application and will contact you soon.',
+                'apply-another': 'Submit Another Application',
+                'faq-title': 'Frequently Asked Questions',
+                'faq-subtitle': 'Quick answers to common questions',
+                'faq-location': 'Where is the school located?',
+                'faq-location-answer': 'Ntarama Sector, Bugesera District, Eastern Province, Rwanda.',
+                'faq-levels': 'What levels does the school offer?',
+                'faq-levels-answer': 'Nursery, Lower Primary, Upper Primary, and O-Level.',
+                'faq-apply': 'How can I apply?',
+                'faq-apply-answer': 'Visit our Apply section to complete the online application form. You\'ll need the student\'s SDMS Code.',
+                'faq-documents': 'What documents are needed for admission?',
+                'faq-documents-answer': 'Birth certificate, previous school report, medical records, parent/guardian identification, and SDMS Code.',
+                'faq-contact': 'How can I contact the school?',
+                'faq-contact-answer': 'You can visit the school at Ntarama Sector, Bugesera District, or use the contact section below.',
+                'faq-sdms': 'What is SDMS and why do I need it?',
+                'faq-sdms-answer': 'SDMS (School Data Management System) is a system by the Ministry of Education to track student records. It\'s required for all students in Rwanda.',
+                'faq-view-map': 'View on map →',
+                'faq-learn-more': 'Learn more →',
+                'digital-brand': 'G.S Nyirarukobwa',
+                'digital-tagline': 'Learning Today. Building Tomorrow.',
+                'digital-established': '🏛️ Since 1974',
+                'digital-quick': 'Quick Links',
+                'digital-more': 'More',
+                'digital-connect': 'Connect',
+                'digital-copyright': '© 2026 G.S Nyirarukobwa. All rights reserved.',
+                'digital-dev': 'Designed & developed by',
+                'social-facebook': 'Facebook',
+                'social-youtube': 'YouTube',
+                'social-whatsapp': 'WhatsApp',
+                'social-twitter': 'Twitter',
+                'social-instagram': 'Instagram',
+                'ai-welcome': '👋 Bonjour! I\'m Madame Marie, your AI assistant for G.S Nyirarukobwa. I can help you with information about our history, academics, admissions, SDMS, and more. What would you like to know?',
+                'ai-thinking': '🧠 Thinking',
+                'ai-placeholder': 'Ask me anything...'
+            },
+            rw: {
+                'nav-about': 'Ibyo',
+                'nav-history': 'Amateka',
+                'nav-academics': 'Amasomo',
+                'nav-staff': 'Abakozi',
+                'nav-achievements': 'Ibyagezweho',
+                'nav-gallery': 'Amashusho',
+                'nav-apply': 'Kwandika',
+                'nav-faq': 'Ibibazo',
+                'nav-contact': 'Ihuza',
+                'hero-title': 'G.S Nyirarukobwa',
+                'hero-tagline': 'Ubumenyi. Umuco. Intsinzi.',
+                'hero-btn-explore': 'Suzuma Ishuri Ryacu',
+                'hero-btn-apply': 'Kwandika Online',
+                'hero-scroll': 'Kanda kugira usuzume 3D campus',
+                'welcome-title': 'Murakaza Neza kuri G.S Nyirarukobwa',
+                'welcome-desc': 'Ishuri ryagize uruhare mu kubaka abana kuva 1974. Twishimira amateka yacu, abanyeshuri bacu, n\'umwete wacu wo guteza imbere uburezi n\'ikoranabuhanga.',
+                'welcome-founded': 'Hashinzwe',
+                'welcome-location': 'Aho riherereye',
+                'welcome-students': 'Abanyeshuri',
+                'welcome-headteacher': 'Umuyobozi',
+                'welcome-why': 'Kuki G.S Nyirarukobwa?',
+                'why-quality': 'Uburezi Bwiza',
+                'why-quality-desc': 'Ishuri rifite urufatiro rukomeye kuva Nursery kugeza O-Level, rikaba rifite ibyiza mu bigeragezo by\'igihugu.',
+                'why-teachers': 'Abarezi Bishyize Ahantu',
+                'why-teachers-desc': 'Abarezi b\'inararibonye bita ku iterambere ry\'abanyeshuri.',
+                'why-digital': 'Ikoranabuhanga',
+                'why-digital-desc': 'Ishuri rya mbere mu Karere ka Bugesera gukoresha ikoranabuhanga mu burezi.',
+                'why-safe': 'Ahatuza',
+                'why-safe-desc': 'Ahantu abanyeshuri bumva bakiriwe, bashyigikiwe, kandi bahumurizwa.',
+                'history-title': 'Amateka Yacu',
+                'history-subtitle': 'Urugendo rw\'intsinzi kuva 1974',
+                'history-timeline': '📅 Amateka Y\'Ishuri',
+                'history-founded': 'École Primaire Nyirarukobwa yashinzwe',
+                'history-airtel': 'Airtel Rwanda yavuguruye ishuri ikoresheje miliyoni 20 z\'amafaranga y\'u Rwanda',
+                'history-isoc': 'ISOC Rwanda yatanze inkunga ya $10,000 yo kuvugurura ikoranabuhanga',
+                'history-safer': 'Umuhango wa Safer Internet Day wabaye bwa mbere',
+                'history-smart': 'Umushinga Smart Teacher watangijwe — abarezi 10 bahawe telefoni',
+                'history-encryption': 'Umuhango wa Global Encryption Day wabaye',
+                'history-safer2024': 'Safer Internet Day 2024 yakiriwe',
+                'history-parenting': 'Amahugurwa ku burezi bw\'ababyeyi yabaye',
+                'students-title': '👨‍🎓 Abanyeshuri Bacu',
+                'students-total': 'Abanyeshuri Bose',
+                'students-girls': 'Abakobwa',
+                'students-boys': 'Abahungu',
+                'infrastructure-title': '🏫 Inyubako Z\'ishuri',
+                'infra-classrooms': 'Amacumbi 11',
+                'infra-classrooms-desc': 'Afite igisenge gishya (yavuguruwe 2013)',
+                'infra-benches': 'Intebe 200+',
+                'infra-benches-desc': 'Abanyeshuri bicara',
+                'infra-tanks': 'Amadoni 3 y\'amazi',
+                'infra-tanks-desc': 'Amazi meza',
+                'infra-toilets': 'Ubwiherero Bushya',
+                'infra-toilets-desc': 'Isuku nziza',
+                'infra-computers': 'Laboratwari ya Computer',
+                'infra-computers-desc': 'Computa 5 (yatangiye)',
+                'infra-library': 'Bibliothèque Digitale',
+                'infra-library-desc': 'Ibikoresho by\'uburezi bidasaba internet',
+                'tech-title': '💻 Ikoranabuhanga mu Burezi',
+                'tech-digital': 'Bibliothèque Digitale',
+                'tech-digital-desc': 'Ibikoresho by\'uburezi bidasaba internet',
+                'tech-computers': 'Laboratwari ya Computer',
+                'tech-computers-desc': 'Computa 5 zatanzwe na ISOC',
+                'tech-smart': 'Smart Teacher Project',
+                'tech-smart-desc': 'Abarezi 10 bahawe telefoni (2021)',
+                'tech-whatsapp': 'WhatsApp Group',
+                'tech-whatsapp-desc': 'Abarezi bose bahujwe',
+                'tech-safer': 'Safer Internet Day',
+                'tech-safer-desc': 'Umuhango wa buri mwaka kuva 2020',
+                'tech-encryption': 'Global Encryption Day',
+                'tech-encryption-desc': 'Yitabiriye 2024',
+                'partners-title': '🤝 Abafatanyabikorwa',
+                'partner-isoc': 'ISOC Rwanda',
+                'partner-isoc-desc': 'Bibliothèque Digitale, telefoni, amahugurwa',
+                'partner-airtel': 'Airtel Rwanda',
+                'partner-airtel-desc': 'Miliyoni 20 z\'amafaranga y\'u Rwanda (2013)',
+                'partner-mineduc': 'MINEDUC',
+                'partner-mineduc-desc': 'Gahunda n\'inkunga',
+                'partner-district': 'Akarere ka Bugesera',
+                'partner-district-desc': 'Inkunga y\'inzego z\'ibanze',
+                'partner-rib': 'RIB',
+                'partner-rib-desc': 'Safer Internet Day',
+                'partner-unicef': 'UNICEF',
+                'partner-unicef-desc': 'SDMS implementation support',
+                'academics-title': 'Amasomo Yacu',
+                'academics-subtitle': 'Kuva mu myaka ya mbere kugeza ku myaka ya kabiri',
+                'academics-nursery': 'Nursery',
+                'academics-nursery-desc': 'Uburezi bw\'abana bato bwibanda ku bumenyi bw\'ibanze.',
+                'academics-lower': 'Primary ya Mbere',
+                'academics-lower-desc': 'Kubaka urufatiro rukomeye mu gusoma, kwandika, n\'imibare.',
+                'academics-upper': 'Primary ya Kabiri',
+                'academics-upper-desc': 'Gushimangira amasomo y\'ibanze no guteza imbere ubushobozi bwo gutekereza.',
+                'academics-olevel': 'O-Level',
+                'academics-olevel-desc': 'Gutegura abanyeshuri kwiga hejuru n\'imibereho yabo.',
+                'staff-title': 'Abakozi Bacu',
+                'staff-subtitle': 'Abarezi baharanira ikirenga',
+                'achievements-title': 'Ibyagezweho',
+                'achievements-subtitle': 'Intsinzi zacu',
+                'achievement-academic': 'Uburezi Bwiza',
+                'achievement-academic-desc': 'Ibyiza mu bigeragezo by\'igihugu, amanota menshi, n\'ubwiyongere bw\'abanyeshuri.',
+                'achievement-sports': 'Siporo',
+                'achievement-sports-desc': 'Itsinze amarushanwa y\'akarere 2019, 2021, 2023.',
+                'achievement-digital': 'Ikoranabuhanga',
+                'achievement-digital-desc': 'Ishuri rya mbere mu Karere ka Bugesera gukoresha ikoranabuhanga.',
+                'achievement-teacher': 'Abarezi Bishyizwe',
+                'achievement-teacher-desc': 'Abarezi bamenyekanye mu gukoresha ikoranabuhanga.',
+                'achievement-global': 'Ku Isi Hose',
+                'achievement-global-desc': 'Yakiriye Safer Internet Day (2020, 2024) na Global Encryption Day (2024).',
+                'achievement-pioneer': 'Ikoranabuhanga',
+                'achievement-pioneer-desc': 'Ishuri rya mbere mu Karere ka Bugesera gukoresha ikoranabuhanga.',
+                'testimonials-title': 'Ibivugwa n\'Abanyeshuri',
+                'testimonials-subtitle': 'Amagambo y\'ukuri aturutse ku ishuri ryacu',
+                'gallery-title': '📸 Amashusho Y\'ishuri',
+                'gallery-subtitle': 'Ibikorwa by\'ishuri',
+                'apply-title': 'Kwandika Online',
+                'apply-subtitle': 'Uzuzuza uru rupapuro kugira wandike umwana wawe kuri G.S Nyirarukobwa.',
+                'apply-parent': 'Umubyeyi / Urumuri',
+                'apply-parent-name': 'Izina Ryuzuye',
+                'apply-phone': 'Numero ya Telefoni',
+                'apply-email': 'Email',
+                'apply-student': 'Umwana',
+                'apply-student-name': 'Izina Ryuzuye Ry\'umwana',
+                'apply-dob': 'Itariki y\'Amavuko',
+                'apply-gender': 'Igitsina',
+                'apply-level': 'Amasomo',
+                'apply-previous': 'Ishuri Ryabanje (niba hari)',
+                'apply-sdms': 'Kode ya SDMS',
+                'apply-sdms-desc': 'Kode ya SDMS (School Data Management System) ikoreshwa na MINEDUC kugira ngo ikurikirane abanyeshuri.',
+                'apply-sdms-learn': 'Menya byinshi kuri SDMS →',
+                'apply-additional': 'Ibindi',
+                'apply-submit': 'Ohereza',
+                'apply-agree': 'Uyu mubare utanga uruhushya rwo gukusanya amakuru.',
+                'apply-success': 'Byakiriwe!',
+                'apply-success-desc': 'Urakoze kwandika kuri G.S Nyirarukobwa. Twakiriye icyifuzo cyawe kandi tuzaguhuza vuba.',
+                'apply-another': 'Ohereza Undi',
+                'faq-title': 'Ibibazo Bikunze Kubazwa',
+                'faq-subtitle': 'Ibibazo n\'ibisubizo',
+                'faq-location': 'Ishuri riherere he?',
+                'faq-location-answer': 'Umurenge wa Ntarama, Akarere ka Bugesera, Intara y\'Iburasirazuba, Rwanda.',
+                'faq-levels': 'Ni amasomo ki ishuri ritanga?',
+                'faq-levels-answer': 'Nursery, Primary ya Mbere, Primary ya Kabiri, na O-Level.',
+                'faq-apply': 'Nakwandika nte?',
+                'faq-apply-answer': 'Sura igice cyo kwandika hanyuma uzuze ifishi. Uzakenera kode ya SDMS y\'umwana.',
+                'faq-documents': 'Ni ibiki bikenewe?',
+                'faq-documents-answer': 'Icyemezo cy\'amavuko, amanota y\'ishuri ryabanje, iby\'ubuzima, ndangamuntu, na kode ya SDMS.',
+                'faq-contact': 'Nabaza nte ishuri?',
+                'faq-contact-answer': 'Ushobora gusura ishuri kuri Ntarama, Akarere ka Bugesera, cyangwa ukoreshe igice cy\'ihuza.',
+                'faq-sdms': 'SDMS ni iki kandi kuki nkenera?',
+                'faq-sdms-answer': 'SDMS ni sisitemu ya MINEDUC ikurikirana abanyeshuri. Irakenewe ku banyeshuri bose.',
+                'faq-view-map': 'Reba ku ikarita →',
+                'faq-learn-more': 'Menya byinshi →',
+                'digital-brand': 'G.S Nyirarukobwa',
+                'digital-tagline': 'Kwiga Uyu Munsi. Kubaka Ejo.',
+                'digital-established': '🏛️ Kuva 1974',
+                'digital-quick': 'Ihuza',
+                'digital-more': 'Ibindi',
+                'digital-connect': 'Ihuza',
+                'digital-copyright': '© 2026 G.S Nyirarukobwa. Uburenganzira bwose burakumwe.',
+                'digital-dev': 'Byakozwe na',
+                'social-facebook': 'Facebook',
+                'social-youtube': 'YouTube',
+                'social-whatsapp': 'WhatsApp',
+                'social-twitter': 'Twitter',
+                'social-instagram': 'Instagram',
+                'ai-welcome': '👋 Muraho! Ndi Madame Marie, ubufasha bwa AI bwa G.S Nyirarukobwa. Nshobora kugufasha kubijyanye n\'amateka, amasomo, kwandika, SDMS, n\'ibindi. Ni iki ushaka kumenya?',
+                'ai-thinking': '🧠 Ntekereza...',
+                'ai-placeholder': 'Mbaza ikintu...'
+            },
+            fr: {
+                'nav-about': 'À propos',
+                'nav-history': 'Histoire',
+                'nav-academics': 'Académique',
+                'nav-staff': 'Personnel',
+                'nav-achievements': 'Réalisations',
+                'nav-gallery': 'Galerie',
+                'nav-apply': 'Postuler',
+                'nav-faq': 'FAQ',
+                'nav-contact': 'Contact',
+                'hero-title': 'G.S Nyirarukobwa',
+                'hero-tagline': 'Connaissance. Culture. Succès.',
+                'hero-btn-explore': 'Explorer Notre École',
+                'hero-btn-apply': 'Postuler en Ligne',
+                'hero-scroll': 'Défilez pour explorer le campus 3D',
+                'welcome-title': 'Bienvenue à G.S Nyirarukobwa',
+                'welcome-desc': 'Une école qui forme les jeunes esprits depuis 1974. Nous sommes fiers de notre histoire, de nos élèves et de notre engagement envers l\'excellence éducative et l\'innovation numérique.',
+                'welcome-founded': 'Fondée',
+                'welcome-location': 'Emplacement',
+                'welcome-students': 'Élèves',
+                'welcome-headteacher': 'Directeur',
+                'welcome-why': 'Pourquoi G.S Nyirarukobwa?',
+                'why-quality': 'Éducation de Qualité',
+                'why-quality-desc': 'Une base académique solide de la maternelle au O-Level avec des performances constantes aux examens nationaux.',
+                'why-teachers': 'Enseignants Dévoués',
+                'why-teachers-desc': 'Des éducateurs expérimentés qui se soucient de la croissance des élèves.',
+                'why-digital': 'Innovation Numérique',
+                'why-digital-desc': 'L\'une des premières écoles du district de Bugesera à adopter la technologie éducative.',
+                'why-safe': 'Environnement Sûr',
+                'why-safe-desc': 'Une communauté bienveillante où les élèves se sentent valorisés et soutenus.',
+                'history-title': 'Notre Histoire',
+                'history-subtitle': 'Un parcours d\'excellence depuis 1974',
+                'history-timeline': '📅 Chronologie',
+                'history-founded': 'École Primaire Nyirarukobwa fondée',
+                'history-airtel': 'Airtel Rwanda a rénové l\'école avec un investissement de 20 millions de francs',
+                'history-isoc': 'ISOC Rwanda a accordé une subvention de 10 000 $ pour la connectivité',
+                'history-safer': 'Première célébration de Safer Internet Day',
+                'history-smart': 'Projet Smart Teacher lancé — 10 enseignants ont reçu des smartphones',
+                'history-encryption': 'Célébration de Global Encryption Day',
+                'history-safer2024': 'Safer Internet Day 2024 accueilli',
+                'history-parenting': 'Formation sur l\'éducation numérique des parents',
+                'students-title': '👨‍🎓 Nos Élèves',
+                'students-total': 'Total Élèves',
+                'students-girls': 'Filles',
+                'students-boys': 'Garçons',
+                'infrastructure-title': '🏫 Infrastructures',
+                'infra-classrooms': '11 Salles de Classe',
+                'infra-classrooms-desc': 'Avec de nouveaux toits (rénové en 2013)',
+                'infra-benches': '200+ Bancs',
+                'infra-benches-desc': 'Assises pour les élèves',
+                'infra-tanks': '3 Réservoirs d\'Eau',
+                'infra-tanks-desc': 'Eau propre',
+                'infra-toilets': 'Nouvelles Toilettes',
+                'infra-toilets-desc': 'Installations sanitaires',
+                'infra-computers': 'Salle Informatique',
+                'infra-computers-desc': '5 ordinateurs (installation initiale)',
+                'infra-library': 'Bibliothèque Numérique',
+                'infra-library-desc': 'Ressources éducatives hors ligne',
+                'tech-title': '💻 Technologie et TIC',
+                'tech-digital': 'Bibliothèque Numérique',
+                'tech-digital-desc': 'Ressources éducatives hors ligne',
+                'tech-computers': 'Salle Informatique',
+                'tech-computers-desc': '5 ordinateurs grâce à la subvention ISOC',
+                'tech-smart': 'Projet Smart Teacher',
+                'tech-smart-desc': '10 enseignants ont reçu des smartphones (2021)',
+                'tech-whatsapp': 'Groupe WhatsApp',
+                'tech-whatsapp-desc': 'Tous les enseignants connectés',
+                'tech-safer': 'Safer Internet Day',
+                'tech-safer-desc': 'Événement annuel depuis 2020',
+                'tech-encryption': 'Global Encryption Day',
+                'tech-encryption-desc': 'Participé en 2024',
+                'partners-title': '🤝 Nos Partenaires',
+                'partner-isoc': 'ISOC Rwanda',
+                'partner-isoc-desc': 'Bibliothèque numérique, smartphones, formation des enseignants',
+                'partner-airtel': 'Airtel Rwanda',
+                'partner-airtel-desc': 'Rénovation de 20 millions FRW (2013)',
+                'partner-mineduc': 'MINEDUC',
+                'partner-mineduc-desc': 'Politique éducative et soutien',
+                'partner-district': 'District de Bugesera',
+                'partner-district-desc': 'Soutien du gouvernement local',
+                'partner-rib': 'Bureau d\'Enquête du Rwanda',
+                'partner-rib-desc': 'Participation à Safer Internet Day',
+                'partner-unicef': 'UNICEF',
+                'partner-unicef-desc': 'Soutien à la mise en œuvre de SDMS',
+                'academics-title': 'Nos Niveaux Académiques',
+                'academics-subtitle': 'De la petite enfance à l\'enseignement secondaire',
+                'academics-nursery': 'Maternelle',
+                'academics-nursery-desc': 'Éducation de la petite enfance axée sur les compétences fondamentales, la socialisation et le développement cognitif.',
+                'academics-lower': 'Primaire Inférieur',
+                'academics-lower-desc': 'Bâtir des bases solides en lecture, écriture, calcul et compétences sociales.',
+                'academics-upper': 'Primaire Supérieur',
+                'academics-upper-desc': 'Renforcer les matières principales et développer la pensée critique.',
+                'academics-olevel': 'O-Level',
+                'academics-olevel-desc': 'Préparer les élèves aux études supérieures et à leur avenir professionnel.',
+                'staff-title': 'Notre Équipe',
+                'staff-subtitle': 'Des professionnels dévoués qui façonnent l\'avenir',
+                'achievements-title': 'Nos Réalisations',
+                'achievements-subtitle': 'Un héritage d\'excellence',
+                'achievement-academic': 'Excellence Académique',
+                'achievement-academic-desc': 'Performance constante aux examens nationaux, amélioration du classement, des scores et des inscriptions.',
+                'achievement-sports': 'Réalisations Sportives',
+                'achievement-sports-desc': 'Vainqueur des compétitions sportives du district 2019, 2021, 2023.',
+                'achievement-digital': 'Innovation Numérique',
+                'achievement-digital-desc': 'Pionnier des initiatives d\'apprentissage numérique dans le district de Bugesera.',
+                'achievement-teacher': 'Reconnaissance des Enseignants',
+                'achievement-teacher-desc': 'Enseignant reconnu pour l\'utilisation des TIC dans l\'enseignement.',
+                'achievement-global': 'Participation Mondiale',
+                'achievement-global-desc': 'École hôte de Safer Internet Day (2020, 2024) et de Global Encryption Day (2024).',
+                'achievement-pioneer': 'Pionnier de la Culture Numérique',
+                'achievement-pioneer-desc': 'L\'une des premières écoles du district de Bugesera à adopter les TIC.',
+                'testimonials-title': 'Ce que Disent Nos Élèves',
+                'testimonials-subtitle': 'Des voix réelles de notre communauté scolaire',
+                'gallery-title': '📸 Galerie',
+                'gallery-subtitle': 'Moments de notre vie scolaire',
+                'apply-title': 'Postuler en Ligne',
+                'apply-subtitle': 'Remplissez ce formulaire pour inscrire votre enfant à G.S Nyirarukobwa.',
+                'apply-parent': 'Parent / Tuteur',
+                'apply-parent-name': 'Nom Complet',
+                'apply-phone': 'Numéro de Téléphone',
+                'apply-email': 'Adresse Email',
+                'apply-student': 'Élève',
+                'apply-student-name': 'Nom Complet de l\'Élève',
+                'apply-dob': 'Date de Naissance',
+                'apply-gender': 'Genre',
+                'apply-level': 'Niveau Demandé',
+                'apply-previous': 'École Précédente (si applicable)',
+                'apply-sdms': 'Code SDMS',
+                'apply-sdms-desc': 'Le code SDMS (School Data Management System) est utilisé par le Ministère de l\'Éducation pour suivre les dossiers des élèves.',
+                'apply-sdms-learn': 'En savoir plus sur SDMS →',
+                'apply-additional': 'Informations Complémentaires',
+                'apply-submit': 'Soumettre',
+                'apply-agree': 'En soumettant ce formulaire, vous acceptez les politiques de collecte de données de l\'école.',
+                'apply-success': 'Demande Soumise!',
+                'apply-success-desc': 'Merci d\'avoir postulé à G.S Nyirarukobwa. Nous avons reçu votre demande et vous contacterons bientôt.',
+                'apply-another': 'Soumettre une Autre Demande',
+                'faq-title': 'Questions Fréquentes',
+                'faq-subtitle': 'Réponses rapides aux questions courantes',
+                'faq-location': 'Où se trouve l\'école?',
+                'faq-location-answer': 'Secteur Ntarama, District de Bugesera, Province de l\'Est, Rwanda.',
+                'faq-levels': 'Quels niveaux l\'école offre-t-elle?',
+                'faq-levels-answer': 'Maternelle, Primaire Inférieur, Primaire Supérieur et O-Level.',
+                'faq-apply': 'Comment puis-je postuler?',
+                'faq-apply-answer': 'Visitez notre section Postuler pour remplir le formulaire en ligne. Vous aurez besoin du code SDMS de l\'élève.',
+                'faq-documents': 'Quels documents sont nécessaires pour l\'admission?',
+                'faq-documents-answer': 'Acte de naissance, bulletin scolaire précédent, dossier médical, pièce d\'identité du parent/tuteur et code SDMS.',
+                'faq-contact': 'Comment puis-je contacter l\'école?',
+                'faq-contact-answer': 'Vous pouvez visiter l\'école au Secteur Ntarama, District de Bugesera, ou utiliser la section contact ci-dessous.',
+                'faq-sdms': 'Qu\'est-ce que SDMS et pourquoi en ai-je besoin?',
+                'faq-sdms-answer': 'SDMS est le système de gestion des données scolaires utilisé par le Ministère de l\'Éducation pour suivre les dossiers des élèves. Il est obligatoire pour tous les élèves au Rwanda.',
+                'faq-view-map': 'Voir sur la carte →',
+                'faq-learn-more': 'En savoir plus →',
+                'digital-brand': 'G.S Nyirarukobwa',
+                'digital-tagline': 'Apprendre Aujourd\'hui. Construire Demain.',
+                'digital-established': '🏛️ Depuis 1974',
+                'digital-quick': 'Liens Rapides',
+                'digital-more': 'Plus',
+                'digital-connect': 'Connexion',
+                'digital-copyright': '© 2026 G.S Nyirarukobwa. Tous droits réservés.',
+                'digital-dev': 'Conçu et développé par',
+                'social-facebook': 'Facebook',
+                'social-youtube': 'YouTube',
+                'social-whatsapp': 'WhatsApp',
+                'social-twitter': 'Twitter',
+                'social-instagram': 'Instagram',
+                'ai-welcome': '👋 Bonjour! Je suis Madame Marie, votre assistante IA pour G.S Nyirarukobwa. Je peux vous aider avec des informations sur notre histoire, nos programmes, les admissions, SDMS, et plus encore. Que souhaitez-vous savoir?',
+                'ai-thinking': '🧠 Réflexion...',
+                'ai-placeholder': 'Posez-moi une question...'
+            }
+        };
+
+        let currentLanguage = 'en';
+
+        function translatePage(lang) {
+            currentLanguage = lang;
+            
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[lang][key];
+                    } else if (el.tagName === 'IMG') {
+                        el.alt = translations[lang][key];
+                    } else {
+                        // Check if element has HTML inside
+                        const hasChildren = el.children.length > 0;
+                        if (!hasChildren) {
+                            el.textContent = translations[lang][key];
+                        } else {
+                            // For elements with children, preserve HTML structure
+                            const textNode = el.childNodes[0];
+                            if (textNode && textNode.nodeType === Node.TEXT_NODE) {
+                                textNode.textContent = translations[lang][key];
+                            }
+                        }
+                    }
+                }
+            });
+
+            document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-translate-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+
+            localStorage.setItem('preferred-language', lang);
+            document.documentElement.lang = lang;
         }
+
+        // ==========================================
+        // LANGUAGE SELECTOR
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const langSelect = document.getElementById('languageSelect');
+            if (langSelect) {
+                langSelect.addEventListener('change', function() {
+                    translatePage(this.value);
+                });
+
+                const savedLang = localStorage.getItem('preferred-language') || 'en';
+                langSelect.value = savedLang;
+                translatePage(savedLang);
+            }
+        });
 
         // ==========================================
         // SCENE SETUP
@@ -3426,205 +3986,10 @@
         }
 
         // ==========================================
-        // AI ASSISTANT
+        // AI ASSISTANT - Using External ai.js
         // ==========================================
-        const knowledgeBase = {
-            school: {
-                name: 'G.S Nyirarukobwa',
-                founded: '1974',
-                location: 'Ntarama Sector, Bugesera District, Eastern Province, Rwanda',
-                levels: ['Nursery', 'Lower Primary', 'Upper Primary', 'O-Level'],
-                mission: 'To provide quality education that prepares students for the future.',
-                vision: 'To be a center of academic excellence and character development.',
-                values: ['Excellence', 'Discipline', 'Integrity', 'Community', 'Innovation'],
-                history: 'G.S Nyirarukobwa was established in 1974 with a vision to serve the community with quality education.',
-                achievements: [
-                    'Consistent performance in national examinations',
-                    'Winner of district sports competitions 2019, 2021, 2023',
-                    'Pioneered digital learning initiatives in Bugesera District',
-                    'Host of Safer Internet Day (2020, 2024) and Global Encryption Day (2024)'
-                ],
-                motto: 'Learning Today. Building Tomorrow.',
-                headTeacher: 'NKUNDINGABO Theophile'
-            },
-            academics: {
-                nursery: { description: 'Early childhood education focusing on foundational skills, socialization, and cognitive development.' },
-                lowerPrimary: { description: 'Building strong foundations in literacy, numeracy, and social skills.' },
-                upperPrimary: { description: 'Strengthening core academic subjects and developing critical thinking skills.' },
-                oLevel: { description: 'Preparing students for higher education and future careers.' }
-            },
-            staff: {
-                headTeacher: { name: 'NKUNDINGABO Theophile', role: 'Head Teacher' },
-                dos: { name: '[DOS Name]', role: 'Director of Studies' },
-                dod: { name: '[DOD Name]', role: 'Director of Discipline' },
-                teachers: ['MUHIRE Jean de la Croix', 'NYIRAHAKIZIMANA Jeanisse', 'NTABWOBA Jean Paul', 'Nzayisenga Obed']
-            },
-            admissions: {
-                requirements: ['Birth certificate', 'Previous school report', 'Medical records', 'Parent/guardian identification',
-                    'SDMS Code'
-                ],
-                process: 'Visit the Apply section to complete the online application form.',
-                fees: 'Please contact the school administration for current fee structure.'
-            },
-            contact: {
-                phone: '[School Phone Number]',
-                email: '[School Email]',
-                address: 'Ntarama Sector, Bugesera District, Eastern Province, Rwanda'
-            },
-            sdms: {
-                description: 'The School Data Management System (SDMS) is a system by the Ministry of Education to track student records across Rwanda.',
-                website: 'https://sdms.gov.rw',
-                importance: 'SDMS is required for all students in Rwanda. It helps schools manage enrollment, grants, and student data.'
-            },
-            faq: [
-                { q: 'Where is the school located?', a: 'Ntarama Sector, Bugesera District, Eastern Province, Rwanda.' },
-                { q: 'What levels does the school offer?', a: 'We offer Nursery, Lower Primary, Upper Primary, and O-Level.' },
-                { q: 'How can I apply?', a: 'Visit our Apply section to complete the online application form. You\'ll need the student\'s SDMS Code.' },
-                { q: 'What documents are needed?', a: 'Birth certificate, previous school report, medical records, parent/guardian identification, and SDMS Code.' },
-                { q: 'What are the school fees?', a: 'Please contact the school administration for current fee structure.' },
-                { q: 'Who is the Head Teacher?', a: 'NKUNDINGABO Theophile is the Head Teacher.' },
-                { q: 'What is SDMS?', a: 'SDMS is the School Data Management System used by the Ministry of Education to track student records.' }
-            ]
-        };
-
-        class SchoolAIAssistant {
-            constructor() {
-                this.memory = [];
-                this.knowledgeBase = knowledgeBase;
-            }
-
-            process(question) {
-                const lower = question.toLowerCase();
-                const reasoning = [];
-
-                reasoning.push('🔍 Analyzing question...');
-                const intent = this.classifyIntent(lower);
-                reasoning.push(`📌 Intent: ${intent}`);
-
-                reasoning.push('📚 Searching knowledge base...');
-                const result = this.search(lower);
-                reasoning.push(`📖 Found ${result.confidence > 0 ? 'relevant' : 'no'} matches`);
-
-                reasoning.push('💭 Generating response...');
-                const response = result.answer || this.fallbackResponse(intent);
-                reasoning.push('✅ Response ready');
-
-                this.memory.push({ question, response, timestamp: new Date() });
-
-                return { response, reasoning, intent, confidence: result.confidence || 0 };
-            }
-
-            classifyIntent(text) {
-                const intents = {
-                    greeting: ['hello', 'hi', 'hey', 'bonjour', 'good morning'],
-                    location: ['where', 'location', 'address', 'find', 'located'],
-                    levels: ['levels', 'classes', 'grades', 'offer', 'nursery', 'primary', 'secondary', 'o-level'],
-                    application: ['apply', 'application', 'register', 'admission', 'enroll'],
-                    documents: ['documents', 'paper', 'requirements', 'needed', 'required'],
-                    fees: ['fee', 'cost', 'payment', 'tuition', 'price'],
-                    contact: ['contact', 'call', 'phone', 'email', 'reach', 'number'],
-                    activities: ['activities', 'sports', 'clubs', 'events', 'programs'],
-                    staff: ['staff', 'teacher', 'head teacher', 'director', 'principal', 'dos', 'dod'],
-                    history: ['history', 'founded', 'started', 'beginning', 'established'],
-                    mission: ['mission', 'vision', 'values', 'goal', 'purpose'],
-                    achievements: ['achievement', 'award', 'success', 'excellence', 'trophy'],
-                    thanks: ['thank', 'thanks', 'appreciate'],
-                    sdms: ['sdms', 'data management', 'student data', 'system']
-                };
-
-                for (const [intent, keywords] of Object.entries(intents)) {
-                    if (keywords.some(k => text.includes(k))) return intent;
-                }
-                return 'general';
-            }
-
-            search(text) {
-                for (const faq of this.knowledgeBase.faq) {
-                    if (faq.q.toLowerCase().split(' ').some(word => text.includes(word))) {
-                        return { answer: faq.a, confidence: 0.9 };
-                    }
-                }
-
-                const school = this.knowledgeBase.school;
-                if (text.includes('mission')) return { answer: school.mission, confidence: 0.85 };
-                if (text.includes('vision')) return { answer: school.vision, confidence: 0.85 };
-                if (text.includes('history')) return { answer: school.history, confidence: 0.85 };
-                if (text.includes('motto')) return { answer: school.motto, confidence: 0.85 };
-                if (text.includes('achievement')) {
-                    return { answer: school.achievements.join(', '), confidence: 0.8 };
-                }
-                if (text.includes('head teacher')) {
-                    return { answer: `The Head Teacher is ${school.headTeacher}.`, confidence: 0.9 };
-                }
-                if (text.includes('founded')) {
-                    return { answer: `The school was founded in ${school.founded}.`, confidence: 0.9 };
-                }
-
-                if (text.includes('sdms')) {
-                    const sdms = this.knowledgeBase.sdms;
-                    return { answer: `${sdms.description} Learn more at ${sdms.website}`, confidence: 0.95 };
-                }
-
-                for (const [level, info] of Object.entries(this.knowledgeBase.academics)) {
-                    if (text.includes(level)) {
-                        return { answer: info.description, confidence: 0.85 };
-                    }
-                }
-
-                const adm = this.knowledgeBase.admissions;
-                if (text.includes('document') || text.includes('required')) {
-                    return { answer: adm.requirements.join(', '), confidence: 0.85 };
-                }
-                if (text.includes('process') || text.includes('apply')) {
-                    return { answer: adm.process, confidence: 0.85 };
-                }
-                if (text.includes('fee')) return { answer: adm.fees, confidence: 0.7 };
-
-                const contact = this.knowledgeBase.contact;
-                if (text.includes('phone')) return { answer: contact.phone, confidence: 0.85 };
-                if (text.includes('email')) return { answer: contact.email, confidence: 0.85 };
-                if (text.includes('address') || text.includes('location')) {
-                    return { answer: contact.address, confidence: 0.85 };
-                }
-
-                const staff = this.knowledgeBase.staff;
-                if (text.includes('teacher')) {
-                    return { answer: `Our teachers include: ${staff.teachers.join(', ')}`, confidence: 0.8 };
-                }
-
-                return { answer: null, confidence: 0 };
-            }
-
-            fallbackResponse(intent) {
-                const fallbacks = {
-                    greeting: 'Hello! Welcome to G.S Nyirarukobwa. How can I assist you today?',
-                    thanks: "You're very welcome! Is there anything else I can help with?",
-                    location: 'The school is located at Ntarama Sector, Bugesera District, Eastern Province, Rwanda.',
-                    levels: 'We offer Nursery, Lower Primary, Upper Primary, and O-Level education.',
-                    application: 'You can apply online through our Apply section. Just fill in the form and submit it!',
-                    documents: 'For admission, you need: birth certificate, previous school report, medical records, parent/guardian identification, and SDMS Code.',
-                    fees: 'For current fee structure, please contact the school administration directly.',
-                    contact: 'You can visit us at Ntarama Sector, Bugesera District, Eastern Province.',
-                    activities: 'We offer sports, clubs, cultural activities, and various student events throughout the year.',
-                    staff: 'Our Head Teacher is NKUNDINGABO Theophile. We also have dedicated teachers including MUHIRE Jean de la Croix, NYIRAHAKIZIMANA Jeanisse, NTABWOBA Jean Paul, and Nzayisenga Obed.',
-                    history: 'G.S Nyirarukobwa was established in 1974 and has been serving the community with quality education ever since.',
-                    mission: 'Our mission is to provide quality education that prepares students for the future.',
-                    achievements: 'We have achieved excellence in academics, sports, and digital innovation.',
-                    sdms: 'SDMS (School Data Management System) is a system by the Ministry of Education to track student records. It\'s required for all students in Rwanda.'
-                };
-
-                if (fallbacks[intent]) return fallbacks[intent];
-
-                const generic = [
-                    "That's a great question. Could you please rephrase or be more specific?",
-                    "I'm here to help with information about G.S Nyirarukobwa. What would you like to know?",
-                    "I appreciate your question. Could you tell me more about what you're looking for?",
-                    "That's an interesting question. Could you clarify what specific aspect you're interested in?"
-                ];
-                return generic[Math.floor(Math.random() * generic.length)];
-            }
-        }
-
+        // The AI is now loaded from ai.js
+        // Initialize it
         const ai = new SchoolAIAssistant();
 
         // ==========================================
@@ -3710,8 +4075,8 @@
         console.log('🪑 Desks:', 36);
         console.log('📖 Bookshelves:', shelfPos.length);
         console.log('🏆 Trophies:', trophyPos.length);
-        console.log('🤖 AI Assistant: Ready');
-        console.log('📝 Form: Connected to Google Sheets (Updated URL)');
+        console.log('🤖 AI Assistant: Loaded from ai.js');
+        console.log('📝 Form: Connected to Google Sheets');
         console.log('📍 Location: Ntarama Sector, Bugesera District, Eastern Province');
         console.log('👨‍🏫 Head Teacher: NKUNDINGABO Theophile');
         console.log('🌍 Translation: English, Kinyarwanda, Français available');
