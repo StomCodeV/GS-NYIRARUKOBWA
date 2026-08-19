@@ -1,5 +1,5 @@
 // ==========================================
-// AI ASSISTANT - Madame Marie
+// AI ASSISTANT - GS NYIRARUKOBWA Assistant Ai
 // Complete Knowledge Base for G.S Nyirarukobwa
 // ==========================================
 
@@ -23,15 +23,18 @@ const AIKnowledgeBase = {
         headTeacher: 'NKUNDINGABO Theophile',
         formerDirector: 'Yankurije Antoine (2013)',
         studentCount: {
-            total: 1230,
-            girls: 406,
-            boys: 399
+            total: '1,230+',
+            girls: '406+',
+            boys: '399+'
         },
-        description: 'G.S Nyirarukobwa is a public school in Bugesera District that has been serving the community with quality education since 1974.'
+        description: 'G.S Nyirarukobwa is a public school in Bugesera District that has been serving the community with quality education since 1974. The school offers education from Nursery through O-Level and has embraced educational technology through partnerships with ISOC Rwanda and Airtel Rwanda.',
+        phone: '[School Phone Number]',
+        email: '[School Email]',
+        address: 'Ntarama Sector, Bugesera District, Eastern Province, Rwanda'
     },
 
     // ==========================================
-    // MISSION & VISION
+    // MISSION & VISION (Official)
     // ==========================================
     mission: {
         kinyarwanda: 'Gutoza abana uburezi no gutanga uburezi bufite ireme, kugira ngo abanyeshuri bazibone mu iterambere mu cyerekezo cy\'u Rwanda cyo kugira ubukungu bushingiye ku bumenyi n\'ikoranabuhanga.',
@@ -113,16 +116,6 @@ const AIKnowledgeBase = {
         process: 'Visit the Apply section to complete the online application form. You will need the student\'s SDMS Code.',
         fees: 'Please contact the school administration for current fee structure.',
         documents: 'Birth certificate, previous school report, medical records, parent/guardian identification, and SDMS Code.'
-    },
-
-    // ==========================================
-    // CONTACT
-    // ==========================================
-    contact: {
-        phone: '[School Phone Number]',
-        email: '[School Email]',
-        address: 'Ntarama Sector, Bugesera District, Eastern Province, Rwanda',
-        mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1804.1014922726688!2d30.090682061751547!3d-2.078193123410155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dcabbf780ff707%3A0xbeeb8f8e5bf6795e!2sNyirarukobwa%20Primary%20School!5e1!3m2!1sen!2srw!4v1787040623292!5m2!1sen!2srw'
     },
 
     // ==========================================
@@ -210,7 +203,8 @@ const AIKnowledgeBase = {
         { question: 'What is the school\'s mission?', answer: 'To provide quality education that prepares students for the future.' },
         { question: 'What is the school\'s vision?', answer: 'To be a center of academic excellence and character development.' },
         { question: 'How many students does the school have?', answer: 'The school has over 1,230 students.' },
-        { question: 'What partners does the school have?', answer: 'ISOC Rwanda, Airtel Rwanda, MINEDUC, Bugesera District, Rwanda Investigation Bureau, and UNICEF.' }
+        { question: 'What partners does the school have?', answer: 'ISOC Rwanda, Airtel Rwanda, MINEDUC, Bugesera District, Rwanda Investigation Bureau, and UNICEF.' },
+        { question: 'What technology does the school have?', answer: 'We have a Digital Library, Computer Lab, Smart Teacher Project, and participate in Safer Internet Day and Global Encryption Day.' }
     ]
 };
 
@@ -224,6 +218,7 @@ class SchoolAIAssistant {
         this.userName = null;
         this.conversationCount = 0;
         this.avatar = 'https://i.postimg.cc/zfn1bpyP/GS-NYIRARUKOBWA-Assistant-Ai.png';
+        this.name = 'GS NYIRARUKOBWA Assistant Ai';
     }
 
     // ==========================================
@@ -231,6 +226,13 @@ class SchoolAIAssistant {
     // ==========================================
     getAvatar() {
         return this.avatar;
+    }
+
+    // ==========================================
+    // GET AI NAME
+    // ==========================================
+    getName() {
+        return this.name;
     }
 
     // ==========================================
@@ -353,7 +355,7 @@ class SchoolAIAssistant {
         }
 
         const school = this.knowledgeBase.school;
-        const contact = this.knowledgeBase.contact;
+        const contact = this.knowledgeBase.school;
         const sdms = this.knowledgeBase.sdms;
         const admissions = this.knowledgeBase.admissions;
         const academics = this.knowledgeBase.academics;
@@ -384,7 +386,7 @@ class SchoolAIAssistant {
         }
         if (text.includes('students') || text.includes('how many students')) {
             return {
-                answer: `The school has ${school.studentCount.total}+ students — ${school.studentCount.girls} girls and ${school.studentCount.boys} boys.`,
+                answer: `The school has ${school.studentCount.total} students — ${school.studentCount.girls} girls and ${school.studentCount.boys} boys.`,
                 confidence: 0.9
             };
         }
@@ -474,7 +476,7 @@ class SchoolAIAssistant {
             else if (hour >= 12 && hour < 17) greeting = 'Good afternoon';
             else if (hour >= 17 && hour < 21) greeting = 'Good evening';
             else greeting = 'Hello';
-            return `${greeting}! Welcome to G.S Nyirarukobwa. I'm Madame Marie, your AI assistant. How can I help you today?`;
+            return `${greeting}! Welcome to G.S Nyirarukobwa. I'm GS NYIRARUKOBWA Assistant Ai. How can I help you today?`;
         }
 
         if (intent === 'thanks') {
