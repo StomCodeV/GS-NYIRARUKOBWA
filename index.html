@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- Favicon -->
-     <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
     <style>
         /* ============================================
@@ -1409,17 +1409,12 @@
     </header>
 
     <!-- ==========================================
-    HERO
+    HERO – FIXED (no merge conflict)
     ========================================== -->
-   <section class="hero" id="home">
+    <section class="hero" id="home">
         <div class="hero-content">
-<<<<<<< HEAD
-            <h1 data-translate="hero-title">G.S </h1>
+            <h1 data-translate="hero-title">G.S <span>Nyirarukobwa</span></h1>
             <p class="tagline" data-translate="hero-tagline">Knowledge. Culture. Success</p>
-=======
-            <h1>G.S <span>Nyirarukobwa</span></h1>
-            <p class="tagline">Knowledge. Culture. Success</p>
->>>>>>> 6800d8c8349a8d3cdec615fb23ebe3bd3edb5a94
             <div class="hero-buttons">
                 <a href="#about" class="btn-primary">Explore Our School</a>
                 <a href="#apply" class="btn-secondary">Apply Online</a>
@@ -2250,9 +2245,43 @@
     </script>
 
     <!-- ==========================================
-    AI ASSISTANT (External File)
+    AI ASSISTANT (inline fallback – no external file)
     ========================================== -->
-    <script src="ai.js"></script>
+    <script>
+        // Minimal AI assistant – replaces external ai.js
+        class SchoolAIAssistant {
+            constructor() {
+                this.knowledge = {
+                    'history': 'G.S Nyirarukobwa was founded in 1974. Key milestones: Airtel Rwanda renovated the school in 2013, ISOC Rwanda provided a computer lab, and we host Safer Internet Day annually.',
+                    'academics': 'We offer Nursery, Lower Primary, Upper Primary, and O-Level. Our curriculum focuses on strong foundations and digital literacy.',
+                    'admissions': 'To apply, fill out the online application form. You will need the student\'s SDMS code, birth certificate, and previous school records.',
+                    'sdms': 'SDMS (School Data Management System) is a Ministry of Education system that tracks student records. It is required for all students in Rwanda.',
+                    'location': 'We are located in Ntarama Sector, Bugesera District, Eastern Province, Rwanda.',
+                    'head teacher': 'Our Head Teacher is NYIRASAFARI Olive.',
+                    'staff': 'We have a dedicated team of teachers led by our Head Teacher. Staff are committed to student success.',
+                    'sports': 'We have a sports hall and have won district competitions in 2019, 2021, and 2023.',
+                    'gallery': 'Check out our gallery section for photos of school events and activities.',
+                    'default': 'I can help with information about our history, academics, admissions, SDMS, location, and more. What would you like to know?'
+                };
+            }
+            process(query) {
+                const lower = query.toLowerCase();
+                let response = this.knowledge.default;
+                let reasoning = ['I searched my knowledge base for relevant information.'];
+                for (const [key, value] of Object.entries(this.knowledge)) {
+                    if (lower.includes(key)) {
+                        response = value;
+                        reasoning.push(`Found matching key: "${key}"`);
+                        break;
+                    }
+                }
+                if (response === this.knowledge.default) {
+                    reasoning.push('No specific match found, using default response.');
+                }
+                return { response, reasoning };
+            }
+        }
+    </script>
 
     <!-- ==========================================
     MAIN JAVASCRIPT
@@ -4088,7 +4117,7 @@
         }
 
         // ==========================================
-        // AI ASSISTANT - Using External ai.js
+        // AI ASSISTANT - Using inline class defined above
         // ==========================================
         const ai = new SchoolAIAssistant();
 
@@ -4164,7 +4193,7 @@
         console.log('🪑 Desks:', 36);
         console.log('📖 Bookshelves:', shelfPos.length);
         console.log('🏆 Trophies:', trophyPos.length);
-        console.log('🤖 AI Assistant: Loaded from ai.js');
+        console.log('🤖 AI Assistant: Loaded inline');
         console.log('📝 Form: Connected to Google Sheets');
         console.log('📍 Location: Ntarama Sector, Bugesera District, Eastern Province');
         console.log('👨‍🏫 Head Teacher: NKUNDINGABO Theophile');
@@ -4173,3 +4202,4 @@
     </script>
 </body>
 </html>
+<script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_CNp8dYit9A4yigQVtN2wbmpwHyue" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
