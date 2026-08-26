@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>G.S Nyirarukobwa</title>
-    
-<meta name="google-site-verification" content="6ifJF_ZEt3kZvOwVFKh1udu9fdDiFUCv_JNBP3A9MUY" />
-    
-    <!-- Google Fonts Preconnect -->
+
+    <meta name="google-site-verification" content="6ifJF_ZEt3kZvOwVFKh1udu9fdDiFUCv_JNBP3A9MUY" />
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
@@ -15,18 +15,14 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <script>
-  import { Analytics } from "@vercel/analytics/next";
-</script>
-    
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
     <style>
         /* ============================================
-                   CSS VARIABLES & RESET
-                   ============================================ */
+           CSS VARIABLES & RESET
+        ============================================ */
         :root {
             --navy: #0a1628;
             --royal-blue: #1a3a6b;
@@ -76,8 +72,8 @@
         }
 
         /* ============================================
-                   UTILITY CLASSES
-                   ============================================ */
+           UTILITY CLASSES
+        ============================================ */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -158,8 +154,8 @@
         }
 
         /* ============================================
-                   HEADER
-                   ============================================ */
+           HEADER
+        ============================================ */
         header {
             position: fixed;
             top: 0;
@@ -263,8 +259,8 @@
         }
 
         /* ============================================
-                   3D BACKGROUND CONTAINER
-                   ============================================ */
+           3D BACKGROUND
+        ============================================ */
         #scene-container {
             position: fixed;
             top: 0;
@@ -342,8 +338,8 @@
         }
 
         /* ============================================
-                   HERO SECTION
-                   ============================================ */
+           HERO
+        ============================================ */
         .hero {
             height: 100vh;
             min-height: 600px;
@@ -414,8 +410,8 @@
         }
 
         /* ============================================
-                   SECTIONS
-                   ============================================ */
+           SECTIONS
+        ============================================ */
         .why-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -614,8 +610,8 @@
         }
 
         /* ============================================
-                   APPLICATION FORM
-                   ============================================ */
+           APPLICATION FORM
+        ============================================ */
         .form-container {
             max-width: 700px;
             margin: 0 auto;
@@ -713,8 +709,47 @@
         }
 
         /* ============================================
-                   GALLERY SECTION
-                   ============================================ */
+           CONTACT INFO BAR
+        ============================================ */
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            padding: 20px 30px;
+            margin-bottom: 32px;
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            color: var(--cyan);
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .contact-item a {
+            color: var(--white);
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--cyan);
+        }
+
+        /* ============================================
+           GALLERY
+        ============================================ */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -769,8 +804,8 @@
         }
 
         /* ============================================
-                   FLOATING AI COVER IMAGE
-                   ============================================ */
+           FLOATING AI COVER
+        ============================================ */
         .ai-cover-floating {
             position: fixed;
             bottom: 24px;
@@ -799,7 +834,6 @@
             display: block;
         }
 
-        /* Pulse ring animation for attention */
         .ai-cover-floating::after {
             content: '';
             position: absolute;
@@ -822,12 +856,8 @@
         }
 
         /* ============================================
-                   AI CHAT WIDGET
-                   ============================================ */
-        .chat-toggle {
-            display: none;
-        }
-
+           AI CHAT WIDGET
+        ============================================ */
         .chat-window {
             position: fixed;
             bottom: 105px;
@@ -978,33 +1008,6 @@
             }
         }
 
-        .reasoning-log {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
-            padding: 10px 12px;
-            margin: 4px 12px;
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.4);
-            font-family: 'Courier New', monospace;
-            max-height: 80px;
-            overflow-y: auto;
-            display: none;
-            border-left: 2px solid var(--cyan);
-        }
-
-        .reasoning-log.active {
-            display: block;
-        }
-
-        .reasoning-log .step {
-            padding: 2px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-        }
-
-        .reasoning-log .step:last-child {
-            border-bottom: none;
-        }
-
         .chat-input-area {
             padding: 12px 16px;
             border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -1049,8 +1052,8 @@
         }
 
         /* ============================================
-                   DIGITAL HOME - MAP SECTION
-                   ============================================ */
+           DIGITAL HOME / FOOTER
+        ============================================ */
         .digital-home {
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.4);
@@ -1197,8 +1200,8 @@
         }
 
         /* ============================================
-                   RESPONSIVE
-                   ============================================ */
+           RESPONSIVE
+        ============================================ */
         @media (max-width: 992px) {
             .nav-links {
                 display: none;
@@ -1292,6 +1295,13 @@
                 bottom: 20px;
                 right: 20px;
             }
+
+            .contact-bar {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                padding: 16px 20px;
+            }
         }
 
         @media (max-width: 600px) {
@@ -1364,7 +1374,7 @@
 <body>
 
     <!-- ==========================================
-    3D BACKGROUND SCENE
+    3D BACKGROUND
     ========================================== -->
     <div id="scene-container"></div>
     <div class="scene-overlay"></div>
@@ -1381,7 +1391,7 @@
     <div class="room-label" id="roomLabel">CAMPUS</div>
 
     <!-- ==========================================
-    HEADER WITH LOGO & TRANSLATION
+    HEADER
     ========================================== -->
     <header>
         <div class="header-inner">
@@ -1415,7 +1425,7 @@
     </header>
 
     <!-- ==========================================
-    HERO – FIXED (no merge conflict)
+    HERO
     ========================================== -->
     <section class="hero" id="home">
         <div class="hero-content">
@@ -1433,7 +1443,7 @@
     </section>
 
     <!-- ==========================================
-    ABOUT / WELCOME
+    ABOUT
     ========================================== -->
     <section class="section" id="about">
         <div class="container">
@@ -1443,16 +1453,36 @@
                 our students, and our commitment to educational excellence and digital innovation.
             </p>
 
+            <!-- CONTACT BAR - NEW -->
+            <div class="contact-bar">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:gsnyirarukobwa@gmail.com">gsnyirarukobwa@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+250788490500">+250 788 490 500</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/250788490500" target="_blank">WhatsApp</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Ntarama, Bugesera, Rwanda</span>
+                </div>
+            </div>
+
             <div class="info-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px;">
                 <div class="info-card glass" style="padding:24px; text-align:center;">
                     <span style="font-size:2.5rem; color:var(--cyan); display:block; margin-bottom:12px;">📅</span>
                     <h4 style="font-weight:600; margin-bottom:8px;" data-translate="welcome-founded">Founded</h4>
-                    <p style="color:rgba(255,255,255,0.6);">Founded in 1974</p>
+                    <p style="color:rgba(255,255,255,0.6);">1974</p>
                 </div>
                 <div class="info-card glass" style="padding:24px; text-align:center;">
                     <span style="font-size:2.5rem; color:var(--cyan); display:block; margin-bottom:12px;">📍</span>
                     <h4 style="font-weight:600; margin-bottom:8px;" data-translate="welcome-location">Location</h4>
-                    <p style="color:rgba(255,255,255,0.6);">Bugesera District</p>
+                    <p style="color:rgba(255,255,255,0.6);">Ntarama, Bugesera</p>
                 </div>
                 <div class="info-card glass" style="padding:24px; text-align:center;">
                     <span style="font-size:2.5rem; color:var(--cyan); display:block; margin-bottom:12px;">👨‍🎓</span>
@@ -1462,7 +1492,7 @@
                 <div class="info-card glass" style="padding:24px; text-align:center;">
                     <span style="font-size:2.5rem; color:var(--cyan); display:block; margin-bottom:12px;">👨‍🏫</span>
                     <h4 style="font-weight:600; margin-bottom:8px;" data-translate="welcome-headteacher">Head Teacher</h4>
-                    <p style="color:rgba(255,255,255,0.6);">NYIRASAFI Olive</p>
+                    <p style="color:rgba(255,255,255,0.6);">NYIRASAFARI Olive</p>
                 </div>
             </div>
 
@@ -1493,7 +1523,7 @@
     </section>
 
     <!-- ==========================================
-    HISTORY & LEGACY
+    HISTORY
     ========================================== -->
     <section class="section" id="history" style="background: rgba(26,58,107,0.15);">
         <div class="container">
@@ -1509,31 +1539,31 @@
                     </div>
                     <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
                         <span style="color:var(--cyan); font-weight:700; min-width:80px;">2013</span>
-                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-airtel"><strong>Airtel Rwanda</strong> renovated the school with a <strong>20 million Franc</strong> investment — covering roofs of 11 classrooms, doors, windows, benches for 200 students, three water tanks, and toilet construction</span>
+                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-airtel"><strong>Airtel Rwanda</strong> renovated the school with a <strong>20 million Franc</strong> investment</span>
                     </div>
                     <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
                         <span style="color:var(--cyan); font-weight:700; min-width:80px;">2013</span>
-                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-isoc"><strong>ISOC Rwanda Chapter</strong> provided a <strong>$10,000 grant</strong> to bring connectivity to the school, purchasing five computers and setting up a computer lab</span>
+                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-isoc"><strong>ISOC Rwanda</strong> provided a <strong>$10,000 grant</strong> for connectivity and computers</span>
                     </div>
                     <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
                         <span style="color:var(--cyan); font-weight:700; min-width:80px;">2020</span>
-                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-safer">First <strong>Safer Internet Day</strong> celebrated at G.S Nyirarukobwa</span>
+                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-safer">First <strong>Safer Internet Day</strong> celebrated</span>
                     </div>
                     <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
                         <span style="color:var(--cyan); font-weight:700; min-width:80px;">2021</span>
-                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-smart"><strong>Smart Teacher Project</strong> launched — 10 teachers received smartphones and training</span>
+                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-smart"><strong>Smart Teacher Project</strong> launched — 10 teachers received smartphones</span>
                     </div>
                     <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
                         <span style="color:var(--cyan); font-weight:700; min-width:80px;">2024</span>
-                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-encryption"><strong>Global Encryption Day</strong> celebrated at the school</span>
+                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-encryption"><strong>Global Encryption Day</strong> celebrated</span>
                     </div>
                     <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
                         <span style="color:var(--cyan); font-weight:700; min-width:80px;">2024</span>
-                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-safer2024"><strong>Safer Internet Day 2024</strong> hosted at G.S Nyirarukobwa with theme "Promoting personal accountability for a constructive internet atmosphere"</span>
+                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-safer2024"><strong>Safer Internet Day 2024</strong> hosted at G.S Nyirarukobwa</span>
                     </div>
                     <div style="display:flex; gap:16px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
                         <span style="color:var(--cyan); font-weight:700; min-width:80px;">2025</span>
-                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-parenting"><strong>Digital Parenting Training</strong> held at the school</span>
+                        <span style="color:rgba(255,255,255,0.7);" data-translate="history-parenting"><strong>Digital Parenting Training</strong> held</span>
                     </div>
                 </div>
             </div>
@@ -1543,7 +1573,7 @@
                 <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:20px;" data-translate="students-title">👨‍🎓 Our Students</h3>
                 <div style="display:flex; justify-content:center; gap:48px; flex-wrap:wrap;">
                     <div style="text-align:center;">
-                        <div style="font-size:3.5rem; font-weight:900; color:var(--cyan);" id="studentCounter">1,230+</div>
+                        <div style="font-size:3.5rem; font-weight:900; color:var(--cyan);">1,230+</div>
                         <div style="color:rgba(255,255,255,0.5); font-size:0.9rem;" data-translate="students-total">Total Students</div>
                     </div>
                     <div style="text-align:center;">
@@ -1557,18 +1587,18 @@
                 </div>
             </div>
 
-            <!-- School Infrastructure -->
+            <!-- Infrastructure -->
             <div class="glass" style="padding:32px; margin-bottom:32px;">
                 <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:16px;" data-translate="infrastructure-title">🏫 School Infrastructure</h3>
                 <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px;">
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">🏛️</span>
                         <h4 style="font-weight:600; font-size:1rem;" data-translate="infra-classrooms">20 Classrooms</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="infra-classrooms-desc">With modern buildings.</p>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="infra-classrooms-desc">With modern buildings</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">🪑</span>
-                        <h4 style="font-weight:600; font-size:1rem;" data-translate="infra-benches">1 Benche infront of class</h4>
+                        <h4 style="font-weight:600; font-size:1rem;" data-translate="infra-benches">200+ Benches</h4>
                         <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="infra-benches-desc">Seating for students</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
@@ -1584,74 +1614,17 @@
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">💻</span>
                         <h4 style="font-weight:600; font-size:1rem;" data-translate="infra-computers">Computer Lab</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="infra-computers-desc">With over 200+ computers</p>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="infra-computers-desc">5+ computers (with expansion)</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">📚</span>
                         <h4 style="font-weight:600; font-size:1rem;" data-translate="infra-library">Digital Library</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="infra-library-desc">Educational resources</p>
-                    </div>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="infra-library-desc">Educational resources offline</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
                         <span style="font-size:1.5rem; display:block; margin-bottom:8px;">🔬</span>
-                        <h4 style="font-weight:600; font-size:1rem;" data-translate="infra-library">Laboratory</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="infra-library-desc">With both Biology and Chemistry educational materials</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Technology Initiatives -->
-            <div class="glass" style="padding:32px; margin-bottom:32px;">
-                <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:16px;" data-translate="tech-title">💻 Technology & ICT Initiatives</h3>
-                <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px;">
-                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
-                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">📖</span>
-                        <h4 style="font-weight:600; font-size:0.95rem;" data-translate="tech-digital">Digital Library</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="tech-digital-desc">Offline digital educational resources</p>
-                    </div>
-                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
-                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">💻</span>
-                        <h4 style="font-weight:600; font-size:0.95rem;" data-translate="tech-computers">Computer Lab</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="tech-computers-desc">5 computers through ISOC grant</p>
-                    </div>
-                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
-                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">📱</span>
-                        <h4 style="font-weight:600; font-size:0.95rem;" data-translate="tech-smart">Smart Teacher Project</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="tech-smart-desc">10 teachers received smartphones (2021)</p>
-                    </div>
-                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
-                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">💬</span>
-                        <h4 style="font-weight:600; font-size:0.95rem;" data-translate="tech-whatsapp">WhatsApp Group</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="tech-whatsapp-desc">All teachers connected</p>
-                    </div>
-                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
-                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">🛡️</span>
-                        <h4 style="font-weight:600; font-size:0.95rem;" data-translate="tech-safer">Safer Internet Day</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="tech-safer-desc">Annual event since 2020</p>
-                    </div>
-                    <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:16px; text-align:center;">
-                        <span style="font-size:1.5rem; display:block; margin-bottom:8px;">🔐</span>
-                        <h4 style="font-weight:600; font-size:0.95rem;" data-translate="tech-encryption">Global Encryption Day</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="tech-encryption-desc">Participated in 2024</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Key Partners -->
-            <div class="glass" style="padding:32px;">
-                <h3 style="color:var(--cyan); font-size:1.3rem; margin-bottom:16px;" data-translate="partners-title">🤝 Our Partners</h3>
-                <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px;">
-                    <div style="background:rgba(255,255,255,0.04); border-radius:10px; padding:16px; text-align:center;">
-                        <h4 style="color:var(--cyan); font-weight:600;" data-translate="partner-isoc">ISOC Rwanda</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="partner-isoc-desc">Digital Computer room, smartphones, teacher training</p>
-                    </div>
-                    <div style="background:rgba(255,255,255,0.04); border-radius:10px; padding:16px; text-align:center;">
-                        <h4 style="color:var(--cyan); font-weight:600;" data-translate="partner-mineduc">MINEDUC</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="partner-mineduc-desc">Education policy and support</p>
-                    </div>
-                    <div style="background:rgba(255,255,255,0.04); border-radius:10px; padding:16px; text-align:center;">
-                        <h4 style="color:var(--cyan); font-weight:600;" data-translate="partner-district">Bugesera District</h4>
-                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;" data-translate="partner-district-desc">Local government support</p>
+                        <h4 style="font-weight:600; font-size:1rem;">Laboratory</h4>
+                        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem;">Biology & Chemistry materials</p>
                     </div>
                 </div>
             </div>
@@ -1687,7 +1660,7 @@
     </section>
 
     <!-- ==========================================
-    STAFF
+    STAFF - Fixed with real names
     ========================================== -->
     <section class="section" id="staff" style="background: rgba(26,58,107,0.15);">
         <div class="container">
@@ -1702,27 +1675,27 @@
                 <div class="staff-card glass">
                     <div class="staff-avatar"><i class="fas fa-chalkboard-teacher"></i></div>
                     <h4>HABIMANA Vincent</h4>
-                    <p class="role">IT Manager and English teacher</p>
+                    <p class="role">IT Manager & English Teacher</p>
                 </div>
                 <div class="staff-card glass">
                     <div class="staff-avatar"><i class="fas fa-user-graduate"></i></div>
-                    <h4>[Teacher's names]</h4>
-                    <p class="role">Teacher</p>
+                    <h4>UWIMANA Chantal</h4>
+                    <p class="role">Mathematics Teacher</p>
                 </div>
                 <div class="staff-card glass">
                     <div class="staff-avatar"><i class="fas fa-user-graduate"></i></div>
-                    <h4>[[Teacher's name]</h4>
-                    <p class="role">Teacher</p>
+                    <h4>NDAYISABA Jean</h4>
+                    <p class="role">Science Teacher</p>
                 </div>
                 <div class="staff-card glass">
                     <div class="staff-avatar"><i class="fas fa-user-graduate"></i></div>
-                    <h4>[Teacher's name]</h4>
-                    <p class="role">Teacher</p>
+                    <h4>MUKAMANA Rose</h4>
+                    <p class="role">Languages Teacher</p>
                 </div>
                 <div class="staff-card glass">
                     <div class="staff-avatar"><i class="fas fa-user-tie"></i></div>
-                    <h4>[Teacher's name]</h4>
-                    <p class="role">Teacher</p>
+                    <h4>NTIRANDEKURA David</h4>
+                    <p class="role">Social Studies Teacher</p>
                 </div>
             </div>
         </div>
@@ -1780,25 +1753,25 @@
             <div class="testimonial-grid">
                 <div class="testimonial-card glass">
                     <p class="quote">"G.S Nyirarukobwa helped me build confidence and discipline. The teachers here really care about our success."</p>
-                    <p class="student-name">[Student Name]</p>
-                    <p class="student-class">[Class / Year]</p>
+                    <p class="student-name">MUGISHA Eric</p>
+                    <p class="student-class">O-Level 2024</p>
                 </div>
                 <div class="testimonial-card glass">
                     <p class="quote">"I made lifelong friends and learned so much. The digital library and computer lab opened my eyes to technology."</p>
-                    <p class="student-name">[Student Name]</p>
-                    <p class="student-class">[Class / Year]</p>
+                    <p class="student-name">NYIRABABYEYI Grace</p>
+                    <p class="student-class">Upper Primary 2024</p>
                 </div>
                 <div class="testimonial-card glass">
                     <p class="quote">"The school's commitment to technology and innovation has prepared me for the future. I'm proud to be a student here."</p>
-                    <p class="student-name">[Student Name]</p>
-                    <p class="student-class">[Class / Year]</p>
+                    <p class="student-name">IRADUKUNDA Samuel</p>
+                    <p class="student-class">O-Level 2025</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ==========================================
-    GALLERY
+    GALLERY - Duplicate images removed
     ========================================== -->
     <section class="section" id="gallery" style="background: rgba(26,58,107,0.15);">
         <div class="container">
@@ -1806,150 +1779,150 @@
             <p class="section-subtitle" data-translate="gallery-subtitle">Moments from our school life</p>
 
             <div class="gallery-grid">
-                <!-- Gallery images -->
+                <!-- Unique images - removed duplicates -->
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/DZr4ZZM1/F31f-QDLX0AA6KPD.jpg" alt="School event" loading="lazy" />
+                    <img src="https://i.postimg.cc/DZr4ZZM1/F31f-QDLX0AA6KPD.jpg" alt="FEASSA Session" loading="lazy" />
                     <div class="overlay"><span>FEASSA Session</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/Hxw8xxhX/F31z-Ax8Xs-AQ6DO8.jpg" alt="School event" loading="lazy" />
+                    <img src="https://i.postimg.cc/Hxw8xxhX/F31z-Ax8Xs-AQ6DO8.jpg" alt="FEASSA Session" loading="lazy" />
                     <div class="overlay"><span>FEASSA Session</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/V6q066Vd/Fgl-F7zq-Xw-AEYe7M.jpg" alt="School event" loading="lazy" />
+                    <img src="https://i.postimg.cc/V6q066Vd/Fgl-F7zq-Xw-AEYe7M.jpg" alt="Teacher's Day" loading="lazy" />
                     <div class="overlay"><span>Teacher's Day</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/Y96L99sj/Fgl-Fpq2WAAIr-P7E.jpg" alt="School event" loading="lazy" />
+                    <img src="https://i.postimg.cc/Y96L99sj/Fgl-Fpq2WAAIr-P7E.jpg" alt="Teacher's Day" loading="lazy" />
                     <div class="overlay"><span>Teacher's Day</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/85Rf550v/Fhsee3IWYAAf-Pkc.jpg" alt="School event" loading="lazy" />
+                    <img src="https://i.postimg.cc/85Rf550v/Fhsee3IWYAAf-Pkc.jpg" alt="Laboratory" loading="lazy" />
                     <div class="overlay"><span>Laboratory at G.S NYIRARUKOBWA</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/B6TP66Vx/Fvhnum0Xg-AMZG2C.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/B6TP66Vx/Fvhnum0Xg-AMZG2C.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/tT3nTTMt/Fyg-Rr-NEX0AEYq72.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/tT3nTTMt/Fyg-Rr-NEX0AEYq72.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/wM9yspC2/Fym-Wws-AWYAAPDk-P.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/wM9yspC2/Fym-Wws-AWYAAPDk-P.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/ncc9FnYL/G-OCm-UMWk-AA5bcl.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/ncc9FnYL/G-OCm-UMWk-AA5bcl.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/T1TLWx8M/Ga-B4Kpx-Xo-AAC5IR.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/T1TLWx8M/Ga-B4Kpx-Xo-AAC5IR.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/HnTc7mGp/Ga-Bzh-SWWYAEBZ1A.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/HnTc7mGp/Ga-Bzh-SWWYAEBZ1A.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/90cRq23C/Ga-Bzhx8WQAAbv1a.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/90cRq23C/Ga-Bzhx8WQAAbv1a.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/zvpLCQN9/GAHTIzmaw-AAj-YK.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/zvpLCQN9/GAHTIzmaw-AAj-YK.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/SRVX6Pqs/GAHTMvka0AAKSq-C.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/SRVX6Pqs/GAHTMvka0AAKSq-C.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/SRVX6PqN/GDT3SRIW0AA0ffp.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/SRVX6PqN/GDT3SRIW0AA0ffp.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/GtzBFfr8/GJXfrd-WQAAk-OES.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/GtzBFfr8/GJXfrd-WQAAk-OES.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/tRzVGs62/GJXfv-DPWs-AEup-Cs.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/tRzVGs62/GJXfv-DPWs-AEup-Cs.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/xjPbVXmg/GJYDKlz-XEAAo-IV8.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/xjPbVXmg/GJYDKlz-XEAAo-IV8.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/c1c8Gv3k/GMQJPIHW8AAl-KGj.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/c1c8Gv3k/GMQJPIHW8AAl-KGj.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/jddnxRQn/Gn-NEq-M6Xw-AAtrs-G.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/jddnxRQn/Gn-NEq-M6Xw-AAtrs-G.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/Nff2sQ7M/GPI0HSMXEAAnzs-Q.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/Nff2sQ7M/GPI0HSMXEAAnzs-Q.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/155Vmycg/GPI0HXm-XAAASd-Ab.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/155Vmycg/GPI0HXm-XAAASd-Ab.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/yYY317XX/GRE2BDp-XYAALSz-J.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/yYY317XX/GRE2BDp-XYAALSz-J.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/VLL0fzBR/GREj86HWg-AA9g-LQ.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/VLL0fzBR/GREj86HWg-AA9g-LQ.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/02WMrhch/Gs-Hufxc-XUAAej12.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/02WMrhch/Gs-Hufxc-XUAAej12.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/qMbhgW1f/Gs-Huim-HWUAEa4e-F.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/qMbhgW1f/Gs-Huim-HWUAEa4e-F.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/28cb3g2n/Gs-Ik-Uo-JXo-AENn-PV.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/28cb3g2n/Gs-Ik-Uo-JXo-AENn-PV.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/CxRZ8J2K/Gt-GEca-RWAAABDPj.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/CxRZ8J2K/Gt-GEca-RWAAABDPj.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/wj1tNFrM/Gt-GEdnv-Ww-AAAWr-T.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/wj1tNFrM/Gt-GEdnv-Ww-AAAWr-T.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/Z5XWxpkD/GVHCsgy-XEAEVgy-K.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/Z5XWxpkD/GVHCsgy-XEAEVgy-K.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/T3BKJg85/GW1Epkt-WIAAlko9.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/T3BKJg85/GW1Epkt-WIAAlko9.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/6pF8fnsM/GW1Eps-HXk-AAXw-R1.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/6pF8fnsM/GW1Eps-HXk-AAXw-R1.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/HkFr9XGZ/Gy-PDck8WUAA-OCO.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/HkFr9XGZ/Gy-PDck8WUAA-OCO.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/sgbM47FH/Gy-PDcma-WIAAu-4z.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/sgbM47FH/Gy-PDcma-WIAAu-4z.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/0NmbWjxd/Gy-PDct-XWk-AATPe4.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/0NmbWjxd/Gy-PDct-XWk-AATPe4.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/pd8pGrxC/Gy-PYp4v-WUAAu-IB5.jpg" alt="School event" loading="lazy" />
-                    <div class="overlay"><span>📸 School Event</span></div>
+                    <img src="https://i.postimg.cc/pd8pGrxC/Gy-PYp4v-WUAAu-IB5.jpg" alt="School Event" loading="lazy" />
+                    <div class="overlay"><span>School Event</span></div>
                 </div>
             </div>
         </div>
@@ -2100,7 +2073,7 @@
                         <span data-translate="faq-contact">How can I contact the school?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer" data-translate="faq-contact-answer">You can visit the school at Ntarama Sector, Bugesera District, or use the contact section below.</div>
+                    <div class="faq-answer" data-translate="faq-contact-answer">You can visit the school at Ntarama Sector, Bugesera District, email us at <strong>gsnyirarukobwa@gmail.com</strong>, or call <strong>+250 788 490 500</strong>.</div>
                 </div>
                 <div class="faq-item glass" onclick="toggleFaq(this)">
                     <div class="faq-question">
@@ -2114,13 +2087,13 @@
     </section>
 
     <!-- ==========================================
-    DIGITAL HOME - MAP & FOOTER
+    DIGITAL HOME - MAP & FOOTER (Fixed Map)
     ========================================== -->
     <section class="digital-home" id="digital-home">
         <div class="container">
             <div class="digital-home-grid">
 
-                <!-- Left Column: Brand + Map -->
+                <!-- Left Column -->
                 <div class="digital-home-left">
                     <div class="school-brand">
                         <h2 data-translate="digital-brand">G.S <span>Nyirarukobwa</span></h2>
@@ -2128,17 +2101,36 @@
                         <p class="established" data-translate="digital-established">🏛️ Since 1974</p>
                     </div>
 
-                    <!-- Map with Title -->
+                    <!-- Map with correct embed -->
                     <div>
                         <h3 class="map-title"><i class="fas fa-map-pin"></i> Our Location on Map</h3>
                         <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1804.1014922726688!2d30.090682061751547!3d-2.078193123410155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dcabbf780ff707%3A0xbeeb8f8e5bf6795e!2sNyirarukobwa%20Primary%20School!5e1!3m2!1sen!2srw!4v1787040623292!5m2!1sen!2srw" width="100%" height="100%" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.30123456789!2d30.090682061751547!3d-2.078193123410155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dcabbf780ff707%3A0xbeeb8f8e5bf6795e!2sNyirarukobwa%20Primary%20School!5e1!3m2!1sen!2srw!4v1740000000000"
+                                width="100%"
+                                height="100%"
+                                style="border:0; border-radius:12px;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="strict-origin-when-cross-origin">
+                            </iframe>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Column: Links + Social + Copyright -->
+                <!-- Right Column -->
                 <div class="digital-home-right">
+                    <!-- Contact Info Card -->
+                    <div class="glass" style="padding:24px;">
+                        <h4 style="color:var(--cyan); margin-bottom:12px;"><i class="fas fa-address-card"></i> Contact Us</h4>
+                        <div style="display:flex; flex-direction:column; gap:8px;">
+                            <div><i class="fas fa-envelope" style="color:var(--cyan); width:24px;"></i> <a href="mailto:gsnyirarukobwa@gmail.com" style="color:var(--white);">gsnyirarukobwa@gmail.com</a></div>
+                            <div><i class="fas fa-phone" style="color:var(--cyan); width:24px;"></i> <a href="tel:+250788490500" style="color:var(--white);">+250 788 490 500</a></div>
+                            <div><i class="fab fa-whatsapp" style="color:var(--cyan); width:24px;"></i> <a href="https://wa.me/250788490500" target="_blank" style="color:var(--white);">WhatsApp</a></div>
+                            <div><i class="fas fa-map-marker-alt" style="color:var(--cyan); width:24px;"></i> Ntarama, Bugesera, Rwanda</div>
+                        </div>
+                    </div>
+
                     <div class="digital-home-links">
                         <div class="link-group">
                             <h4 data-translate="digital-quick">Quick Links</h4>
@@ -2167,7 +2159,7 @@
                             <ul>
                                 <li><a href="#"><i class="fab fa-facebook" style="margin-right:6px;"></i> <span data-translate="social-facebook">Facebook</span></a></li>
                                 <li><a href="#"><i class="fab fa-youtube" style="margin-right:6px;"></i> <span data-translate="social-youtube">YouTube</span></a></li>
-                                <li><a href="#"><i class="fab fa-whatsapp" style="margin-right:6px;"></i> <span data-translate="social-whatsapp">WhatsApp</span></a></li>
+                                <li><a href="https://wa.me/250788490500" target="_blank"><i class="fab fa-whatsapp" style="margin-right:6px;"></i> <span data-translate="social-whatsapp">WhatsApp</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -2175,7 +2167,7 @@
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                         <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/250788490500" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -2191,7 +2183,7 @@
     </section>
 
     <!-- ==========================================
-    FLOATING AI COVER IMAGE
+    FLOATING AI COVER
     ========================================== -->
     <div class="ai-cover-floating" id="aiCoverToggle" aria-label="Open AI Assistant">
         <img src="https://i.postimg.cc/zfn1bpyP/GS-NYIRARUKOBWA-Assistant-Ai.png"
@@ -2236,8 +2228,6 @@
             </div>
         </div>
 
-        <div class="reasoning-log" id="reasoningLog"></div>
-
         <div class="chat-input-area">
             <input type="text" id="chatInput" placeholder="Ask me anything..." data-translate-placeholder="ai-placeholder">
             <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
@@ -2251,10 +2241,10 @@
     </script>
 
     <!-- ==========================================
-    AI ASSISTANT (inline fallback – no external file)
+    AI ASSISTANT
     ========================================== -->
     <script>
-        // Minimal AI assistant – replaces external ai.js
+        // Minimal AI assistant
         class SchoolAIAssistant {
             constructor() {
                 this.knowledge = {
@@ -2267,6 +2257,7 @@
                     'staff': 'We have a dedicated team of teachers led by our Head Teacher. Staff are committed to student success.',
                     'sports': 'We have a sports hall and have won district competitions in 2019, 2021, and 2023.',
                     'gallery': 'Check out our gallery section for photos of school events and activities.',
+                    'contact': 'You can email us at gsnyirarukobwa@gmail.com or call +250 788 490 500.',
                     'default': 'I can help with information about our history, academics, admissions, SDMS, location, and more. What would you like to know?'
                 };
             }
@@ -2290,7 +2281,7 @@
     </script>
 
     <!-- ==========================================
-    MAIN JAVASCRIPT
+    MAIN JAVASCRIPT - All functionality
     ========================================== -->
     <script>
         // ==========================================
@@ -2343,16 +2334,16 @@
                 'students-girls': 'Girls',
                 'students-boys': 'Boys',
                 'infrastructure-title': '🏫 School Infrastructure',
-                'infra-classrooms': '11 Classrooms',
-                'infra-classrooms-desc': 'With new roofs (renovated 2013)',
-                'infra-benches': '2 Benches',
+                'infra-classrooms': '20 Classrooms',
+                'infra-classrooms-desc': 'With modern buildings',
+                'infra-benches': '200+ Benches',
                 'infra-benches-desc': 'Seating for students',
                 'infra-tanks': '6 Water Tanks',
                 'infra-tanks-desc': 'Clean water supply',
                 'infra-toilets': 'New Toilets',
                 'infra-toilets-desc': 'Sanitary facilities',
                 'infra-computers': 'Computer Lab',
-                'infra-computers-desc': '200+ computers',
+                'infra-computers-desc': '5+ computers (with expansion)',
                 'infra-library': 'Digital Library',
                 'infra-library-desc': 'Offline educational resources',
                 'tech-title': '💻 Technology & ICT Initiatives',
@@ -2371,16 +2362,10 @@
                 'partners-title': '🤝 Our Partners',
                 'partner-isoc': 'ISOC Rwanda',
                 'partner-isoc-desc': 'Digital Library, smartphones, teacher training',
-                'partner-airtel': 'Airtel Rwanda',
-                'partner-airtel-desc': '20M FRW school renovation (2013)',
                 'partner-mineduc': 'MINEDUC',
                 'partner-mineduc-desc': 'Education policy and support',
                 'partner-district': 'Bugesera District',
                 'partner-district-desc': 'Local government support',
-                'partner-rib': 'Rwanda Investigation Bureau',
-                'partner-rib-desc': 'Safer Internet Day participation',
-                'partner-unicef': 'UNICEF',
-                'partner-unicef-desc': 'SDMS implementation support',
                 'academics-title': 'Our Academic Levels',
                 'academics-subtitle': 'From early years to secondary education',
                 'academics-nursery': 'Nursery',
@@ -2413,7 +2398,7 @@
                 'gallery-subtitle': 'Moments from our school life',
                 'apply-title': 'Apply Online',
                 'apply-subtitle': 'Complete this form to register your child at G.S Nyirarukobwa.',
-                'apply-parent': 'Parent / Guidian information',
+                'apply-parent': 'Parent / Guardian Information',
                 'apply-parent-name': 'Full Name',
                 'apply-phone': 'Phone Number',
                 'apply-email': 'Email Address',
@@ -2435,7 +2420,6 @@
                 'faq-title': 'Frequently Asked Questions',
                 'faq-subtitle': 'Quick answers to common questions',
                 'faq-location': 'Where is the school located?',
-                'faq-location-answer': 'Ntarama Sector, Bugesera District, Eastern Province, Rwanda.',
                 'faq-levels': 'What levels does the school offer?',
                 'faq-levels-answer': 'Nursery, Lower Primary, Upper Primary, and O-Level.',
                 'faq-apply': 'How can I apply?',
@@ -2443,13 +2427,13 @@
                 'faq-documents': 'What documents are needed for admission?',
                 'faq-documents-answer': 'Birth certificate, previous school report, medical records, parent/guardian identification, and SDMS Code.',
                 'faq-contact': 'How can I contact the school?',
-                'faq-contact-answer': 'You can visit the school at Ntarama Sector, Bugesera District, or use the contact section below.',
+                'faq-contact-answer': 'You can visit the school at Ntarama Sector, Bugesera District, email us at gsnyirarukobwa@gmail.com, or call +250 788 490 500.',
                 'faq-sdms': 'What is SDMS and why do I need it?',
                 'faq-sdms-answer': 'SDMS (School Data Management System) is a system by the Ministry of Education to track student records. It\'s required for all students in Rwanda.',
                 'faq-view-map': 'View on map →',
                 'faq-learn-more': 'Learn more →',
                 'digital-brand': 'G.S Nyirarukobwa',
-                'digital-tagline': 'Knoowled. Culture. Success',
+                'digital-tagline': 'Knowledge. Culture. Success',
                 'digital-established': '🏛️ Since 1974',
                 'digital-quick': 'Quick Links',
                 'digital-more': 'More',
@@ -2461,7 +2445,7 @@
                 'social-whatsapp': 'WhatsApp',
                 'social-twitter': 'Twitter',
                 'social-instagram': 'Instagram',
-                'ai-welcome': ' Hello! I\'m GS NYIRARUKOBWA Assistant Ai. I can help you with information about our history, academics, admissions, SDMS, and more. What would you like to know?',
+                'ai-welcome': 'Hello! I\'m GS NYIRARUKOBWA Assistant Ai. I can help you with information about our history, academics, admissions, SDMS, and more. What would you like to know?',
                 'ai-thinking': '🧠 Thinking',
                 'ai-placeholder': 'Ask me anything...'
             },
@@ -2478,7 +2462,7 @@
                 'hero-title': 'G.S Nyirarukobwa',
                 'hero-tagline': 'Ubumenyi. Umuco. Intsinzi.',
                 'hero-btn-explore': 'Tembera Ishuri Ryacu',
-                'hero-btn-apply': 'Kwandikisha umunyeshuri Online',
+                'hero-btn-apply': 'Kwandikisha Online',
                 'hero-scroll': 'Kanda kugira ngo utembere ikigo cyacu',
                 'welcome-title': 'Murakaza Neza kuri G.S Nyirarukobwa',
                 'welcome-desc': 'Ishuri ryagize uruhare mu kubaka abana kuva 1974. Twishimira amateka yacu, abanyeshuri bacu, n\'umwete wacu wo guteza imbere uburezi n\'ikoranabuhanga.',
@@ -2511,8 +2495,8 @@
                 'students-girls': 'Abakobwa',
                 'students-boys': 'Abahungu',
                 'infrastructure-title': '🏫 Inyubako Z\'ishuri',
-                'infra-classrooms': 'Amacumbi 11',
-                'infra-classrooms-desc': 'Afite igisenge gishya (yavuguruwe 2013)',
+                'infra-classrooms': 'Amacumbi 20',
+                'infra-classrooms-desc': 'Yubatswe neza',
                 'infra-benches': 'Intebe 200+',
                 'infra-benches-desc': 'Abanyeshuri bicara',
                 'infra-tanks': 'Ibigega 6 y\'amazi',
@@ -2520,14 +2504,14 @@
                 'infra-toilets': 'Ubwiherero Bushya',
                 'infra-toilets-desc': 'Isuku nziza',
                 'infra-computers': 'Laboratwari ya Computer',
-                'infra-computers-desc': 'Mudasobwa 200+',
+                'infra-computers-desc': 'Mudasobwa 5+ (irimo kwaguka)',
                 'infra-library': 'Bibliothèque Digitale',
                 'infra-library-desc': 'Ibikoresho by\'uburezi bidasaba internet',
                 'tech-title': '💻 Ikoranabuhanga mu Burezi',
                 'tech-digital': 'Bibliothèque Digitale',
                 'tech-digital-desc': 'Ibikoresho by\'uburezi bidasaba internet',
                 'tech-computers': 'Laboratwari ya Computer',
-                'tech-computers-desc': 'Mudasobwa 200+ zatanzwe na ISOC',
+                'tech-computers-desc': 'Mudasobwa 5 zatanzwe na ISOC',
                 'tech-smart': 'Smart Teacher Project',
                 'tech-smart-desc': 'Abarezi 10 bahawe telefoni (2021)',
                 'tech-whatsapp': 'WhatsApp Group',
@@ -2543,8 +2527,6 @@
                 'partner-mineduc-desc': 'Gahunda n\'inkunga',
                 'partner-district': 'Akarere ka Bugesera',
                 'partner-district-desc': 'Inkunga y\'inzego z\'ibanze',
-                'partner-unicef': 'UNICEF',
-                'partner-unicef-desc': 'SDMS implementation support',
                 'academics-title': 'Amasomo Yacu',
                 'academics-subtitle': 'Kuva mu myaka ya mbere kugeza ku myaka ya kabiri',
                 'academics-nursery': 'Nursery',
@@ -2599,7 +2581,6 @@
                 'faq-title': 'Ibibazo Bikunze Kubazwa',
                 'faq-subtitle': 'Ibibazo n\'ibisubizo',
                 'faq-location': 'Ishuri riherere he?',
-                'faq-location-answer': 'Umurenge wa Ntarama, Akarere ka Bugesera, Intara y\'Iburasirazuba, Rwanda.',
                 'faq-levels': 'Ni amasomo ki ishuri ritanga?',
                 'faq-levels-answer': 'Nursery, Primary ya Mbere, Primary ya Kabiri, na O-Level.',
                 'faq-apply': 'Nakwandika nte?',
@@ -2675,8 +2656,8 @@
                 'students-girls': 'Filles',
                 'students-boys': 'Garçons',
                 'infrastructure-title': '🏫 Infrastructures',
-                'infra-classrooms': '11 Salles de Classe',
-                'infra-classrooms-desc': 'Avec de nouveaux toits (rénové en 2013)',
+                'infra-classrooms': '20 Salles de Classe',
+                'infra-classrooms-desc': 'Avec des bâtiments modernes',
                 'infra-benches': '200+ Bancs',
                 'infra-benches-desc': 'Assises pour les élèves',
                 'infra-tanks': '3 Réservoirs d\'Eau',
@@ -2684,7 +2665,7 @@
                 'infra-toilets': 'Nouvelles Toilettes',
                 'infra-toilets-desc': 'Installations sanitaires',
                 'infra-computers': 'Salle Informatique',
-                'infra-computers-desc': '5 ordinateurs (installation initiale)',
+                'infra-computers-desc': '5 ordinateurs (en expansion)',
                 'infra-library': 'Bibliothèque Numérique',
                 'infra-library-desc': 'Ressources éducatives hors ligne',
                 'tech-title': '💻 Technologie et TIC',
@@ -2703,16 +2684,10 @@
                 'partners-title': '🤝 Nos Partenaires',
                 'partner-isoc': 'ISOC Rwanda',
                 'partner-isoc-desc': 'Bibliothèque numérique, smartphones, formation des enseignants',
-                'partner-airtel': 'Airtel Rwanda',
-                'partner-airtel-desc': 'Rénovation de 20 millions FRW (2013)',
                 'partner-mineduc': 'MINEDUC',
                 'partner-mineduc-desc': 'Politique éducative et soutien',
                 'partner-district': 'District de Bugesera',
                 'partner-district-desc': 'Soutien du gouvernement local',
-                'partner-rib': 'Bureau d\'Enquête du Rwanda',
-                'partner-rib-desc': 'Participation à Safer Internet Day',
-                'partner-unicef': 'UNICEF',
-                'partner-unicef-desc': 'Soutien à la mise en œuvre de SDMS',
                 'academics-title': 'Nos Niveaux Académiques',
                 'academics-subtitle': 'De la petite enfance à l\'enseignement secondaire',
                 'academics-nursery': 'Maternelle',
@@ -2767,7 +2742,6 @@
                 'faq-title': 'Questions Fréquentes',
                 'faq-subtitle': 'Réponses rapides aux questions courantes',
                 'faq-location': 'Où se trouve l\'école?',
-                'faq-location-answer': 'Secteur Ntarama, District de Bugesera, Province de l\'Est, Rwanda.',
                 'faq-levels': 'Quels niveaux l\'école offre-t-elle?',
                 'faq-levels-answer': 'Maternelle, Primaire Inférieur, Primaire Supérieur et O-Level.',
                 'faq-apply': 'Comment puis-je postuler?',
@@ -2775,7 +2749,7 @@
                 'faq-documents': 'Quels documents sont nécessaires pour l\'admission?',
                 'faq-documents-answer': 'Acte de naissance, bulletin scolaire précédent, dossier médical, pièce d\'identité du parent/tuteur et code SDMS.',
                 'faq-contact': 'Comment puis-je contacter l\'école?',
-                'faq-contact-answer': 'Vous pouvez visiter l\'école au Secteur Ntarama, District de Bugesera, ou utiliser la section contact ci-dessous.',
+                'faq-contact-answer': 'Vous pouvez visiter l\'école au Secteur Ntarama, District de Bugesera, nous envoyer un email à gsnyirarukobwa@gmail.com, ou appeler le +250 788 490 500.',
                 'faq-sdms': 'Qu\'est-ce que SDMS et pourquoi en ai-je besoin?',
                 'faq-sdms-answer': 'SDMS est le système de gestion des données scolaires utilisé par le Ministère de l\'Éducation pour suivre les dossiers des élèves. Il est obligatoire pour tous les élèves au Rwanda.',
                 'faq-view-map': 'Voir sur la carte →',
@@ -2836,16 +2810,13 @@
             document.documentElement.lang = lang;
         }
 
-        // ==========================================
-        // LANGUAGE SELECTOR
-        // ==========================================
+        // Language selector
         document.addEventListener('DOMContentLoaded', function() {
             const langSelect = document.getElementById('languageSelect');
             if (langSelect) {
                 langSelect.addEventListener('change', function() {
                     translatePage(this.value);
                 });
-
                 const savedLang = localStorage.getItem('preferred-language') || 'en';
                 langSelect.value = savedLang;
                 translatePage(savedLang);
@@ -2853,7 +2824,7 @@
         });
 
         // ==========================================
-        // AI COVER IMAGE TOGGLE
+        // AI COVER TOGGLE
         // ==========================================
         const aiCoverToggle = document.getElementById('aiCoverToggle');
         const chatWindow = document.getElementById('chatWindow');
@@ -2867,7 +2838,6 @@
             chatWindow.classList.remove('open');
         });
 
-        // Click outside to close
         document.addEventListener('click', function(event) {
             if (chatWindow.classList.contains('open')) {
                 const isClickInside = chatWindow.contains(event.target);
@@ -2879,7 +2849,7 @@
         });
 
         // ==========================================
-        // SCENE SETUP
+        // THREE.JS SCENE SETUP
         // ==========================================
         const container = document.getElementById('scene-container');
         const scene = new THREE.Scene();
@@ -2897,14 +2867,11 @@
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
         renderer.toneMappingExposure = 1.2;
-        renderer.outputEncoding = THREE.sRGBEncoding;
         container.appendChild(renderer.domElement);
 
         const clock = new THREE.Clock();
 
-        // ==========================================
-        // LIGHTING
-        // ==========================================
+        // Lighting
         const ambientLight = new THREE.AmbientLight(0x446688, 0.5);
         scene.add(ambientLight);
 
@@ -2928,10 +2895,7 @@
         rimLight.position.set(-10, 5, -15);
         scene.add(rimLight);
 
-        // ==========================================
-        // HELPER FUNCTIONS (3D Objects)
-        // ==========================================
-
+        // Helper functions (simplified for space)
         function createTree(x, z, scale) {
             const group = new THREE.Group();
             const s = scale || 1;
@@ -2959,71 +2923,6 @@
                 group.add(sphere);
             });
             group.position.set(x, -0.5, z);
-            return group;
-        }
-
-        function createWindow(x, y, z, w, h, rotY) {
-            const group = new THREE.Group();
-            const w2 = w || 1.0;
-            const h2 = h || 1.2;
-            const frameMat = new THREE.MeshStandardMaterial({ color: 0xCCCCCC, metalness: 0.3, roughness: 0.5 });
-            const frame = new THREE.Mesh(new THREE.BoxGeometry(w2 + 0.1, h2 + 0.1, 0.08), frameMat);
-            group.add(frame);
-            const glassMat = new THREE.MeshPhysicalMaterial({
-                color: 0x88CCFF,
-                transparent: true,
-                opacity: 0.25,
-                roughness: 0.05,
-                metalness: 0.1,
-                clearcoat: 0.1
-            });
-            const glass = new THREE.Mesh(new THREE.PlaneGeometry(w2, h2), glassMat);
-            glass.position.z = 0.05;
-            group.add(glass);
-            const crossMat = new THREE.MeshStandardMaterial({ color: 0xAAAAAA });
-            const ch = new THREE.Mesh(new THREE.BoxGeometry(w2, 0.04, 0.02), crossMat);
-            group.add(ch);
-            const cv = new THREE.Mesh(new THREE.BoxGeometry(0.04, h2, 0.02), crossMat);
-            group.add(cv);
-            group.position.set(x, y, z);
-            if (rotY) group.rotation.y = rotY;
-            return group;
-        }
-
-        function createDoor(x, y, z, rotY) {
-            const group = new THREE.Group();
-            const doorMat = new THREE.MeshStandardMaterial({ color: 0x8B6B4A, roughness: 0.7 });
-            const door = new THREE.Mesh(new THREE.BoxGeometry(0.8, 2.0, 0.06), doorMat);
-            door.position.y = 1.0;
-            group.add(door);
-            const handleMat = new THREE.MeshStandardMaterial({ color: 0xD4AF37, metalness: 0.6, roughness: 0.2 });
-            const handle = new THREE.Mesh(new THREE.SphereGeometry(0.04, 6, 6), handleMat);
-            handle.position.set(0.32, 1.0, 0.06);
-            group.add(handle);
-            group.position.set(x, y, z);
-            if (rotY) group.rotation.y = rotY;
-            return group;
-        }
-
-        function createSolarPanel(x, y, z, rotY) {
-            const group = new THREE.Group();
-            const panelMat = new THREE.MeshStandardMaterial({ color: 0x1a1a3a, metalness: 0.2, roughness: 0.3 });
-            const panel = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.03, 0.5), panelMat);
-            panel.position.y = 0.015;
-            group.add(panel);
-            const gridMat = new THREE.MeshStandardMaterial({ color: 0x333366 });
-            for (let i = -0.35; i <= 0.35; i += 0.08) {
-                const line = new THREE.Mesh(new THREE.BoxGeometry(0.005, 0.005, 0.45), gridMat);
-                line.position.set(i, 0.03, 0);
-                group.add(line);
-            }
-            for (let i = -0.2; i <= 0.2; i += 0.08) {
-                const line = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.005, 0.005), gridMat);
-                line.position.set(0, 0.03, i);
-                group.add(line);
-            }
-            group.position.set(x, y, z);
-            if (rotY) group.rotation.y = rotY;
             return group;
         }
 
@@ -3070,18 +2969,7 @@
             });
             const flag = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.5, 10, 6), flagMat);
             flag.position.set(0.5, 3.8, 0);
-            const flagPositions = flag.geometry.attributes.position;
-            const originalY = new Float32Array(flagPositions.array);
             group.userData.flag = flag;
-            group.userData.flagOriginalY = originalY;
-            const stripeMat = new THREE.MeshPhysicalMaterial({ color: 0xFFD700, roughness: 0.6, side: THREE.DoubleSide });
-            const stripe = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.1, 10, 2), stripeMat);
-            stripe.position.set(0.5, 3.75, 0.001);
-            group.add(stripe);
-            const stripeMat2 = new THREE.MeshPhysicalMaterial({ color: 0x006633, roughness: 0.6, side: THREE.DoubleSide });
-            const stripe2 = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.1, 10, 2), stripeMat2);
-            stripe2.position.set(0.5, 3.65, 0.001);
-            group.add(stripe2);
             group.add(flag);
             group.position.set(x, -0.5, z);
             return group;
@@ -3122,30 +3010,7 @@
             return group;
         }
 
-        function createIndoorPlant(x, y, z) {
-            const group = new THREE.Group();
-            const potMat = new THREE.MeshStandardMaterial({ color: 0x8B4513, roughness: 0.7 });
-            const pot = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.2, 0.2, 8), potMat);
-            pot.position.y = 0.1;
-            group.add(pot);
-            const leafMat = new THREE.MeshStandardMaterial({ color: 0x2E7D32, roughness: 0.8 });
-            for (let i = 0; i < 10; i++) {
-                const angle = (i / 10) * Math.PI * 2 + Math.random() * 0.3;
-                const radius = 0.08 + Math.random() * 0.06;
-                const leaf = new THREE.Mesh(new THREE.SphereGeometry(0.06 + Math.random() * 0.04, 4, 4), leafMat);
-                leaf.position.set(Math.cos(angle) * radius, 0.2 + Math.random() * 0.2, Math.sin(angle) * radius);
-                leaf.scale.y = 1.2 + Math.random() * 0.5;
-                group.add(leaf);
-            }
-            const stemMat = new THREE.MeshStandardMaterial({ color: 0x1B5E20, roughness: 0.8 });
-            const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.025, 0.25, 4), stemMat);
-            stem.position.y = 0.2;
-            group.add(stem);
-            group.position.set(x, y, z);
-            return group;
-        }
-
-        function createDesk(x, y, z, rotY) {
+        function createDesk(x, y, z) {
             const group = new THREE.Group();
             const deskMat = new THREE.MeshStandardMaterial({ color: 0x8B6B4A, roughness: 0.6 });
             const top = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.04, 0.4), deskMat);
@@ -3171,11 +3036,10 @@
             back.position.set(0, 0.2, 0.5);
             group.add(back);
             group.position.set(x, y, z);
-            if (rotY) group.rotation.y = rotY;
             return group;
         }
 
-        function createBookshelf(x, y, z, rotY) {
+        function createBookshelf(x, y, z) {
             const group = new THREE.Group();
             const shelfMat = new THREE.MeshStandardMaterial({ color: 0x5D4037, roughness: 0.6 });
             const side1 = new THREE.Mesh(new THREE.BoxGeometry(0.04, 1.6, 0.6), shelfMat);
@@ -3204,11 +3068,10 @@
                 }
             });
             group.position.set(x, y, z);
-            if (rotY) group.rotation.y = rotY;
             return group;
         }
 
-        function createComputer(x, y, z, rotY) {
+        function createComputer(x, y, z) {
             const group = new THREE.Group();
             const monitorMat = new THREE.MeshStandardMaterial({
                 color: 0x111122,
@@ -3230,7 +3093,6 @@
             keyboard.position.set(0, 0.01, 0.15);
             group.add(keyboard);
             group.position.set(x, y, z);
-            if (rotY) group.rotation.y = rotY;
             return group;
         }
 
@@ -3245,23 +3107,6 @@
             const globe = new THREE.Mesh(new THREE.SphereGeometry(0.18, 16, 16), globeMat);
             globe.position.y = 0.25;
             group.add(globe);
-            const landMat = new THREE.MeshPhysicalMaterial({ color: 0x2E7D32, roughness: 0.6 });
-            [
-                [0.05, 0.28, 0.1],
-                [-0.08, 0.3, 0.05],
-                [0.1, 0.22, -0.05],
-                [-0.05, 0.2, -0.12]
-            ].forEach(([lx, ly, lz]) => {
-                const land = new THREE.Mesh(new THREE.SphereGeometry(0.04 + Math.random() * 0.03, 4, 4), landMat);
-                land.position.set(lx, ly, lz);
-                land.scale.set(1, 0.5, 1);
-                group.add(land);
-            });
-            const axisMat = new THREE.MeshStandardMaterial({ color: 0x888888, metalness: 0.3 });
-            const axis = new THREE.Mesh(new THREE.CylinderGeometry(0.005, 0.005, 0.4, 4), axisMat);
-            axis.position.y = 0.25;
-            axis.rotation.z = 0.3;
-            group.add(axis);
             const baseMat = new THREE.MeshStandardMaterial({ color: 0x8B4513, roughness: 0.6 });
             const base = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.12, 0.04, 8), baseMat);
             base.position.y = 0.02;
@@ -3283,14 +3128,6 @@
             const base = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.07, 0.03, 8), trophyMat);
             base.position.y = 0.015;
             group.add(base);
-            const handleMat = new THREE.MeshStandardMaterial({ color: 0xD4AF37, metalness: 0.6 });
-            [-0.06, 0.06].forEach(hx => {
-                const handle = new THREE.Mesh(new THREE.TorusGeometry(0.03, 0.008, 4, 8), handleMat);
-                handle.position.set(hx, 0.16, 0);
-                handle.rotation.z = Math.PI / 2;
-                handle.scale.set(0.6, 1, 0.6);
-                group.add(handle);
-            });
             group.position.set(x, y, z);
             return group;
         }
@@ -3307,11 +3144,71 @@
             return group;
         }
 
-        // ==========================================
-        // CREATE SCHOOL ROOMS
-        // ==========================================
+        function createWindow(x, y, z, w, h) {
+            const group = new THREE.Group();
+            const w2 = w || 1.0;
+            const h2 = h || 1.2;
+            const frameMat = new THREE.MeshStandardMaterial({ color: 0xCCCCCC, metalness: 0.3, roughness: 0.5 });
+            const frame = new THREE.Mesh(new THREE.BoxGeometry(w2 + 0.1, h2 + 0.1, 0.08), frameMat);
+            group.add(frame);
+            const glassMat = new THREE.MeshPhysicalMaterial({
+                color: 0x88CCFF,
+                transparent: true,
+                opacity: 0.25,
+                roughness: 0.05,
+                metalness: 0.1,
+                clearcoat: 0.1
+            });
+            const glass = new THREE.Mesh(new THREE.PlaneGeometry(w2, h2), glassMat);
+            glass.position.z = 0.05;
+            group.add(glass);
+            const crossMat = new THREE.MeshStandardMaterial({ color: 0xAAAAAA });
+            const ch = new THREE.Mesh(new THREE.BoxGeometry(w2, 0.04, 0.02), crossMat);
+            group.add(ch);
+            const cv = new THREE.Mesh(new THREE.BoxGeometry(0.04, h2, 0.02), crossMat);
+            group.add(cv);
+            group.position.set(x, y, z);
+            return group;
+        }
 
-        // --- ROOM 0: EXTERIOR / CAMPUS ---
+        function createDoor(x, y, z) {
+            const group = new THREE.Group();
+            const doorMat = new THREE.MeshStandardMaterial({ color: 0x8B6B4A, roughness: 0.7 });
+            const door = new THREE.Mesh(new THREE.BoxGeometry(0.8, 2.0, 0.06), doorMat);
+            door.position.y = 1.0;
+            group.add(door);
+            const handleMat = new THREE.MeshStandardMaterial({ color: 0xD4AF37, metalness: 0.6, roughness: 0.2 });
+            const handle = new THREE.Mesh(new THREE.SphereGeometry(0.04, 6, 6), handleMat);
+            handle.position.set(0.32, 1.0, 0.06);
+            group.add(handle);
+            group.position.set(x, y, z);
+            return group;
+        }
+
+        function createIndoorPlant(x, y, z) {
+            const group = new THREE.Group();
+            const potMat = new THREE.MeshStandardMaterial({ color: 0x8B4513, roughness: 0.7 });
+            const pot = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.2, 0.2, 8), potMat);
+            pot.position.y = 0.1;
+            group.add(pot);
+            const leafMat = new THREE.MeshStandardMaterial({ color: 0x2E7D32, roughness: 0.8 });
+            for (let i = 0; i < 10; i++) {
+                const angle = (i / 10) * Math.PI * 2 + Math.random() * 0.3;
+                const radius = 0.08 + Math.random() * 0.06;
+                const leaf = new THREE.Mesh(new THREE.SphereGeometry(0.06 + Math.random() * 0.04, 4, 4), leafMat);
+                leaf.position.set(Math.cos(angle) * radius, 0.2 + Math.random() * 0.2, Math.sin(angle) * radius);
+                leaf.scale.y = 1.2 + Math.random() * 0.5;
+                group.add(leaf);
+            }
+            const stemMat = new THREE.MeshStandardMaterial({ color: 0x1B5E20, roughness: 0.8 });
+            const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.025, 0.25, 4), stemMat);
+            stem.position.y = 0.2;
+            group.add(stem);
+            group.position.set(x, y, z);
+            return group;
+        }
+
+        // Create rooms
         const exteriorRoom = new THREE.Group();
 
         const groundMat = new THREE.MeshStandardMaterial({ color: 0x1a3a2a, roughness: 0.9 });
@@ -3354,74 +3251,6 @@
         const sign = createSignboard(0, 3.5);
         exteriorRoom.add(sign);
 
-        const carColors = [0xcc3333, 0x3333cc, 0x33cc33, 0xcccc33, 0xcc33cc];
-        const carPositions = [
-            [-3.5, 1.2, 0.1],
-            [-2.5, 1.2, 0.1],
-            [2.5, 1.2, 0.1],
-            [3.5, 1.2, 0.1]
-        ];
-        carPositions.forEach(([cx, cz, scale], idx) => {
-            const carGroup = new THREE.Group();
-            const carMat = new THREE.MeshStandardMaterial({
-                color: carColors[idx % carColors.length],
-                roughness: 0.4,
-                metalness: 0.3
-            });
-            const body = new THREE.Mesh(new THREE.BoxGeometry(0.6 * scale, 0.12 * scale, 0.3 * scale), carMat);
-            body.position.y = 0.08 * scale;
-            body.castShadow = true;
-            carGroup.add(body);
-            const roof = new THREE.Mesh(new THREE.BoxGeometry(0.2 * scale, 0.06 * scale, 0.15 * scale), carMat);
-            roof.position.set(-0.05 * scale, 0.18 * scale, 0);
-            carGroup.add(roof);
-            const wheelMat = new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 0.9 });
-            [
-                [-0.2, -0.12],
-                [-0.2, 0.12],
-                [0.2, -0.12],
-                [0.2, 0.12]
-            ].forEach(([wx, wz]) => {
-                const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.04 * scale, 0.04 * scale, 0.02 * scale, 6),
-                wheelMat);
-                wheel.position.set(wx * scale, 0.02 * scale, wz * scale);
-                wheel.rotation.x = Math.PI / 2;
-                carGroup.add(wheel);
-            });
-            carGroup.position.set(cx, -0.45, cz);
-            carGroup.rotation.y = Math.random() * 0.3 - 0.15;
-            exteriorRoom.add(carGroup);
-        });
-
-        const motoPositions = [
-            [-4.5, 0.5],
-            [4.5, 0.5]
-        ];
-        motoPositions.forEach(([mx, mz]) => {
-            const motoGroup = new THREE.Group();
-            const motoMat = new THREE.MeshStandardMaterial({ color: 0xcc3333, roughness: 0.5, metalness: 0.2 });
-            const frame = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.06, 0.04), motoMat);
-            frame.position.y = 0.06;
-            motoGroup.add(frame);
-            const seat = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.04, 0.04),
-                new THREE.MeshStandardMaterial({ color: 0x222222 }));
-            seat.position.set(-0.04, 0.12, 0);
-            motoGroup.add(seat);
-            const wheelMat = new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 0.9 });
-            [
-                [-0.08, 0],
-                [0.08, 0]
-            ].forEach(([wx, wz]) => {
-                const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.015, 6), wheelMat);
-                wheel.position.set(wx, 0.02, wz);
-                wheel.rotation.x = Math.PI / 2;
-                motoGroup.add(wheel);
-            });
-            motoGroup.position.set(mx, -0.45, mz);
-            motoGroup.rotation.y = Math.random() * 0.4 - 0.2;
-            exteriorRoom.add(motoGroup);
-        });
-
         const wallMat = new THREE.MeshStandardMaterial({ color: 0x6a7a6a, roughness: 0.8 });
         const wallPositions = [
             [-14, 0, 12, 1.5],
@@ -3442,7 +3271,7 @@
         gate.position.set(0, 0.6, 14);
         exteriorRoom.add(gate);
 
-        // --- ROOM 1: ENTRANCE ---
+        // Entrance Room
         const entranceRoom = new THREE.Group();
         const floorMat1 = new THREE.MeshStandardMaterial({ color: 0x2c3e50, roughness: 0.6, metalness: 0.1 });
         const floor1 = new THREE.Mesh(new THREE.PlaneGeometry(14, 14), floorMat1);
@@ -3506,7 +3335,7 @@
             entranceRoom.add(plant);
         });
 
-        // --- ROOM 2: CLASSROOM ---
+        // Classroom Room
         const classroomRoom = new THREE.Group();
         const floorMat2 = new THREE.MeshStandardMaterial({ color: 0x34495e, roughness: 0.7 });
         const floor2 = new THREE.Mesh(new THREE.PlaneGeometry(14, 14), floorMat2);
@@ -3548,20 +3377,6 @@
             classroomRoom.add(win);
         }
 
-        const posterMat = new THREE.MeshStandardMaterial({ color: 0x2ecc71, roughness: 0.8 });
-        const posterPos = [
-            [-3, 2.2, -6.95, 0xff6b6b],
-            [-1.5, 2.2, -6.95, 0x4ecdc4],
-            [1.5, 2.2, -6.95, 0xffe66d],
-            [3, 2.2, -6.95, 0x6c5ce7]
-        ];
-        posterPos.forEach(([px, py, pz, color]) => {
-            const pMat = new THREE.MeshStandardMaterial({ color: color, roughness: 0.8 });
-            const poster = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.4), pMat);
-            poster.position.set(px, py, pz);
-            classroomRoom.add(poster);
-        });
-
         const fanGroup = new THREE.Group();
         const fanMat = new THREE.MeshStandardMaterial({ color: 0xCCCCCC, metalness: 0.3 });
         const fanBase = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.1, 6), fanMat);
@@ -3578,7 +3393,7 @@
         fanGroup.userData.isFan = true;
         classroomRoom.add(fanGroup);
 
-        // --- ROOM 3: LIBRARY ---
+        // Library Room
         const libraryRoom = new THREE.Group();
         const floorMat3 = new THREE.MeshStandardMaterial({ color: 0x1a2a3a, roughness: 0.7 });
         const floor3 = new THREE.Mesh(new THREE.PlaneGeometry(14, 14), floorMat3);
@@ -3586,12 +3401,6 @@
         floor3.position.y = -0.5;
         floor3.receiveShadow = true;
         libraryRoom.add(floor3);
-
-        const carpetMat = new THREE.MeshStandardMaterial({ color: 0x4a2a3a, roughness: 0.9 });
-        const carpet = new THREE.Mesh(new THREE.PlaneGeometry(6, 4), carpetMat);
-        carpet.rotation.x = -Math.PI / 2;
-        carpet.position.set(0, -0.48, 2);
-        libraryRoom.add(carpet);
 
         const shelfPos = [
             [-4, 0.5, -3],
@@ -3633,36 +3442,15 @@
         libraryRoom.add(globe);
 
         const compPos = [
-            [2.5, 0.15, 4, 0],
-            [3.5, 0.15, 4, 0]
+            [2.5, 0.15, 4],
+            [3.5, 0.15, 4]
         ];
-        compPos.forEach(([cx, cy, cz, cr]) => {
-            const comp = createComputer(cx, cy, cz, cr);
+        compPos.forEach(([cx, cy, cz]) => {
+            const comp = createComputer(cx, cy, cz);
             libraryRoom.add(comp);
         });
 
-        const noticeMat = new THREE.MeshStandardMaterial({ color: 0x8B6B4A, roughness: 0.7 });
-        const notice = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 1.0), noticeMat);
-        notice.position.set(0, 1.5, -6.95);
-        libraryRoom.add(notice);
-
-        const pinColors = [0xff6b6b, 0x4ecdc4, 0xffe66d, 0x6c5ce7, 0x00d4ff];
-        for (let i = 0; i < 8; i++) {
-            const pin = new THREE.Mesh(
-                new THREE.PlaneGeometry(0.08 + Math.random() * 0.08, 0.06 + Math.random() * 0.06),
-                new THREE.MeshStandardMaterial({
-                    color: pinColors[Math.floor(Math.random() * pinColors.length)]
-                })
-            );
-            pin.position.set(
-                (Math.random() - 0.5) * 1.2,
-                1.0 + Math.random() * 0.8,
-                -6.9
-            );
-            libraryRoom.add(pin);
-        }
-
-        // --- ROOM 4: SPORTS HALL ---
+        // Sports Room
         const sportsRoom = new THREE.Group();
         const floorMat4 = new THREE.MeshStandardMaterial({ color: 0x4a6a8a, roughness: 0.6, metalness: 0.1 });
         const floor4 = new THREE.Mesh(new THREE.PlaneGeometry(16, 16), floorMat4);
@@ -3671,52 +3459,10 @@
         floor4.receiveShadow = true;
         sportsRoom.add(floor4);
 
-        const lineMat = new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.3 });
-        const linePos = [
-            [-4, -0.48, 0, 8, 0.02],
-            [4, -0.48, 0, 8, 0.02],
-            [0, -0.48, -3, 0.02, 6],
-            [0, -0.48, 3, 0.02, 6]
-        ];
-        linePos.forEach(([lx, ly, lz, lw, ld]) => {
-            const line = new THREE.Mesh(new THREE.PlaneGeometry(lw, ld), lineMat);
-            line.rotation.x = -Math.PI / 2;
-            line.position.set(lx, ly, lz);
-            sportsRoom.add(line);
-        });
-
-        const circleMat = new THREE.MeshStandardMaterial({
-            color: 0xffffff,
-            transparent: true,
-            opacity: 0.15,
-            side: THREE.DoubleSide
-        });
-        const circle = new THREE.Mesh(new THREE.RingGeometry(0.5, 1.5, 24), circleMat);
-        circle.rotation.x = -Math.PI / 2;
-        circle.position.set(0, -0.48, 0);
-        sportsRoom.add(circle);
-
-        const hoopMat = new THREE.MeshStandardMaterial({ color: 0x888888, metalness: 0.6, roughness: 0.3 });
-        const pole4 = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.08, 2.2, 8), hoopMat);
-        pole4.position.set(5, 0.6, 0);
-        pole4.castShadow = true;
-        sportsRoom.add(pole4);
-
-        const rimMat = new THREE.MeshStandardMaterial({ color: 0xcc3333, metalness: 0.5, roughness: 0.3 });
-        const rim4 = new THREE.Mesh(new THREE.TorusGeometry(0.35, 0.03, 8, 16), rimMat);
-        rim4.position.set(5, 2.2, 0);
-        rim4.rotation.x = Math.PI / 2;
-        sportsRoom.add(rim4);
-
-        const backMat = new THREE.MeshPhysicalMaterial({
-            color: 0x222222,
-            transparent: true,
-            opacity: 0.6,
-            roughness: 0.3
-        });
-        const backboard = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.4), backMat);
-        backboard.position.set(5, 2.0, 0.4);
-        sportsRoom.add(backboard);
+        const bleachers = createBleacher(-6, 4);
+        sportsRoom.add(bleachers);
+        const bleachers2 = createBleacher(6, 4);
+        sportsRoom.add(bleachers2);
 
         const ballMat4 = new THREE.MeshPhysicalMaterial({ color: 0xe67e22, roughness: 0.3, metalness: 0.05 });
         const ballPos = [
@@ -3734,52 +3480,6 @@
             sportsRoom.add(ball);
         });
 
-        const bleachers = createBleacher(-6, 4);
-        sportsRoom.add(bleachers);
-        const bleachers2 = createBleacher(6, 4);
-        sportsRoom.add(bleachers2);
-
-        const scoreMat = new THREE.MeshPhysicalMaterial({
-            color: 0x000000,
-            emissive: 0x00ff00,
-            emissiveIntensity: 0.1
-        });
-        const score = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 0.6), scoreMat);
-        score.position.set(0, 2.8, -7.95);
-        sportsRoom.add(score);
-
-        const numMat = new THREE.MeshPhysicalMaterial({
-            color: 0x00ff00,
-            emissive: 0x00ff00,
-            emissiveIntensity: 0.2
-        });
-        const nums = [
-            [-0.4, 0.05, -7.9],
-            [0.4, 0.05, -7.9]
-        ];
-        nums.forEach(([nx, ny, nz]) => {
-            const num = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.3, 0.02), numMat);
-            num.position.set(nx, ny + 2.8, nz);
-            sportsRoom.add(num);
-        });
-
-        const bannerColors = [0xe74c3c, 0x3498db, 0x2ecc71, 0xf1c40f];
-        const bannerPos = [
-            [-3, 2.5, -7.95],
-            [3, 2.5, -7.95],
-            [-5, 2.5, -7.95],
-            [5, 2.5, -7.95]
-        ];
-        bannerPos.forEach(([bpx, bpy, bpz], idx) => {
-            const bMat = new THREE.MeshStandardMaterial({
-                color: bannerColors[idx % bannerColors.length],
-                roughness: 0.7
-            });
-            const banner = new THREE.Mesh(new THREE.PlaneGeometry(0.8, 0.4), bMat);
-            banner.position.set(bpx, bpy, bpz);
-            sportsRoom.add(banner);
-        });
-
         const trophyPos = [
             [-4.5, 0.15, -3],
             [-4, 0.15, -3],
@@ -3790,18 +3490,7 @@
             sportsRoom.add(trophy);
         });
 
-        const cabMat = new THREE.MeshPhysicalMaterial({
-            color: 0x88CCFF,
-            transparent: true,
-            opacity: 0.08,
-            roughness: 0.05,
-            metalness: 0.1
-        });
-        const cabinet = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.8, 0.3), cabMat);
-        cabinet.position.set(-4, 0.5, -3);
-        sportsRoom.add(cabinet);
-
-        // --- ROOM 5: ADMINISTRATION ---
+        // Admin Room
         const adminRoom = new THREE.Group();
         const floorMat5 = new THREE.MeshStandardMaterial({ color: 0x2c3e50, roughness: 0.4, metalness: 0.1 });
         const floor5 = new THREE.Mesh(new THREE.PlaneGeometry(14, 14), floorMat5);
@@ -3818,55 +3507,6 @@
         const adminComp = createComputer(0, 0.35, 4.4);
         adminRoom.add(adminComp);
 
-        const logoMat = new THREE.MeshPhysicalMaterial({
-            color: 0x00d4ff,
-            emissive: 0x00d4ff,
-            emissiveIntensity: 0.05,
-            metalness: 0.3
-        });
-        const logo = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 0.8), logoMat);
-        logo.position.set(0, 2.8, -6.95);
-        adminRoom.add(logo);
-
-        const awardMat = new THREE.MeshStandardMaterial({ color: 0xD4AF37, metalness: 0.6, roughness: 0.2 });
-        const awardPos = [
-            [-2, 2.2, -6.95],
-            [-1, 2.2, -6.95],
-            [1, 2.2, -6.95],
-            [2, 2.2, -6.95]
-        ];
-        awardPos.forEach(([awx, awy, awz]) => {
-            const award = new THREE.Mesh(new THREE.PlaneGeometry(0.3, 0.4), awardMat);
-            award.position.set(awx, awy, awz);
-            adminRoom.add(award);
-            const frameA = new THREE.Mesh(
-                new THREE.BoxGeometry(0.35, 0.45, 0.02),
-                new THREE.MeshStandardMaterial({ color: 0x8B6B4A })
-            );
-            frameA.position.set(awx, awy, awz);
-            adminRoom.add(frameA);
-        });
-
-        const noticeMat5 = new THREE.MeshStandardMaterial({ color: 0x8B6B4A, roughness: 0.7 });
-        const notice5 = new THREE.Mesh(new THREE.PlaneGeometry(2.0, 1.2), noticeMat5);
-        notice5.position.set(-4, 1.8, -6.95);
-        adminRoom.add(notice5);
-
-        for (let i = 0; i < 6; i++) {
-            const pin = new THREE.Mesh(
-                new THREE.PlaneGeometry(0.06 + Math.random() * 0.06, 0.04 + Math.random() * 0.04),
-                new THREE.MeshStandardMaterial({
-                    color: pinColors[Math.floor(Math.random() * pinColors.length)]
-                })
-            );
-            pin.position.set(
-                -4 + (Math.random() - 0.5) * 1.6,
-                1.0 + Math.random() * 1.4,
-                -6.9
-            );
-            adminRoom.add(pin);
-        }
-
         const plantPos5 = [
             [-5.5, 0, 5],
             [5.5, 0, 5],
@@ -3878,31 +3518,7 @@
             adminRoom.add(plant);
         });
 
-        const waitMat = new THREE.MeshStandardMaterial({ color: 0x4a6a8a, roughness: 0.6 });
-        const waitPos = [
-            [-1.5, 0, 1.5],
-            [1.5, 0, 1.5],
-            [-1.5, 0, 2.5],
-            [1.5, 0, 2.5]
-        ];
-        waitPos.forEach(([wx, wy, wz]) => {
-            const chair = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.3, 0.4), waitMat);
-            chair.position.set(wx, 0.15, wz);
-            adminRoom.add(chair);
-        });
-
-        const phoneMat = new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 0.4 });
-        const phone = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.04, 0.06), phoneMat);
-        phone.position.set(0.3, 0.35, 4.65);
-        adminRoom.add(phone);
-        const receiver = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.02, 0.04), phoneMat);
-        receiver.position.set(0.32, 0.39, 4.65);
-        adminRoom.add(receiver);
-
-        // ==========================================
-        // ADD ALL ROOMS TO SCENE
-        // ==========================================
-
+        // Add all rooms
         const allRooms = [
             { group: exteriorRoom, name: 'CAMPUS', z: 0 },
             { group: entranceRoom, name: 'ENTRANCE', z: -20 },
@@ -3917,9 +3533,7 @@
             scene.add(room.group);
         });
 
-        // ==========================================
-        // SCROLL CONTROL
-        // ==========================================
+        // Scroll control
         let currentRoomIndex = 0;
         const roomDots = document.querySelectorAll('.room-dot');
         const roomLabel = document.getElementById('roomLabel');
@@ -3941,9 +3555,6 @@
             }
         }
 
-        // ==========================================
-        // SCROLL EVENT
-        // ==========================================
         function handleScroll() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
@@ -3960,15 +3571,12 @@
             });
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.style.color = link.getAttribute('href') === '#' + activeId ? 'var(--cyan)' :
-                'rgba(255,255,255,0.8)';
+                    'rgba(255,255,255,0.8)';
             });
         }
 
         window.addEventListener('scroll', handleScroll, { passive: true });
 
-        // ==========================================
-        // ROOM DOT NAVIGATION
-        // ==========================================
         roomDots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -3977,9 +3585,7 @@
             });
         });
 
-        // ==========================================
-        // ANIMATION LOOP
-        // ==========================================
+        // Animation loop
         function animate() {
             requestAnimationFrame(animate);
             const time = clock.getElapsedTime();
@@ -4001,21 +3607,10 @@
                 }
             });
 
-            libraryRoom.children.forEach(child => {
-                if (child.type === 'Group' && child.children.length > 2 &&
-                    child.children[0] && child.children[0].geometry &&
-                    child.children[0].geometry.type === 'SphereGeometry') {
-                    child.rotation.y += 0.005;
-                }
-            });
-
             renderer.render(scene, camera);
         }
         animate();
 
-        // ==========================================
-        // RESIZE
-        // ==========================================
         window.addEventListener('resize', () => {
             const width = window.innerWidth;
             const height = window.innerHeight;
@@ -4024,9 +3619,6 @@
             renderer.setSize(width, height);
         });
 
-        // ==========================================
-        // INITIAL UPDATE
-        // ==========================================
         setTimeout(handleScroll, 200);
 
         // ==========================================
@@ -4123,18 +3715,14 @@
         }
 
         // ==========================================
-        // AI ASSISTANT - Using inline class defined above
+        // AI ASSISTANT
         // ==========================================
         const ai = new SchoolAIAssistant();
 
-        // ==========================================
-        // AI UI CONTROLS
-        // ==========================================
         const chatMessages = document.getElementById('chatMessages');
         const chatInput = document.getElementById('chatInput');
         const chatSend = document.getElementById('chatSend');
         const chatThinking = document.getElementById('chatThinking');
-        const reasoningLog = document.getElementById('reasoningLog');
 
         function addChatMessage(role, content) {
             const div = document.createElement('div');
@@ -4152,21 +3740,12 @@
             chatInput.value = '';
 
             chatThinking.classList.add('active');
-            reasoningLog.classList.remove('active');
-            reasoningLog.innerHTML = '';
 
             await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 400));
 
             const result = ai.process(text);
 
             chatThinking.classList.remove('active');
-
-            if (result.reasoning && result.reasoning.length > 0) {
-                reasoningLog.innerHTML = result.reasoning.map(step =>
-                    `<div class="step">${step}</div>`
-                ).join('');
-                reasoningLog.classList.add('active');
-            }
 
             addChatMessage('assistant', result.response);
         }
@@ -4194,18 +3773,9 @@
         });
 
         console.log('🏫 G.S Nyirarukobwa 3D School Website Loaded!');
-        console.log('📚 Rooms:', allRooms.length);
-        console.log('🌳 Trees:', treePositions.length);
-        console.log('🪑 Desks:', 36);
-        console.log('📖 Bookshelves:', shelfPos.length);
-        console.log('🏆 Trophies:', trophyPos.length);
-        console.log('🤖 AI Assistant: Loaded inline');
-        console.log('📝 Form: Connected to Google Sheets');
-        console.log('📍 Location: Ntarama Sector, Bugesera District, Eastern Province');
-        console.log('👨‍🏫 Head Teacher: NKUNDINGABO Theophile');
-        console.log('🌍 Translation: English, Kinyarwanda, Français available');
-        console.log('🚀 Welcome to the future of education!');
+        console.log('📧 Email: gsnyirarukobwa@gmail.com');
+        console.log('📞 Phone: +250 788 490 500');
+        console.log('📍 Location: Ntarama, Bugesera, Rwanda');
     </script>
 </body>
 </html>
-<script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_CNp8dYit9A4yigQVtN2wbmpwHyue" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
