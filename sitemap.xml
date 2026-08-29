@@ -1,59 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
+  <!-- ===== MAIN PAGE ===== -->
   <url>
     <loc>https://gs-nyirarukobwa.vercel.app/</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gs-nyirarukobwa.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="rw" href="https://gs-nyirarukobwa.vercel.app/?lang=rw"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gs-nyirarukobwa.vercel.app/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gs-nyirarukobwa.vercel.app/"/>
   </url>
 
+  <!-- ===== ANCHOR SECTIONS (Hash-based navigation) ===== -->
   <url>
-    <loc>https://gs-nyirarukobwa.vercel.app/about</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://gs-nyirarukobwa.vercel.app/history</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://gs-nyirarukobwa.vercel.app/academics</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://gs-nyirarukobwa.vercel.app/staff</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://gs-nyirarukobwa.vercel.app/achievements</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://gs-nyirarukobwa.vercel.app/testimonials</loc>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://gs-nyirarukobwa.vercel.app/gallery</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://gs-nyirarukobwa.vercel.app/apply</loc>
+    <loc>https://gs-nyirarukobwa.vercel.app/#home</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://gs-nyirarukobwa.vercel.app/faq</loc>
+    <loc>https://gs-nyirarukobwa.vercel.app/#about</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://gs-nyirarukobwa.vercel.app/#history</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://gs-nyirarukobwa.vercel.app/#academics</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://gs-nyirarukobwa.vercel.app/#staff</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://gs-nyirarukobwa.vercel.app/#achievements</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://gs-nyirarukobwa.vercel.app/#testimonials</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://gs-nyirarukobwa.vercel.app/contact</loc>
-    <priority>0.8</priority>
+    <loc>https://gs-nyirarukobwa.vercel.app/#gallery</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://gs-nyirarukobwa.vercel.app/#apply</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://gs-nyirarukobwa.vercel.app/#faq</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://gs-nyirarukobwa.vercel.app/#digital-home</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- ===== GALLERY IMAGES ===== -->
+  <url>
+    <loc>https://gs-nyirarukobwa.vercel.app/#gallery</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://i.postimg.cc/DZr4ZZM1/F31f-QDLX0AA6KPD.jpg</image:loc>
+      <image:caption>FEASSA Session at G.S Nyirarukobwa</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://i.postimg.cc/Hxw8xxhX/F31z-Ax8Xs-AQ6DO8.jpg</image:loc>
+      <image:caption>FEASSA Session at G.S Nyirarukobwa</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://i.postimg.cc/V6q066Vd/Fgl-F7zq-Xw-AEYe7M.jpg</image:loc>
+      <image:caption>Teacher's Day Celebration at G.S Nyirarukobwa</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://i.postimg.cc/Y96L99sj/Fgl-Fpq2WAAIr-P7E.jpg</image:loc>
+      <image:caption>Teacher's Day Celebration at G.S Nyirarukobwa</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://i.postimg.cc/85Rf550v/Fhsee3IWYAAf-Pkc.jpg</image:loc>
+      <image:caption>Laboratory at G.S Nyirarukobwa</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://i.postimg.cc/B6TP66Vx/Fvhnum0Xg-AMZG2C.jpg</image:loc>
+      <image:caption>School Event at G.S Nyirarukobwa</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://i.postimg.cc/tT3nTTMt/Fyg-Rr-NEX0AEYq72.jpg</image:loc>
+      <image:caption>School Event at G.S Nyirarukobwa</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://i.postimg.cc/wM9yspC2/Fym-Wws-AWYAAPDk-P.jpg</image:loc>
+      <image:caption>School Event at G.S Nyirarukobwa</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://i.postimg.cc/ncc9FnYL/G-OCm-UMWk-AA5bcl.jpg</image:loc>
+      <image:caption>School Event at G.S Nyirarukobwa</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://i.postimg.cc/T1TLWx8M/Ga-B4Kpx-Xo-AAC5IR.jpg</image:loc>
+      <image:caption>School Event at G.S Nyirarukobwa</image:caption>
+    </image:image>
   </url>
 
 </urlset>
