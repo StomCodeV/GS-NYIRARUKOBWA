@@ -1,4 +1,4 @@
-# robots.txt for G.S Nyirarukobwa School Website
+# robots.txt for G.S Nyirarukobwa School
 # https://gs-nyirarukobwa.vercel.app/
 
 User-agent: *
@@ -6,21 +6,24 @@ Allow: /
 Disallow: /api/
 Disallow: /private/
 Disallow: /admin/
+Disallow: /_next/
+Disallow: /static/
 
-# Allow search engines to crawl all important pages
-Allow: /about
-Allow: /history
-Allow: /academics
-Allow: /staff
-Allow: /achievements
-Allow: /gallery
-Allow: /apply
-Allow: /faq
+# Allow crawling of all important content
+Allow: /#about
+Allow: /#history
+Allow: /#academics
+Allow: /#staff
+Allow: /#achievements
+Allow: /#gallery
+Allow: /#apply
+Allow: /#faq
+Allow: /#digital-home
 
 # Sitemap location
 Sitemap: https://gs-nyirarukobwa.vercel.app/sitemap.xml
 
-# Crawl delay for polite crawling
+# Crawl delay (be polite to Google)
 Crawl-delay: 1
 
 # Host directive
